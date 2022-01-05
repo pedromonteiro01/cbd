@@ -1,8 +1,0 @@
-TOC.txt
-CompressionInfo.db
-Index.db
-Digest.crc32
-Data.db
-Summary.db
-Filter.db
-Statistics.db
