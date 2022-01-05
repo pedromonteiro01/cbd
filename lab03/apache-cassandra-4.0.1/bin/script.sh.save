@@ -1,0 +1,4 @@
+while read p; do
+  echo "$p"
+  sleep 1
+done <peptides.txt
