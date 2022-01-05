@@ -1,0 +1,156 @@
+CREATE KEYSPACE cbd WITH replication={'class':'SimpleStrategy', 'replication_factor':1} ;
+-- replication_factor = 1 porque é apenas uma máquina
+
+use cbd;
+
+-- criar uma tabela
+create table users(
+   id int,
+   name text,
+   phone varint,
+   PRIMARY KEY (id)
+);
+
+-- inserir dados
+insert into cbd.users (id, name, nmec) values(0, 'Aluno', 969696969);
+
+-- apagar tabela
+drop table cbd.users;
+
+create table users(
+   id int,
+   name text,
+   nmec varint,
+   PRIMARY KEY (id)
+);
+
+insert into cbd.users (id, name, nmec) values(1, 'Pedro Monteiro', 97484);
+insert into cbd.users (id, name, nmec) values(2, 'Renato Dias', 98380);
+insert into cbd.users (id, name, nmec) values(3, 'Eduardo Fernandes', 98512);
+
+select * from users;
+
+ id | name              | nmec
+----+-------------------+-------
+  1 |    Pedro Monteiro | 97484
+  2 |       Renato Dias | 98380
+  3 | Eduardo Fernandes | 98512
+
+(3 rows)
+
+insert into cbd.users (id, name, nmec) values(50, 'Temp', 12345);
+
+select * from users;
+
+ id | name              | nmec
+----+-------------------+-------
+ 50 |              Temp | 12345
+  1 |    Pedro Monteiro | 97484
+  2 |       Renato Dias | 98380
+  3 | Eduardo Fernandes | 98512
+
+(4 rows)
+
+
+delete from cbd.users where id=50;
+
+select * from users;
+
+ id | name              | nmec
+----+-------------------+-------
+  1 |    Pedro Monteiro | 97484
+  2 |       Renato Dias | 98380
+  3 | Eduardo Fernandes | 98512
+
+(3 rows)
+
+insert into cbd.users (id, name, nmec) values(99, 'Admin', 99999);
+
+ id | name              | nmec
+----+-------------------+-------
+ 99 |             Admin | 99999
+  1 |    Pedro Monteiro | 97484
+  2 |       Renato Dias | 98380
+  3 | Eduardo Fernandes | 98512
+
+(4 rows)
+
+
+update cbd.users set nmec=11111 where id=99; 
+
+select * from users;
+
+ id | name              | nmec
+----+-------------------+-------
+ 99 |             Admin | 11111
+  1 |    Pedro Monteiro | 97484
+  2 |       Renato Dias | 98380
+  3 | Eduardo Fernandes | 98512
+
+(4 rows)
+
+-- os dados são distribuidos por nós que se encontram em anel
+-- a partition key é responsável pelo nó para o qual os dados são enviados
+-- a(s) clustering key(s) são responsáveis pela ordem pela qual os dados são ordenados dentro do nó
+
+drop table users;
+
+create table users(
+   id int,
+   name text,
+   nmec int,
+   date timestamp,
+   PRIMARY KEY (id)
+);
+
+insert into users(id, name, nmec, date) values(1, 'Pedro Monteiro', 97484, toTimestamp(now()));
+insert into users(id, name, nmec, date) values(2, 'Eduardo Fernandes', 98512, toTimestamp(now()));
+insert into users(id, name, nmec, date) values(3, 'Renato Dias', 98380, toTimestamp(now()));
+insert into users(id, name, nmec, date) values(4, 'admin', 00000, toTimestamp(now()));
+
+cqlsh:cbd_ex2> select * from users;
+
+ id | date                            | name              | nmec
+----+---------------------------------+-------------------+-------
+  1 | 2021-12-20 19:35:03.878000+0000 |    Pedro Monteiro | 97484
+  2 | 2021-12-20 19:35:07.685000+0000 | Eduardo Fernandes | 98512
+  4 | 2021-12-20 19:35:14.197000+0000 |             admin |     0
+  3 | 2021-12-20 19:35:11.235000+0000 |       Renato Dias | 98380
+
+(4 rows)
+
+-- retornar o valor do hash (indica a ordem pela qual os dados são distribuídos no anel)
+select token(id) from cbd.users;
+
+ system.token(id)
+----------------------
+ -4215969063397837316
+ -4069959284402364209
+ -3248873570005575792
+  9010454139840013625
+
+(4 rows)
+
+drop table users;
+create table users(
+   id int,
+   name map<text, text>,
+   hobbies list<text>,
+   nmec int,
+   date timestamp,
+   PRIMARY KEY (id)
+);
+
+insert into users(id, name, hobbies, nmec, date) values(1,{'name':'Pedro'}, ['play', 'read'], 97484, toTimestamp(now()));
+insert into users(id, name, hobbies, nmec, date) values(2,{'name':'Eduardo'}, ['play'], 98512, toTimestamp(now()));
+insert into users(id, name, hobbies, nmec, date) values(3,{'name':'Renato'}, ['play', 'walk'], 98380, toTimestamp(now()));
+
+cqlsh:cbd_ex2> select * from users;
+
+ id | date                            | hobbies          | name                | nmec
+----+---------------------------------+------------------+---------------------+-------
+  1 | 2021-12-20 19:44:03.241000+0000 | ['play', 'read'] |   {'name': 'Pedro'} | 97484
+  2 | 2021-12-20 19:44:06.630000+0000 |         ['play'] | {'name': 'Eduardo'} | 98512
+  3 | 2021-12-20 19:44:10.139000+0000 | ['play', 'walk'] |  {'name': 'Renato'} | 98380
+
+(3 rows)

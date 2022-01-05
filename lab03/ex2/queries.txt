@@ -1,0 +1,35 @@
+-- 1
+select * from videos_comentarios where id_video = 10 limit 3;
+
+-- 2
+select tags from videos where id = 13;
+
+-- 3
+select * from tags_por_video where tag = 'Aveiro';
+
+-- 4
+select tipo from eventos where id_video = 1 and utilizador = 'renatod' limit 5;
+
+-- 5
+select * from videos_por_autor where autor = 'pedrom' and data = '2021-12-19 16:33:41.517000+0000';
+
+-- 6
+-- nao dá para fazer porque na tabela videos a partition key é id, logo
+-- não é possível ordenar os videos, visto que apenas é possível obter um vídeo (através do id)
+
+-- 7
+select * from followers where id_video = 13;
+
+-- 8
+select * from comentario_por_follower where follower = 'pedrom';
+
+-- 9
+-- apenas dá para fazer os 5 maiores ratings de um video, porque a partition key é id_video
+
+-- 10
+-- https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/architecture/archDataDistributeHashing.html
+select token(id), nome from videos;
+-- os hash values sao distribuidos por 4 nós, onde em cada nó existe um range de hash values
+
+-- 11
+select count(*) as num_videos, tag from tags_por_video where tag = 'Aventura';

@@ -1,0 +1,32 @@
+   {"id_video": 10, "utilizador": "admin", "data": "2021-12-15 16:47:09.751Z", "tipo": "play", "video_data": "2021-12-15 16:47:09.751Z"}
+    {"id_video": 10, "utilizador": "cr7", "data": "2021-12-15 16:47:13.614Z", "tipo": "pause", "video_data": "2021-12-15 16:47:13.614Z"}
+    {"id_video": 10, "utilizador": "cr7", "data": "2021-12-15 16:47:51.640Z", "tipo": "pause", "video_data": "2021-12-15 16:47:51.640Z"}
+    {"id_video": 10, "utilizador": "eduf", "data": "2021-12-15 16:47:55.534Z", "tipo": "play", "video_data": "2021-12-15 16:47:55.534Z"}
+    {"id_video": 10, "utilizador": "user", "data": "2021-12-15 16:47:59.893Z", "tipo": "stop", "video_data": "2021-12-15 16:47:59.893Z"}
+    {"id_video": 10, "utilizador": "user", "data": "2021-12-15 16:48:03.181Z", "tipo": "play", "video_data": "2021-12-15 16:48:03.181Z"}
+   {"id_video": 13, "utilizador": "eduf", "data": "2021-12-15 16:47:25.446Z", "tipo": "pause", "video_data": "2021-12-15 16:47:25.447Z"}
+  {"id_video": 13, "utilizador": "pedrom", "data": "2021-12-15 16:47:20.342Z", "tipo": "play", "video_data": "2021-12-15 16:47:20.342Z"}
+ {"id_video": 13, "utilizador": "renatod", "data": "2021-12-15 16:47:29.166Z", "tipo": "play", "video_data": "2021-12-15 16:47:29.166Z"}
+   {"id_video": 1, "utilizador": "admin", "data": "2021-12-15 16:47:39.837Z", "tipo": "pause", "video_data": "2021-12-15 16:47:39.838Z"}
+     {"id_video": 1, "utilizador": "cr7", "data": "2021-12-15 16:46:57.831Z", "tipo": "pause", "video_data": "2021-12-15 16:46:57.831Z"}
+      {"id_video": 1, "utilizador": "cr7", "data": "2021-12-15 16:47:44.341Z", "tipo": "stop", "video_data": "2021-12-15 16:47:44.342Z"}
+     {"id_video": 1, "utilizador": "eduf", "data": "2021-12-15 16:46:54.351Z", "tipo": "stop", "video_data": "2021-12-15 16:46:54.351Z"}
+     {"id_video": 1, "utilizador": "eduf", "data": "2021-12-15 16:47:32.814Z", "tipo": "play", "video_data": "2021-12-15 16:47:32.814Z"}
+   {"id_video": 1, "utilizador": "pedrom", "data": "2021-12-15 16:46:43.058Z", "tipo": "play", "video_data": "2021-12-15 16:46:43.058Z"}
+  {"id_video": 1, "utilizador": "pedrom", "data": "2021-12-15 16:47:48.198Z", "tipo": "pause", "video_data": "2021-12-15 16:47:48.198Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:47:36.342Z", "tipo": "stop", "video_data": "2021-12-15 16:47:36.342Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:50:55.699Z", "tipo": "play", "video_data": "2021-12-15 16:50:55.699Z"}
+ {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:50:59.331Z", "tipo": "pause", "video_data": "2021-12-15 16:50:59.331Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:02.899Z", "tipo": "play", "video_data": "2021-12-15 16:51:02.899Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:06.426Z", "tipo": "stop", "video_data": "2021-12-15 16:51:06.426Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:09.770Z", "tipo": "play", "video_data": "2021-12-15 16:51:09.770Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:15.450Z", "tipo": "stop", "video_data": "2021-12-15 16:51:15.450Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:19.882Z", "tipo": "play", "video_data": "2021-12-15 16:51:19.882Z"}
+  {"id_video": 1, "utilizador": "renatod", "data": "2021-12-15 16:51:23.114Z", "tipo": "stop", "video_data": "2021-12-15 16:51:23.114Z"}
+      {"id_video": 2, "utilizador": "cr7", "data": "2021-12-15 16:46:50.511Z", "tipo": "stop", "video_data": "2021-12-15 16:46:50.511Z"}
+  {"id_video": 15, "utilizador": "pedrom", "data": "2021-12-15 16:47:16.854Z", "tipo": "stop", "video_data": "2021-12-15 16:47:16.854Z"}
+ {"id_video": 12, "utilizador": "renatod", "data": "2021-12-15 16:47:01.454Z", "tipo": "play", "video_data": "2021-12-15 16:47:01.454Z"}
+ {"id_video": 12, "utilizador": "renatod", "data": "2021-12-15 16:47:05.206Z", "tipo": "stop", "video_data": "2021-12-15 16:47:05.206Z"}
+   {"id_video": 3, "utilizador": "pedrom", "data": "2021-12-15 16:46:46.631Z", "tipo": "stop", "video_data": "2021-12-15 16:46:46.631Z"}
+
+(30 rows)

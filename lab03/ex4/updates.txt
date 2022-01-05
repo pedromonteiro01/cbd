@@ -1,0 +1,19 @@
+## Os resultados para estas operações encontram-se em prints/results/updates
+
+-- 1. Atualizar nome do reader com ID = 4.
+update reader set name = 'New User' where id = 4;
+
+-- 2. Atualizar o número de vezes que o reader 'José' leu o livro com o ID = 10.
+update book_addict set num_book_reads['num_reads'] = 10 where reader = 'José' and book_id = 10;
+
+-- 3. Atualizar as categorias do livro com ID = 7. Adicionar a categoria 'Action'.
+update books set categories = ['Action'] + categories where book_id = 7 and num_pages = 516;
+
+-- 4. Atualizar o email para o reader 'Gil Vicente' com ID = 6.
+update author set email = 'gilvicente@ua.pt' where author_id = 6 and name = 'Gil Vicente';
+
+-- 5. Atualizar o comentário para o livro com ID = 3 feito na data '2021-12-20 15:43:45.281000+0000'.
+update books_comments set comment = 'Ótimo!' where book_id = 3 and comment_date = '2021-12-20 15:43:45.281000+0000';
+
+-- 6. Atualizar a categoria 'Fun' para 'Funn' no livro com ID = 5.
+update books set categories[0] = 'Funn' where book_id = 5 and num_pages = 96;

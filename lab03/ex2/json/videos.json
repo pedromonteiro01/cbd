@@ -1,0 +1,17 @@
+                                      {"id": 5, "data": "2021-12-19 16:13:48.748Z", "autor": "cr7", "descricao": "Rapaz sozinho num lago", "nome": "Sozinho no Lago", "tags": ["Comédia"]}
+                                {"id": 10, "data": "2021-12-19 16:14:06.292Z", "autor": "renatod", "descricao": "Melhor Filme do Mundo", "nome": "Avengers", "tags": ["Ação", "Aventura"]}
+ {"id": 13, "data": "2021-12-19 16:14:18.825Z", "autor": "pedrom", "descricao": "Filme acerca do melhor nucleo da UA", "nome": "NEI - O melhor núcleo", "tags": ["Aveiro", "Informática"]}
+                              {"id": 11, "data": "2021-12-19 16:14:11.110Z", "autor": "eduf", "descricao": "Filme sobre Espiões", "nome": "007", "tags": ["Ação", "Aventura", "Mistério"]}
+                                   {"id": 1, "data": "2021-12-19 16:13:34.362Z", "autor": "pedrom", "descricao": "Um filme da Marvel", "nome": "Spider-Man", "tags": ["Ação", "Aventura"]}
+                         {"id": 8, "data": "2021-12-19 16:13:57.413Z", "autor": "user", "descricao": "Um dia no Porto", "nome": "Uma Aventura no Porto", "tags": ["Animação", "Aventura"]}
+                        {"id": 2, "data": "2021-12-19 16:13:39.425Z", "autor": "pedrom", "descricao": "Outro filme da Marvel", "nome": "Doctor Strange", "tags": ["Aventura", "Mistério"]}
+                           {"id": 4, "data": "2021-12-19 16:13:45.747Z", "autor": "cr7", "descricao": "Rapaz sozinho em casa", "nome": "Sozinho em Casa", "tags": ["Aventura", "Comédia"]}
+ {"id": 15, "data": "2021-12-19 16:14:25.839Z", "autor": "renatod", "descricao": "Filme com Wanda dos Avengers", "nome": "WandaVision", "tags": ["Ação", "Aventura", "Familia", "Vision"]}
+                           {"id": 7, "data": "2021-12-19 16:13:54.575Z", "autor": "renatod", "descricao": "Melhor Carnaval", "nome": "Carnaval de Canas", "tags": ["Comédia", "Aventura"]}
+         {"id": 6, "data": "2021-12-19 16:13:51.729Z", "autor": "eduf", "descricao": "Um dia na ponte pedonal de Arouca", "nome": "Uma aventura na ponte de Arouca", "tags": ["Aventura"]}
+                               {"id": 9, "data": "2021-12-19 16:14:00.520Z", "autor": "admin", "descricao": "Um filme sobre o Natal", "nome": "Feliz Natal", "tags": ["Natal", "Familia"]}
+                 {"id": 14, "data": "2021-12-19 16:14:22.556Z", "autor": "cr7", "descricao": "Filme com The Rock", "nome": "Red Notice", "tags": ["Ação", "Aventura", "The Rock", "Luta"]}
+      {"id": 12, "data": "2021-12-19 16:14:15.379Z", "autor": "pedrom", "descricao": "Resumo de um dia bem passado em Aveiro", "nome": "Um dia em Aveiro", "tags": ["Aveiro", "Aventura"]}
+                                  {"id": 3, "data": "2021-12-19 16:13:42.491Z", "autor": "pedrom", "descricao": "Último filme lançado da Marvel", "nome": "Black Widow", "tags": ["Ação"]}
+
+(15 rows)

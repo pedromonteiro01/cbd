@@ -1,0 +1,74 @@
+CREATE KEYSPACE cbd_ex4 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+use cbd_ex4;
+
+CREATE TABLE books(
+   book_id int,
+   author_id int,
+   title varchar,
+   num_pages int,
+   date timestamp,
+   categories list<varchar>,
+   PRIMARY KEY (book_id, num_pages)
+) WITH CLUSTERING ORDER BY (num_pages DESC);
+
+CREATE INDEX num_pages_idx ON books(num_pages);
+
+CREATE TABLE books_by_author(
+    author_id int,
+    title varchar,
+    date timestamp,
+    PRIMARY KEY (author_id, date)
+);
+
+CREATE TABLE books_by_category( 
+    category varchar,
+    title varchar,
+    num_pages int,
+    date timestamp,
+    PRIMARY KEY(category, num_pages)
+);
+
+CREATE TABLE author (
+    author_id int,
+    name varchar,
+    age int,
+    email varchar,
+    PRIMARY KEY (author_id, name)
+);
+
+CREATE TABLE reader(
+    id int,
+    name varchar,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE books_comments (
+    book_id int,
+    reader_id int,
+    comment varchar,
+    comment_date timestamp,
+    PRIMARY KEY (book_id, comment_date)
+) WITH CLUSTERING ORDER BY (comment_date DESC);
+
+CREATE TABLE book_addict(
+    id int,
+    reader varchar,
+    book_id int,
+    num_book_reads map<varchar, int>,
+    PRIMARY KEY (reader, book_id)
+);
+
+CREATE INDEX num_books_reads_idx ON book_addict (ENTRIES(num_book_reads));
+
+CREATE TABLE book_subscriber(
+    sub set<varchar>,
+    book_id int,
+    PRIMARY KEY (book_id)
+);
+
+CREATE TABLE book_votes(
+    book_id int,
+    date timestamp,
+    vote int,
+    PRIMARY KEY (book_id, date)
+) WITH CLUSTERING ORDER BY (date DESC);

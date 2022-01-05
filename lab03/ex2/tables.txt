@@ -1,0 +1,85 @@
+CREATE KEYSPACE cbd_ex2 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+use cbd_ex2;
+
+CREATE TABLE utilizadores(
+   id uuid,
+   username varchar,
+   nome varchar,
+   email varchar,
+   data timestamp,
+   PRIMARY KEY (username, email)
+);
+
+CREATE TABLE videos(
+   id int,
+   autor varchar,
+   nome varchar,
+   descricao varchar,
+   tags list<varchar>,
+   data timestamp,
+   PRIMARY KEY (id, data)
+) WITH CLUSTERING ORDER BY (data DESC);
+-- indice para o nome do video
+
+CREATE TABLE videos_por_autor(
+   autor varchar,
+   nome varchar,
+   descricao varchar,
+   data timestamp,
+   PRIMARY KEY (autor, data)
+)WITH CLUSTERING ORDER BY (data DESC);
+-- indice para o nome do video
+
+CREATE TABLE autor_comentarios(
+   autor varchar,
+   id_video int,
+   comentario varchar,
+   comentario_data timestamp,
+   PRIMARY KEY (autor, comentario_data)
+) WITH CLUSTERING ORDER BY (comentario_data DESC);
+
+CREATE TABLE videos_comentarios(
+   autor varchar,
+   id_video int,
+   comentario varchar,
+   comentario_data timestamp,
+   PRIMARY KEY (id_video, comentario_data)
+) WITH CLUSTERING ORDER BY (comentario_data DESC);
+
+
+CREATE TABLE followers(
+   utilizador set<varchar>,
+   id_video int,
+   PRIMARY KEY (id_video)
+);
+
+CREATE TABLE eventos(
+   utilizador varchar,
+   id_video int,
+   tipo varchar,
+   data timestamp,
+   video_data timestamp,
+   PRIMARY KEY ((id_video, utilizador), data, tipo)
+) WITH CLUSTERING ORDER BY (data DESC);
+
+CREATE TABLE ratings(
+   id_video int,
+   valor int,
+   data timestamp,
+   PRIMARY KEY (id_video, valor, data)
+);
+
+CREATE TABLE tags_por_video(
+   id int,
+   tag text,
+   id_video int,
+   PRIMARY KEY (tag, id_video)
+);
+
+CREATE TABLE comentario_por_follower (
+    autor varchar,
+    comentario varchar,
+    data timestamp,
+    follower varchar,
+    PRIMARY KEY(follower, data)
+) WITH CLUSTERING ORDER BY (data DESC);

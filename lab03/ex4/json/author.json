@@ -1,0 +1,9 @@
+    {"author_id": 5, "name": "Eça de Queiros", "age": 95, "email": "equeiros@ua.pt"}
+       {"author_id": 1, "name": "Pedro Monteiro", "age": 20, "email": "pmapm@ua.pt"}
+            {"author_id": 2, "name": "JK Rowlling", "age": 56, "email": "jkr@ua.pt"}
+        {"author_id": 4, "name": "Luíz Vaz de Camões", "age": 91, "email": "lvc.pt"}
+ {"author_id": 7, "name": "André Zúquete", "age": 50, "email": "andrezuquete@ua.pt"}
+            {"author_id": 6, "name": "Gil Vicente", "age": 92, "email": "gil@ua.pt"}
+         {"author_id": 3, "name": "James Joyce", "age": 65, "email": "jjoyce@ua.pt"}
+
+(7 rows)

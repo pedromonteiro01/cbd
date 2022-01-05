@@ -1,0 +1,12 @@
+ {"book_id": 5, "sub": ["Eduardo Fernandes", "Inês", "Pedro Monteiro", "Renato Dias"]}
+                                  {"book_id": 10, "sub": ["Afonso", "José", "Miguel"]}
+                        {"book_id": 1, "sub": ["Eduardo Fernandes", "Pedro Monteiro"]}
+                                                       {"book_id": 8, "sub": ["José"]}
+                                                       {"book_id": 2, "sub": ["User"]}
+                           {"book_id": 4, "sub": ["Eduardo Fernandes", "Renato Dias"]}
+                                             {"book_id": 7, "sub": ["José", "Miguel"]}
+                               {"book_id": 6, "sub": ["José", "Miguel", "Vitor Dias"]}
+                                           {"book_id": 9, "sub": ["Afonso", "Miguel"]}
+                                     {"book_id": 3, "sub": ["Inês", "Pedro Monteiro"]}
+
+(10 rows)

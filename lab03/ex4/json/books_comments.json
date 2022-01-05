@@ -1,0 +1,12 @@
+          {"book_id": 5, "comment_date": "2021-12-20 15:43:48.176Z", "comment": "Gostei!", "reader_id": 7}
+            {"book_id": 1, "comment_date": "2021-12-20 15:43:54.000Z", "comment": "Yes!", "reader_id": 10}
+   {"book_id": 1, "comment_date": "2021-12-20 15:43:35.434Z", "comment": "Gostei de ler!", "reader_id": 4}
+       {"book_id": 1, "comment_date": "2021-12-20 15:43:31.822Z", "comment": "Muito bom!", "reader_id": 2}
+           {"book_id": 1, "comment_date": "2021-12-20 15:43:27.130Z", "comment": "Gosto!", "reader_id": 1}
+         {"book_id": 8, "comment_date": "2021-12-20 15:43:56.682Z", "comment": "Lets go!", "reader_id": 9}
+             {"book_id": 2, "comment_date": "2021-12-20 15:43:38.713Z", "comment": "Top!", "reader_id": 5}
+           {"book_id": 4, "comment_date": "2021-12-20 15:43:42.027Z", "comment": "Gosto!", "reader_id": 2}
+ {"book_id": 6, "comment_date": "2021-12-20 15:43:51.251Z", "comment": "Livro muito bom!", "reader_id": 8}
+       {"book_id": 3, "comment_date": "2021-12-20 15:43:45.281Z", "comment": "Muito Bom!", "reader_id": 6}
+
+(10 rows)

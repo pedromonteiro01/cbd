@@ -1,0 +1,250 @@
+Para a instalção do mongoDB foram utilizados os seguintes comandos:
+
+1. 
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+
+2.
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+
+3.
+sudo apt-get update
+
+4.
+sudo apt-get install -y mongodb-org
+
+No fim, para definir a pasta onde guardar os dados do servidor foi executado o comando:
+
+mongod --dbpath /home/pedro/Desktop/CBD/lab02/mongodb/
+
+Para correr o servidor de mongoDB é necessário executar o comando "mongod" num terminal.
+Para fazer queries à base de dados deve-se abrir outro terminal e executar o comando "mongo".
+
+Comandos executados:
+> show dbs
+admin   0.000GB
+cbd     0.001GB
+config  0.000GB
+local   0.000GB
+test    0.008GB
+
+> db.collection.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+
+> db.invoice.insertOne({ _id: 901, inv_no: "I001", inv_date: "20171010" })
+{ "acknowledged" : true, "insertedId" : 901 }
+
+> db.orders.insertMany( [ { _id: 15, ord_no: 2001, qty: 200, unit: "doz" }, { ord_no: 2005, qty: 320 }, { ord_no: 2008, qty: 250, rate:85 } ] );
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		15,
+		ObjectId("6190240847393a7f26fb8e01"),
+		ObjectId("6190240847393a7f26fb8e02")
+	]
+}
+
+> db.inventory.insertMany([
+... { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+... { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+... { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+... { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+... { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+... ]);
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("6190249c82bddad099de94c0"),
+		ObjectId("6190249c82bddad099de94c1"),
+		ObjectId("6190249c82bddad099de94c2"),
+		ObjectId("6190249c82bddad099de94c3"),
+		ObjectId("6190249c82bddad099de94c4")
+	]
+}
+
+> db.inventory.find({})
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c1"), "item" : "notebook", "qty" : 50, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c2"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c3"), "item" : "planner", "qty" : 75, "size" : { "h" : 22.85, "w" : 30, "uom" : "cm" }, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "qty" : 45, "size" : { "h" : 10, "w" : 15.25, "uom" : "cm" }, "status" : "A" }
+
+> db.inventory.find({"status":"D"})
+{ "_id" : ObjectId("6190249c82bddad099de94c2"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c3"), "item" : "planner", "qty" : 75, "size" : { "h" : 22.85, "w" : 30, "uom" : "cm" }, "status" : "D" }
+
+> db.inventory.find({status:{$in:["A","D"]}})
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c1"), "item" : "notebook", "qty" : 50, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c2"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c3"), "item" : "planner", "qty" : 75, "size" : { "h" : 22.85, "w" : 30, "uom" : "cm" }, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "qty" : 45, "size" : { "h" : 10, "w" : 15.25, "uom" : "cm" }, "status" : "A" }
+
+> db.inventory.find({status:"A",qty:{$lt:30}})
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
+
+> db.inventory.find({$or:[{status:"A"},{qty:{$lt:30}}]})
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c1"), "item" : "notebook", "qty" : 50, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "qty" : 45, "size" : { "h" : 10, "w" : 15.25, "uom" : "cm" }, "status" : "A" }
+
+>  db.inventory.find( { 
+... status: "A",
+... $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ] 
+... } ) 
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "size" : { "h" : 14, "w" : 21, "uom" : "cm" }, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "qty" : 45, "size" : { "h" : 10, "w" : 15.25, "uom" : "cm" }, "status" : "A" }
+
+> db.inventory.find({},{item:1,status:1})
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c1"), "item" : "notebook", "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c2"), "item" : "paper", "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c3"), "item" : "planner", "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "status" : "A" }
+
+//1 means included
+>  db.inventory.find({},{_id: 0,item:1,status:1})
+{ "item" : "journal", "status" : "A" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+{ "item" : "postcard", "status" : "A" }
+
+//0 means excluded
+> db.inventory.find({},{_id:0,qty:0,size:0})
+{ "item" : "journal", "status" : "A" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+{ "item" : "postcard", "status" : "A" }
+
+> db.inventory.find({}, {"_id":0,"item":1,"status":1}).sort({"status":1})
+{ "item" : "journal", "status" : "A" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "postcard", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+
+> db.inventory.find({}, {"_id": 0, "item": 1, "status":1}).sort({"status": -1})
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+{ "item" : "journal", "status" : "A" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "postcard", "status" : "A" }
+
+>  db.inventory.find({}, {_id: 0, item:1, status:1}).limit(3)
+{ "item" : "journal", "status" : "A" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+
+> db.inventory.find({}, {_id: 0, item: 1, status:1}).skip(3)
+{ "item" : "planner", "status" : "D" }
+{ "item" : "postcard", "status" : "A" }
+
+> db.inventory.find({"item":"journal"}, {_id:0, size:0})
+{ "item" : "journal", "qty" : 25, "status" : "A" }
+
+> db.inventory.updateOne({"item":"journal"}, {$set: {"status":"B"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.inventory.find({"item":"journal"}, {_id:0, size:0})
+{ "item" : "journal", "qty" : 25, "status" : "B" }
+
+> db.inventory.updateOne({"item":"computer"},
+... {$set: {"status":"C", qty:30 } }, 
+... {upsert:true})
+{
+	"acknowledged" : true,
+	"matchedCount" : 0,
+	"modifiedCount" : 0,
+	"upsertedId" : ObjectId("6190284704af4a10d8bf27cb")
+}
+
+> db.inventory.find({"item":"computer"})
+{ "_id" : ObjectId("6190284704af4a10d8bf27cb"), "item" : "computer", "qty" : 30, "status" : "C" }
+
+> db.inventory.updateMany({}, {$unset: { size:""}})
+{ "acknowledged" : true, "matchedCount" : 6, "modifiedCount" : 5 }
+
+> db.inventory.find()
+{ "_id" : ObjectId("6190249c82bddad099de94c0"), "item" : "journal", "qty" : 25, "status" : "B" }
+{ "_id" : ObjectId("6190249c82bddad099de94c1"), "item" : "notebook", "qty" : 50, "status" : "A" }
+{ "_id" : ObjectId("6190249c82bddad099de94c2"), "item" : "paper", "qty" : 100, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c3"), "item" : "planner", "qty" : 75, "status" : "D" }
+{ "_id" : ObjectId("6190249c82bddad099de94c4"), "item" : "postcard", "qty" : 45, "status" : "A" }
+{ "_id" : ObjectId("6190284704af4a10d8bf27cb"), "item" : "computer", "qty" : 30, "status" : "C" }
+
+> db.inventory.find({}, {_id: 0, qty: 0, size: 0})
+{ "item" : "journal", "status" : "B" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+{ "item" : "postcard", "status" : "A" }
+{ "item" : "computer", "status" : "C" }
+
+> db.inventory.deleteOne({"item":"computer"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+> db.inventory.find({},{_id: 0, qty: 0, size: 0})
+{ "item" : "journal", "status" : "B" }
+{ "item" : "notebook", "status" : "A" }
+{ "item" : "paper", "status" : "D" }
+{ "item" : "planner", "status" : "D" }
+{ "item" : "postcard", "status" : "A" }
+
+> db.inventory.getIndexes()
+[ { "v" : 2, "key" : { "_id" : 1 }, "name" : "_id_" } ]
+
+> db.inventory.createIndex({qty: 1})
+{
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"createdCollectionAutomatically" : false,
+	"ok" : 1
+}
+
+> db.inventory.getIndexes()
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"qty" : 1
+		},
+		"name" : "qty_1"
+	}
+]

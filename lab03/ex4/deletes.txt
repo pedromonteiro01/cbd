@@ -1,0 +1,16 @@
+## Os resultados para estas operações encontram-se em prints/results/deletes
+
+-- 1. Apagar o reader com ID = 4.
+delete from reader where id = 4;
+
+-- 2. Apagar a categoria 'Action' do livro com ID = 7.
+delete categories[0] from books where book_id = 7 and num_pages = 516;
+
+-- 3. Apagar o comentário para o livro com ID = 5 e data '2021-12-20 15:43:48.176000+0000'. Apenas o comentário!
+delete comment from books_comments where book_id = 5 and comment_date = '2021-12-20 15:43:48.176000+0000';
+
+-- 4. Apagar os readers 'José' e 'Miguel' do set de subscritores para o livro com ID = 6.
+delete sub['José'], sub['Miguel'] from book_subscriber where book_id = 6;
+
+-- 5. Apagar o número de vezes que o 'Miguel' leu o livro com ID = 9;
+delete num_book_reads['num_reads'] from book_addict where reader = 'Miguel' and book_id = 9;

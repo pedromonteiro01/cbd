@@ -1,0 +1,137 @@
+// NMEC: 97484
+
+O dataset foi importado a partir de https://github.com/ozlerhakan/mongodb-json-files
+
+Organização:
+{
+    "id":1,
+    "title":value,
+    "isbn":1234,
+    "pageCount":1234,
+    "publishedDate":date,
+    "thumbnailUrl":url,
+    "shortDescription":description,
+    "longDescription":description,
+    "status":status,
+    "authors":
+        [author1, author2, ...],
+    "categories":
+        [categorie1,, categorie2, ...]
+}
+
+QUERIES WITH FIND OPERATOR
+
+Query 1: Liste todos os livros disponíveis
+db.books.find({})
+{ "_id" : 6, "title" : "Collective Intelligence in Action", "isbn" : "1933988312", "pageCount" : 425, "publishedDate" : ISODate("2008-10-01T07:00:00Z"), "thumbnailUrl" : "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/alag.jpg", "longDescription" : "There's a great deal of wisdom in a crowd, but how do you listen to a thousand people talking at once  Identifying the wants, needs, and knowledge of internet users can be like listening to a mob.    In the Web 2.0 era, leveraging the collective power of user contributions, interactions, and feedback is the key to market dominance. A new category of powerful programming techniques lets you discover the patterns, inter-relationships, and individual profiles   the collective intelligence   locked in the data people leave behind as they surf websites, post blogs, and interact with other users.    Collective Intelligence in Action is a hands-on guidebook for implementing collective-intelligence concepts using Java. It is the first Java-based book to emphasize the underlying algorithms and technical implementation of vital data gathering and mining techniques like analyzing trends, discovering relationships, and making predictions. It provides a pragmatic approach to personalization by combining content-based analysis with collaborative approaches.    This book is for Java developers implementing collective intelligence in real, high-use applications. Following a running example in which you harvest and use information from blogs, you learn to develop software that you can embed in your own applications. The code examples are immediately reusable and give the Java developer a working collective intelligence toolkit.    Along the way, you work with, a number of APIs and open-source toolkits including text analysis and search using Lucene, web-crawling using Nutch, and applying machine learning algorithms using WEKA and the Java Data Mining (JDM) standard.", "status" : "PUBLISH", "authors" : [ "Satnam Alag" ], "categories" : [ "Internet" ] }
+{ "_id" : 30, "title" : "jQuery in Action, Second Edition", "isbn" : "1935182323", "pageCount" : 488, "publishedDate" : ISODate("2010-06-01T07:00:00Z"), "thumbnailUrl" : "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bibeault2.jpg", "shortDescription" : "jQuery in Action, Second Edition is a fast-paced introduction to jQuery that will take your JavaScript programming to the next level. An in-depth rewrite of the bestselling first edition, this edition provides deep and practical coverage of the latest jQuery and jQuery UI releases. The book's unique \"lab pages\" anchor the explanation of each new concept in a practical example. You'll learn how to traverse HTML documents, handle events, perform animations, and add Ajax to your web pages. This comprehensive guide also teaches you how jQuery interacts with other tools and frameworks and how to build jQuery plugins. ", "longDescription" : "A really good web development framework anticipates your needs. jQuery does more   it practically reads your mind. Developers fall in love with this JavaScript library the moment they see 20 lines of code reduced to three. jQuery is concise and readable. Its unique \"chaining\" model lets you perform multiple operations on a page element in succession. And with version 1.4, there's even more to love about jQuery, including new effects and events, usability improvements, and more testing options.    jQuery in Action, Second Edition is a fast-paced introduction and guide. Building on the bestselling first edition, it adds new examples, more labs, and deeper explanations of important features. You   ll learn how to traverse HTML documents, handle events, perform animations, and add Ajax to your web pages. The book's unique \"lab pages\" anchor the explanation of each new concept in a practical example. You'll learn how jQuery interacts with other tools and frameworks and how to build jQuery plugins. This book requires a modest knowledge of JavaScript and Ajax.", "status" : "PUBLISH", "authors" : [ "Bear Bibeault", "Yehuda Katz" ], "categories" : [ "Java" ] }
+// 431
+
+Query 2: Liste todos os livros publicados
+db.books.find({"status":"PUBLISH"},{"_id":0,"title":1,"authors":1,"categories":1})
+{ "title" : "Mule in Action", "authors" : [ "David Dossot", "John D'Emic" ], "categories" : [ "Java", "Software Engineering" ] }
+{ "title" : "The Quick Python Book", "authors" : [ "Daryl Harms", "Kenneth McDonald" ], "categories" : [ "Python" ] }
+{ "title" : "R in Action", "authors" : [ "Robert I. Kabacoff" ], "categories" : [ "Software Engineering" ] }
+{ "title" : "Learn Windows PowerShell in a Month of Lunches", "authors" : [ "Don Jones" ], "categories" : [ "Microsoft .NET" ] }
+{ "title" : "SOA Security", "authors" : [ "Ramarao Kanneganti", "Prasad A. Chodavarapu" ], "categories" : [ "Software Engineering" ] }
+{ "title" : "Rails 3 in Action", "authors" : [ "Ryan Bigg", "Yehuda Katz" ], "categories" : [ "Internet" ] }
+{ "title" : "Continuous Integration in .NET", "authors" : [ "Marcin Kawalerowicz", "Craig Berntson" ], "categories" : [ "Microsoft .NET" ] }
+{ "title" : "Kermit 95+", "authors" : [ "Kermit Project at Columbia University" ], "categories" : [ "Internet", "Networking", "Miscella" ] }
+{ "title" : "Laszlo in Action", "authors" : [ "Norman Klein", "Max Carlson with Glenn MacEwen" ], "categories" : [ "Web Development" ] }
+{ "title" : "Test Driven", "authors" : [ "Lasse Koskela" ], "categories" : [ "Software Engineering" ] }
+{ "title" : "Technology Paradise Lost", "authors" : [ "Erik Keller" ], "categories" : [ "Business" ] }
+{ "title" : "Groovy in Action", "authors" : [ "Dierk Koenig with Andrew Glover", "Paul King", "Guillaume Laforge", "Jon Skeet" ], "categories" : [ "Java" ] }
+// 363
+
+Query 3: Liste todos os livros com 'pageCount' maior do que 0
+db.books.find({"pageCount":{"$gt":0}},{"_id":0,"thumbnailUrl":0,"shortDescription":0,"longDescription":0,"publishedDate":0,"isbn":0})
+{ "title" : "AspectJ in Action, Second Edition", "pageCount" : 568, "status" : "PUBLISH", "authors" : [ "Ramnivas Laddad" ], "categories" : [ "Java" ] }
+{ "title" : "SQR in PeopleSoft and Other Applications, Second Edition", "pageCount" : 696, "status" : "PUBLISH", "authors" : [ "Galina Landres", "Vlad Landres" ], "categories" : [ "Business", "Client-Server" ] }
+{ "title" : "SQR in PeopleSoft and Other Applications", "pageCount" : 600, "status" : "PUBLISH", "authors" : [ "Galina", "Vlad Landres" ], "categories" : [ "Business", "Client-Server" ] }
+{ "title" : "F# in Action", "pageCount" : 425, "status" : "MEAP", "authors" : [ "Amanda Laucher" ], "categories" : [ "Microsoft .NET" ] }
+{ "title" : "Hadoop in Action", "pageCount" : 325, "status" : "PUBLISH", "authors" : [ "Chuck Lam" ], "categories" : [ "Java" ] }
+{ "title" : "Tuscany SCA in Action", "pageCount" : 472, "status" : "PUBLISH", "authors" : [ "Simon Laws", "Mark Combellack", "Raymond Feng", "Haleh Mahbod", "Simon Nash" ], "categories" : [ "Java" ] }
+{ "title" : "Object Oriented Application Frameworks", "pageCount" : 352, "status" : "PUBLISH", "authors" : [ "Ted Lewis", "friends" ], "categories" : [ "Object-Oriented Programming" ] }
+// 265
+
+Query 4: Liste todos os livros que contêm 'Java' nas categorias
+db.books.find({"categories":{"$in":["Java"]}},{"_id":0,"title":1,"status":1,"categories":1,"authors":1})
+{ "title" : "OSGi in Depth", "status" : "PUBLISH", "authors" : [ "Alexandre de Castro Alves" ], "categories" : [ "Java" ] }
+{ "title" : "Spring Dynamic Modules in Action", "status" : "PUBLISH", "authors" : [ "Arnaud Cogoluegnes", "Thierry Templier", "", "Andy Piper" ], "categories" : [ "Java" ] }
+{ "title" : "POJOs in Action", "status" : "PUBLISH", "authors" : [ "Chris Richardson" ], "categories" : [ "Java" ] }
+{ "title" : "Spring Roo in Action", "status" : "PUBLISH", "authors" : [ "Ken Rimple", "Srini Penchikala" ], "categories" : [ "Java" ] }
+{ "title" : "Struts 2 in Action", "status" : "PUBLISH", "authors" : [ "Donald Brown", "Chad Michael Davis", "", "Scott Stanlick" ], "categories" : [ "Java" ] }
+{ "title" : "Seam in Action", "status" : "PUBLISH", "authors" : [ "Dan Allen" ], "categories" : [ "Java" ] }
+{ "title" : "Command-line Processing with CLI", "status" : "PUBLISH", "authors" : [ "Vikram Goyal" ], "categories" : [ "Java" ] }
+// 96
+
+Query 5: Liste todos os livros acerca do tema 'Spring'
+db.books.find({"title":{$regex:"Spring"}},{"title":1, "status":1})
+{ "_id" : 52, "title" : "Spring Dynamic Modules in Action", "status" : "PUBLISH" }
+{ "_id" : 73, "title" : "Spring Roo in Action", "status" : "PUBLISH" }
+{ "_id" : 310, "title" : "Spring Batch in Action", "status" : "PUBLISH" }
+{ "_id" : 319, "title" : "Spring in Action", "status" : "PUBLISH" }
+{ "_id" : 320, "title" : "Spring in Action, Second Edition", "status" : "PUBLISH" }
+{ "_id" : 321, "title" : "Spring in Action, Third Edition", "status" : "PUBLISH" }
+{ "_id" : 325, "title" : "Spring in Practice", "status" : "PUBLISH" }
+{ "_id" : 671, "title" : "Spring in Action, Fourth Edition", "status" : "MEAP" }
+{ "_id" : ObjectId("53c2ae8528d75d572c06ada8"), "title" : "Spring Integration in Action", "status" : "PUBLISH" }
+// 9
+
+Query 6: Liste todos os livros que têm mais do que um autor e com status 'PUBLISH'
+db.books.find({"authors.1":{$exists: true}, "status":"PUBLISH"},{"title":1, "authors":1, "status":1})
+{ "_id" : 1, "title" : "Unlocking Android", "status" : "PUBLISH", "authors" : [ "W. Frank Ableson", "Charlie Collins", "Robi Sen" ] }
+{ "_id" : 14, "title" : "Coffeehouse", "status" : "PUBLISH", "authors" : [ "Levi Asher", "Christian Crumlish" ] }
+{ "_id" : 9, "title" : "Griffon in Action", "status" : "PUBLISH", "authors" : [ "Andres Almiray", "Danno Ferrin", "", "James Shingler" ] }
+{ "_id" : 16, "title" : "Brownfield Application Development in .NET", "status" : "PUBLISH", "authors" : [ "Kyle Baley", "Donald Belcham" ] }
+{ "_id" : 20, "title" : "Taming Jaguar", "status" : "PUBLISH", "authors" : [ "Michael J. Barlotta", "Jason R. Weiss" ] }
+{ "_id" : 23, "title" : "Hibernate in Action (Chinese Edition)", "status" : "PUBLISH", "authors" : [ "Christian Bauer", "Gavin King" ] }
+{ "_id" : 22, "title" : "Hibernate in Action", "status" : "PUBLISH", "authors" : [ "Christian Bauer", "Gavin King" ] }
+// 154
+
+QUERIES WITH AGRGRAGATE OPERATOR
+
+Query 1: Liste o nome dos 5 autores que têm mais livros escritos
+// db.books.aggregate([{$group : { _id : "$authors", "number_books" : {$sum : 1}}}, {$sort: {"number_books": -1}}, {$limit:5}])
+{ "_id" : [ "Vikram Goyal" ], "number_books" : 12 }
+{ "_id" : [ "Christian Bauer", "Gavin King" ], "number_books" : 3 }
+{ "_id" : [ "Tim Hatton" ], "number_books" : 3 }
+{ "_id" : [ "Richard Siddaway" ], "number_books" : 3 }
+{ "_id" : [ "David A. Black" ], "number_books" : 3 }
+
+
+Query 2: Indique o número de livros escritos por 'Gavi King'
+// db.books.aggregate([{$match: {"authors": "Gavin King"}},{$group: {"_id": "$title"}},{$count: "number_books"}])
+{ "number_books" : 5 }
+
+Query 3: Obter os 5 livros com pageCountMédio mais alto
+// db.books.aggregate([{$addFields: {"average_pageCount": {$avg: "$pageCount"}}}, {$sort: {"average_pageCount": -1}}, {$limit: 5}, {$project: {"_id":0, "title":1,"average_pageCount":1, "categories":1}}])
+{ "title" : "Essential Guide to Peoplesoft Development and Customization", "categories" : [ "Client-Server" ], "average_pageCount" : 1101 }
+{ "title" : "Ten Years of UserFriendly.Org", "categories" : [ "Miscellaneous" ], "average_pageCount" : 1096 }
+{ "title" : "Java Foundation Classes", "categories" : [ "Java" ], "average_pageCount" : 1088 }
+{ "title" : "Windows Forms in Action", "categories" : [ ], "average_pageCount" : 950 }
+{ "title" : "Silverlight 5 in Action", "categories" : [ "Microsoft", ".NET" ], "average_pageCount" : 925 }
+// 5
+
+Query 4: Quantos livros sobre Java existem
+// db.books.aggregate([{$match: {"categories": "Java"}},{$group: {"_id": "$title"}},{$count: "number_books"}])
+{ "number_books" : 96 }
+
+Query 5: Quantos livros existem de cada categoria
+// db.books.aggregate([{$group : { _id : "$categories", number_books : {$sum : 1}}}])
+{ "_id" : [ "PowerBuilder", "Client-Server" ], "number_books" : 1 }
+{ "_id" : [ "Internet", "Networking", "Miscella" ], "number_books" : 1 }
+{ "_id" : [ "Miscellaneous" ], "number_books" : 2 }
+{ "_id" : [ "Business", "Client-Server" ], "number_books" : 3 }
+{ "_id" : [ "Programming" ], "number_books" : 11 }
+{ "_id" : [ "Microsoft .NET" ], "number_books" : 33 }
+
+Query 6: Liste os livros que têm um pageCount maior que 250 ordenados por ordem decrescente de título 
+// db.books.aggregate([{$addFields : {"average_pageCount":{$avg: "$pageCount"}}}, {$match : {"average_pageCount": {$gt: 250}}},{$sort: {"title": -1}} ,{$project: {"_id":0, "title":1,"isbn":1, "average_pageCount":1}}])
+{ "title" : "wxPython in Action", "isbn" : "1932394621", "average_pageCount" : 620 }
+{ "title" : "jQuery in Action, Second Edition", "isbn" : "1935182323", "average_pageCount" : 488 }
+{ "title" : "jQuery in Action", "isbn" : "1933988355", "average_pageCount" : 376 }
+{ "title" : "iText in Action, Second Edition", "isbn" : "1935182617", "average_pageCount" : 600 }
+{ "title" : "iText in Action", "isbn" : "1932394796", "average_pageCount" : 688 }
+{ "title" : "iPhone in Action", "isbn" : "193398886X", "average_pageCount" : 472 }
+{ "title" : "iPhone and iPad in Action", "isbn" : "1935182587", "average_pageCount" : 450 }

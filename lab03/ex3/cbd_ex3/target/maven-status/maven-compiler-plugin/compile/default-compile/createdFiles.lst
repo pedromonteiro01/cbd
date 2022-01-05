@@ -1,0 +1,7 @@
+com/cassandra/ex3/exB/VideoByTimeAndUtilizador.class
+com/cassandra/ex3/exA/SearchUtilizador.class
+com/cassandra/ex3/exA/InsertUtilizador.class
+com/cassandra/ex3/exA/EditUtilizador.class
+com/cassandra/ex3/exB/Last5EventsByUtilizador.class
+com/cassandra/ex3/exA/SearchVideos.class
+com/cassandra/ex3/exB/QueryLast3Comments.class

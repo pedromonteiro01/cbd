@@ -1,0 +1,232 @@
+// NMEC: 97484
+// 1. Liste todos os documentos da coleção.
+db.restaurants.find()
+// 3772
+
+// 2. Apresente os campos restaurant_id, nome, localidade e gastronomia para
+todos os documentos da coleção
+db.restaurants.find({},{_id:0, restaurant_id:1, nome:1, localidade:1, gastronomia:1})
+{ "_id" : ObjectId("617a8c5e119b2fed10386399"), "localidade" : "Brooklyn", "gastronomia" : "Hamburgers", "nome" : "Wendy'S", "restaurant_id" : "30112340" }
+{ "_id" : ObjectId("617a8c5e119b2fed1038639a"), "localidade" : "Brooklyn", "gastronomia" : "American", "nome" : "Riviera Caterer", "restaurant_id" : "40356018" }
+{ "_id" : ObjectId("617a8c5e119b2fed1038639b"), "localidade" : "Brooklyn", "gastronomia" : "American", "nome" : "C & C Catering Service", "restaurant_id" : "40357437" }
+{ "_id" : ObjectId("617a8c5e119b2fed1038639c"), "localidade" : "Brooklyn", "gastronomia" : "Chinese", "nome" : "May May Kitchen", "restaurant_id" : "40358429" }
+{ "_id" : ObjectId("617a8c5e119b2fed1038639d"), "localidade" : "Brooklyn", "gastronomia" : "Jewish/Kosher", "nome" : "Seuda Foods", "restaurant_id" : "40360045" }
+{ "_id" : ObjectId("617a8c5e119b2fed1038639e"), "localidade" : "Bronx", "gastronomia" : "Bakery", "nome" : "Morris Park Bake Shop", "restaurant_id" : "30075445" }
+//3772
+
+// 3. Apresente os campos restaurant_id, nome, localidade e código postal (zipcode), mas
+exclua o campo _id de todos os documentos da coleção. 
+db.restaurants.find({}, {_id: 0, restaurant_id: 1, nome: 1, localidade: 1, 'address.zipcode': 1})
+{ "address" : { "zipcode" : "11225" }, "localidade" : "Brooklyn", "nome" : "Wendy'S", "restaurant_id" : "30112340" }
+{ "address" : { "zipcode" : "11224" }, "localidade" : "Brooklyn", "nome" : "Riviera Caterer", "restaurant_id" : "40356018" }
+{ "address" : { "zipcode" : "11214" }, "localidade" : "Brooklyn", "nome" : "C & C Catering Service", "restaurant_id" : "40357437" }
+{ "address" : { "zipcode" : "11208" }, "localidade" : "Brooklyn", "nome" : "May May Kitchen", "restaurant_id" : "40358429" }
+// 3772
+
+// 4. Indique o total de restaurantes localizados no Bronx.
+db.restaurants.find({localidade:"Bronx"}).count()
+// 309
+
+// 5. Apresente os primeiros 15 restaurantes localizados no Bronx, ordenados por ordem crescente de nome.
+db.restaurants.find({localidade:"Bronx"},{_id:0,nome:1,localidade:1,restaurant_id:1,gastronomia:1}).sort({nome:1}).limit(15)
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "African Market (Baboon Cafe)", "restaurant_id" : "40368026" }
+{ "localidade" : "Bronx", "gastronomia" : "African", "nome" : "African Terrace", "restaurant_id" : "40368021" }
+{ "localidade" : "Bronx", "gastronomia" : "Caribbean", "nome" : "Al Cholo Bakery", "restaurant_id" : "40424273" }
+{ "localidade" : "Bronx", "gastronomia" : "Caribbean", "nome" : "Ali'S Roti Shop", "restaurant_id" : "40738028" }
+// 15
+
+// 6. Liste todos os restaurantes que tenham pelo menos um score superior a 85.
+db.restaurants.find({"grades.score":{$gt:85}},{"_id":0,"nome":1,"localidade":1,"grades.score":1})
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 11 }, { "score" : 131 }, { "score" : 11 }, { "score" : 25 }, { "score" : 11 }, { "score" : 13 } ], "nome" : "Murals On 54/Randolphs'S" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 5 }, { "score" : 8 }, { "score" : 12 }, { "score" : 2 }, { "score" : 9 }, { "score" : 92 }, { "score" : 41 } ], "nome" : "Gandhi" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 31 }, { "score" : 98 }, { "score" : 32 }, { "score" : 21 }, { "score" : 11 } ], "nome" : "Bella Napoli" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 89 }, { "score" : 6 }, { "score" : 13 } ], "nome" : "West 79Th Street Boat Basin Cafe" }
+// 4
+
+// 7. Encontre os restaurantes que obtiveram uma ou mais pontuações (score) entre [80 e 100].
+db.restaurants.find({"grades.score":{$gt:80,$lt:100}},{"_id":0,"nome":1,"localidade":1,"grades.score":1})
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 11 }, { "score" : 131 }, { "score" : 11 }, { "score" : 25 }, { "score" : 11 }, { "score" : 13 } ], "nome" : "Murals On 54/Randolphs'S" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 5 }, { "score" : 8 }, { "score" : 12 }, { "score" : 2 }, { "score" : 9 }, { "score" : 92 }, { "score" : 41 } ], "nome" : "Gandhi" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 31 }, { "score" : 98 }, { "score" : 32 }, { "score" : 21 }, { "score" : 11 } ], "nome" : "Bella Napoli" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 9 }, { "score" : 11 }, { "score" : 5 }, { "score" : 19 }, { "score" : 26 }, { "score" : 49 }, { "score" : 80 } ], "nome" : "B.B. Kings" }
+{ "localidade" : "Manhattan", "grades" : [ { "score" : 89 }, { "score" : 6 }, { "score" : 13 } ], "nome" : "West 79Th Street Boat Basin Cafe" }
+// 4
+
+// 8. Indique os restaurantes com latitude inferior a -95,7
+db.restaurants.find({"address.coord.0":{$lt:-95.7}},{"_id":0,"nome":1,"localidade":1,"address":1})
+{ "address" : { "building" : "3707", "coord" : [ -101.8945214, 33.5197474 ], "rua" : "82 Street", "zipcode" : "11372" }, "localidade" : "Queens", "nome" : "Burger King" }
+{ "address" : { "building" : "15259", "coord" : [ -119.6368672, 36.2504996 ], "rua" : "10 Avenue", "zipcode" : "11357" }, "localidade" : "Queens", "nome" : "Cascarino'S" }
+{ "address" : { "building" : "60", "coord" : [ -111.9975205, 42.0970258 ], "rua" : "West Side Highway", "zipcode" : "10006" }, "localidade" : "Manhattan", "nome" : "Sports Center At Chelsea Piers (Sushi Bar)" }
+// 3
+
+// 9. Indique os restaurantes que não têm gastronomia "American", tiveram uma (ou mais) pontuação superior a 70 e estão numa latitude inferior a -65.
+db.restaurants.find({"gastronomia":{$ne:"American"}, "grades.score":{$gt:70}, "address.coord.0":{$lt:-65}},{"_id":0,"nome":1,"localidade":1,"address":1,"gastronomia":1, "grades.score":1})
+{ "address" : { "building" : "345", "coord" : [ -73.9864626, 40.7266739 ], "rua" : "East 6 Street", "zipcode" : "10003" }, "localidade" : "Manhattan", "gastronomia" : "Indian", "grades" : [ { "score" : 5 }, { "score" : 8 }, { "score" : 12 }, { "score" : 2 }, { "score" : 9 }, { "score" : 92 }, { "score" : 41 } ], "nome" : "Gandhi" }
+{ "address" : { "building" : "130", "coord" : [ -73.984758, 40.7457939 ], "rua" : "Madison Avenue", "zipcode" : "10016" }, "localidade" : "Manhattan", "gastronomia" : "Pizza/Italian", "grades" : [ { "score" : 31 }, { "score" : 98 }, { "score" : 32 }, { "score" : 21 }, { "score" : 11 } ], "nome" : "Bella Napoli" }
+{ "address" : { "building" : "101", "coord" : [ -73.9243061, 40.8276297 ], "rua" : "East 161 Street", "zipcode" : "10451" }, "localidade" : "Bronx", "gastronomia" : "Latin (Cuban, Dominican, Puerto Rican, South & Central American)", "grades" : [ { "score" : 10 }, { "score" : 6 }, { "score" : 25 }, { "score" : 12 }, { "score" : 12 }, { "score" : 14 }, { "score" : 26 }, { "score" : 76 } ], "nome" : "El Molino Rojo Restaurant" }
+{ "address" : { "building" : "289", "coord" : [ -73.94610279999999, 40.7137587 ], "rua" : "Manhattan Avenue", "zipcode" : "11211" }, "localidade" : "Brooklyn", "gastronomia" : "Bakery", "grades" : [ { "score" : 10 }, { "score" : 10 }, { "score" : 13 }, { "score" : 18 }, { "score" : 9 }, { "score" : 8 }, { "score" : 77 } ], "nome" : "Fortunato Bros Cafe & Bakery" }
+{ "address" : { "building" : "231", "coord" : [ -73.9772294, 40.7527262 ], "rua" : "Grand Central Station", "zipcode" : "10017" }, "localidade" : "Manhattan", "gastronomia" : "Italian", "grades" : [ { "score" : 20 }, { "score" : 14 }, { "score" : 13 }, { "score" : 76 }, { "score" : 12 } ], "nome" : "Two Boots Grand Central" }
+// 5
+
+// 10. Liste o restaurant_id, o nome, a localidade e gastronomia dos restaurantes cujo nome começam por "Wil".
+db.restaurants.find({"nome":{$regex:"Wil"}},{"restaurant_id":1, "nome":1, "localidade":1, "gastronomia":1})
+{ "localidade" : "Brooklyn", "gastronomia" : "Delicatessen", "nome" : "Wilken'S Fine Food", "restaurant_id" : "40356483" }
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "Wild Asia", "restaurant_id" : "40357217" }
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "The Williamsbridge Tavern", "restaurant_id" : "40852754" }
+{ "localidade" : "Bronx", "gastronomia" : "Pizza", "nome" : "Wilbel Pizza", "restaurant_id" : "40871979" }
+// 4
+
+// 11. Liste o nome, a localidade e a gastronomia dos restaurantes que pertencem ao Bronx e cuja gastronomia é do tipo "American" ou "Chinese".
+db.restaurants.find({"localidade":"Bronx", $or:[{"gastronomia":"American"},{"gastronomia":"Chinese"}]},{"nome":1, "localidade":1, "gastronomia":1, "_id":0})
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "Wild Asia" }
+{ "localidade" : "Bronx", "gastronomia" : "Chinese", "nome" : "Happy Garden" }
+{ "localidade" : "Bronx", "gastronomia" : "Chinese", "nome" : "Happy Garden" }
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "The New Starling Athletic Club Of The Bronx" }
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "Manhem Club" }
+{ "localidade" : "Bronx", "gastronomia" : "American", "nome" : "Yankee Tavern" }
+// 91
+
+// 12. Liste o restaurant_id, o nome, a localidade e a gastronomia dos restaurantes localizados em "Staten Island", "Queens", ou "Brooklyn"
+db.restaurants.find({"localidade":{$in:["Staten Island","Queens","Brooklyn"]}},{"restaurant_id":1,"nome":1, "localidade":1, "gastronomia":1, "_id":0})
+{ "localidade" : "Brooklyn", "gastronomia" : "Hamburgers", "nome" : "Wendy'S", "restaurant_id" : "30112340" }
+{ "localidade" : "Brooklyn", "gastronomia" : "American", "nome" : "Riviera Caterer", "restaurant_id" : "40356018" }
+{ "localidade" : "Brooklyn", "gastronomia" : "American", "nome" : "C & C Catering Service", "restaurant_id" : "40357437" }
+{ "localidade" : "Brooklyn", "gastronomia" : "Chinese", "nome" : "May May Kitchen", "restaurant_id" : "40358429" }
+// 1580
+
+// 13. Liste o nome, a localidade, o score e gastronomia dos restaurantes que alcançaram sempre pontuações inferiores ou igual a 3.
+db.restaurants.find({"grades.score":{$not: {$gte:3}}},{"nome":1, "localidade":1, "gastronomia":1,"grades.score":1, "_id":0})
+{ "localidade" : "Brooklyn", "gastronomia" : "Hamburgers", "grades" : [ { "score" : 2 }, { "score" : 3 }, { "score" : 0 } ], "nome" : "White Castle" }
+{ "localidade" : "Manhattan", "gastronomia" : "Café/Coffee/Tea", "grades" : [ { "score" : 2 }, { "score" : 2 }, { "score" : 2 }, { "score" : 2 } ], "nome" : "Cafe Madison" }
+{ "localidade" : "Manhattan", "gastronomia" : "American", "grades" : [ { "score" : 0 }, { "score" : 3 }, { "score" : 2 } ], "nome" : "Citibank Executive Conference Center" }
+{ "localidade" : "Manhattan", "gastronomia" : "American", "grades" : [ { "score" : 3 }, { "score" : 2 }, { "score" : 2 }, { "score" : 0 } ], "nome" : "Kenyon & Kenyon Cafeteria" }
+// 7
+
+// 14. Liste o nome e as avaliações dos restaurantes que obtiveram uma avaliação com um grade "A", um score 10 na data "2014-08-11T00: 00: 00Z" (ISODATE).
+db.restaurants.find({"grades":{$elemMatch: {"date":ISODate("2014-08-11T00:00:00Z"),"grade":"A","score":10}}},{"nome":1, "_id":0,"grades.grade":1})
+{ "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" } ], "nome" : "Serendipity 3" }
+{ "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" } ], "nome" : "Mutual Of America" }
+{ "grades" : [ { "grade" : "A" }, { "grade" : "B" }, { "grade" : "C" }, { "grade" : "C" }, { "grade" : "C" } ], "nome" : "Udon West" }
+{ "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "B" }, { "grade" : "A" }, { "grade" : "A" } ], "nome" : "Gene'S Coffee Shop" }
+// 6
+
+// 15. Liste o restaurant_id, o nome e os score dos restaurantes nos quais a segunda avaliação foi grade "A" e ocorreu em ISODATE "2014-08-11T00: 00: 00Z".
+db.restaurants.find({"grades.1.grade":"A", "grades.1.date":ISODate("2014-08-11T00:00:00Z")},{"nome":1, "restaurant_id":1,"_id":0,"grades.score":1})
+{ "grades" : [ { "score" : 10 }, { "score" : 9 }, { "score" : 13 }, { "score" : 10 }, { "score" : 11 } ], "nome" : "Club Macanudo (Cigar Bar)", "restaurant_id" : "40526406" }
+{ "grades" : [ { "score" : 9 }, { "score" : 10 }, { "score" : 22 }, { "score" : 5 }, { "score" : 11 } ], "nome" : "Gene'S Coffee Shop", "restaurant_id" : "40614916" }
+// 2
+
+// 16. Liste o restaurant_id, o nome, o endereço (address) e as coordenadas geográficas (coord) dos restaurantes onde o 2º elemento da matriz de coordenadas tem um valor superior a 42 e inferior ou igual a 52.
+db.restaurants.find({$and: [{"address.coord.1": {$gt:42}},{"address.coord.1": {$lte:52}}]},{"restaurant_id": 1, "address": 1, "nome": 1,"_id":0})
+{ "address" : { "building" : "47", "coord" : [ -78.877224, 42.89546199999999 ], "rua" : "Broadway @ Trinity Pl", "zipcode" : "10006" }, "nome" : "T.G.I. Friday'S", "restaurant_id" : "40387990" }
+{ "address" : { "building" : "1", "coord" : [ -0.7119979, 51.6514664 ], "rua" : "Pennplaza E, Penn Sta", "zipcode" : "10001" }, "nome" : "T.G.I. Fridays", "restaurant_id" : "40388936" }
+{ "address" : { "building" : "3000", "coord" : [ -87.86567699999999, 42.61150920000001 ], "rua" : "47 Avenue", "zipcode" : "11101" }, "nome" : "Di Luvio'S Deli", "restaurant_id" : "40402284" }
+// 7
+
+// 17. Liste nome, gastronomia e localidade de todos os restaurantes ordenando por ordem crescente da gastronomia e, em segundo, por ordem decrescente de localidade
+db.restaurants.find({},{"nome": 1, "gastronomia":1, "localidade": 1,"_id":0}).sort({"localidade":1}).sort({"localidade":-1})
+{ "localidade" : "Staten Island", "gastronomia" : "Jewish/Kosher", "nome" : "Kosher Island" }
+{ "localidade" : "Staten Island", "gastronomia" : "Delicatessen", "nome" : "Bagels N Buns" }
+{ "localidade" : "Staten Island", "gastronomia" : "Ice Cream, Gelato, Yogurt, Ices", "nome" : "Carvel Ice Cream" }
+{ "localidade" : "Staten Island", "gastronomia" : "Delicatessen", "nome" : "Plaza Bagels & Deli" }
+{ "localidade" : "Staten Island", "gastronomia" : "Delicatessen", "nome" : "B & M Hot Bagel & Grocery" }
+{ "localidade" : "Staten Island", "gastronomia" : "American", "nome" : "Great Kills Yacht Club" }
+{ "localidade" : "Staten Island", "gastronomia" : "Italian", "nome" : "Crystal Room" }
+// 3772
+
+// 18. Liste nome, localidade, grade e gastronomia de todos os restaurantes localizados em Brooklyn que não incluem gastronomia "American" e obtiveram uma classificação (grade) "A". Deve apresentá-los por ordem decrescente de gastronomia
+db.restaurants.find({"localidade":"Brooklyn", "gastronomia":{$ne:"American"},"grades.grade":"A"},{"nome": 1, "localidade": 1,"grades.grade":1,"_id":0}).sort({"gastronomia":-1})
+{ "localidade" : "Brooklyn", "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "C" }, { "grade" : "A" } ], "nome" : "Strictly Vegetarian" }
+{ "localidade" : "Brooklyn", "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "C" } ], "nome" : "Original Vegetarian Restaurant" }
+{ "localidade" : "Brooklyn", "grades" : [ { "grade" : "A" }, { "grade" : "A" }, { "grade" : "A" } ], "nome" : "Bliss Bakery & Cafe" }
+{ "localidade" : "Brooklyn", "grades" : [ { "grade" : "A" }, { "grade" : "B" }, { "grade" : "A" }, { "grade" : "A" }, { "grade" : "C" }, { "grade" : "A" }, { "grade" : "A" } ], "nome" : "Sahara Restaurant" }
+// 493
+
+// 19. Conte o total de restaurante existentes em cada localidade.
+db.restaurants.aggregate([{$group : { _id : "$localidade", number_restaurants : {$sum : 1}}}])
+{ "_id" : "Staten Island", "number_restaurants" : 158 }
+{ "_id" : "Manhattan", "number_restaurants" : 1883 }
+{ "_id" : "Queens", "number_restaurants" : 738 }
+{ "_id" : "Brooklyn", "number_restaurants" : 684 }
+{ "_id" : "Bronx", "number_restaurants" : 309 }
+
+// 20. Liste todos os restaurantes cuja média dos score é superior a 30.
+db.restaurants.aggregate([{$addFields: {"average_score": {$avg: "$grades.score"} }}, {$match: {"average_score": {$gt: 30}}}])
+{ "_id" : ObjectId("617a8c5e119b2fed10386426"), "address" : { "building" : "146", "coord" : [ -73.9736776, 40.7535755 ], "rua" : "East   46 Street", "zipcode" : "10017" }, "localidade" : "Manhattan", "gastronomia" : "Italian", "grades" : [ { "date" : ISODate("2014-03-11T00:00:00Z"), "grade" : "A", "score" : 11 }, { "date" : ISODate("2013-07-31T00:00:00Z"), "grade" : "C", "score" : 53 }, { "date" : ISODate("2012-12-19T00:00:00Z"), "grade" : "A", "score" : 12 }, { "date" : ISODate("2012-06-04T00:00:00Z"), "grade" : "C", "score" : 45 }, { "date" : ISODate("2012-01-18T00:00:00Z"), "grade" : "C", "score" : 34 }, { "date" : ISODate("2011-09-28T00:00:00Z"), "grade" : "B", "score" : 18 }, { "date" : ISODate("2011-05-24T00:00:00Z"), "grade" : "C", "score" : 52 } ], "nome" : "Nanni Restaurant", "restaurant_id" : "40366157", "average_score" : 32.142857142857146 }
+{ "_id" : ObjectId("617a8c5e119b2fed103864f7"), "address" : { "building" : "65", "coord" : [ -73.9782725, 40.7624022 ], "rua" : "West   54 Street", "zipcode" : "10019" }, "localidade" : "Manhattan", "gastronomia" : "American", "grades" : [ { "date" : ISODate("2014-08-22T00:00:00Z"), "grade" : "A", "score" : 11 }, { "date" : ISODate("2014-03-28T00:00:00Z"), "grade" : "C", "score" : 131 }, { "date" : ISODate("2013-09-25T00:00:00Z"), "grade" : "A", "score" : 11 }, { "date" : ISODate("2013-04-08T00:00:00Z"), "grade" : "B", "score" : 25 }, { "date" : ISODate("2012-10-15T00:00:00Z"), "grade" : "A", "score" : 11 }, { "date" : ISODate("2011-10-19T00:00:00Z"), "grade" : "A", "score" : 13 } ], "nome" : "Murals On 54/Randolphs'S", "restaurant_id" : "40372466", "average_score" : 33.666666666666664 }
+{ "_id" : ObjectId("617a8c5e119b2fed1038651f"), "address" : { "building" : "2716", "coord" : [ -73.9254891, 40.59284479999999 ], "rua" : "Gerritsen Avenue", "zipcode" : "11229" }, "localidade" : "Brooklyn", "gastronomia" : "Pizza", "grades" : [ { "date" : ISODate("2014-11-26T00:00:00Z"), "grade" : "A", "score" : 12 }, { "date" : ISODate("2014-04-09T00:00:00Z"), "grade" : "B", "score" : 24 }, { "date" : ISODate("2013-09-19T00:00:00Z"), "grade" : "B", "score" : 27 }, { "date" : ISODate("2012-12-27T00:00:00Z"), "grade" : "B", "score" : 23 }, { "date" : ISODate("2012-05-21T00:00:00Z"), "grade" : "C", "score" : 68 } ], "nome" : "Victoria Pizza", "restaurant_id" : "40374268", "average_score" : 30.8 }
+// 8
+
+// 21. Indique os restaurantes que têm gastronomia "Portuguese", o somatório de score é superior a 50 e estão numa latitude inferior a -60.
+db.restaurants.aggregate([{$addFields : { total_score :  {$sum : '$grades.score'}}}, {$match : {total_score: {$gt: 50}, gastronomia: 'Portuguese', 'address.coord.0': {$lt: -60}}}])
+{ "_id" : ObjectId("617a8c5e119b2fed1038672f"), "address" : { "building" : "222-05", "coord" : [ -73.732315, 40.720725 ], "rua" : "Jamaica Avenue", "zipcode" : "11428" }, "localidade" : "Queens", "gastronomia" : "Portuguese", "grades" : [ { "date" : ISODate("2014-09-17T00:00:00Z"), "grade" : "A", "score" : 13 }, { "date" : ISODate("2014-07-25T00:00:00Z"), "grade" : "P", "score" : 8 }, { "date" : ISODate("2014-02-20T00:00:00Z"), "grade" : "B", "score" : 19 }, { "date" : ISODate("2013-07-17T00:00:00Z"), "grade" : "B", "score" : 14 }, { "date" : ISODate("2012-03-01T00:00:00Z"), "grade" : "A", "score" : 13 } ], "nome" : "Mateus Restaurant", "restaurant_id" : "40394518", "total_score" : 67 }
+{ "_id" : ObjectId("617a8c5e119b2fed103869f6"), "address" : { "building" : "322", "coord" : [ -74.0093371, 40.7258846 ], "rua" : "Spring Street", "zipcode" : "10013" }, "localidade" : "Manhattan", "gastronomia" : "Portuguese", "grades" : [ { "date" : ISODate("2014-07-02T00:00:00Z"), "grade" : "B", "score" : 26 }, { "date" : ISODate("2014-06-03T00:00:00Z"), "grade" : "P", "score" : 10 }, { "date" : ISODate("2013-05-14T00:00:00Z"), "grade" : "A", "score" : 13 }, { "date" : ISODate("2012-08-13T00:00:00Z"), "grade" : "B", "score" : 24 }, { "date" : ISODate("2012-02-28T00:00:00Z"), "grade" : "A", "score" : 7 } ], "nome" : "Pao", "restaurant_id" : "40535455", "total_score" : 80 }
+// 2
+
+// 22. Apresente o nome e o score dos 3 restaurantes com score médio mais elevado.
+db.restaurants.aggregate([{$addFields: {"score": {$avg: "$grades.score"}}}, {$sort: {"score": -1}}, {$limit: 3}, {$project: {"_id":0, "nome":1, "score":1}}])
+{ "nome" : "Bella Napoli", "score" : 38.6 }
+{ "nome" : "West 79Th Street Boat Basin Cafe", "score" : 36 }
+{ "nome" : "Murals On 54/Randolphs'S", "score" : 33.666666666666664 }
+// 3
+
+// 23. Apresente o número de gastronomias diferentes na rua "Fifth Avenue"
+db.restaurants.aggregate([{$match: {"address.rua": "Fifth Avenue"}},{$group: {"_id": "$gastronomia"}},{$count: "number_gastronomy"}])
+{ "number_gastronomy" : 4 }
+// 1
+
+// 24. Conte quantos restaurantes existem por rua e ordene por ordem decrescente
+db.restaurants.aggregate([{$group : { _id : "$address.rua", "number_restaurants" : {$sum : 1}}}, {$sort: {"number_restaurants": -1}}])
+{ "_id" : "Broadway", "number_restaurants" : 178 }
+{ "_id" : "3 Avenue", "number_restaurants" : 97 }
+{ "_id" : "7 Avenue", "number_restaurants" : 71 }
+{ "_id" : "2 Avenue", "number_restaurants" : 62 }
+{ "_id" : "5 Avenue", "number_restaurants" : 52 }
+// 
+
+// 25. List o nome, restaurant_id e a rua dos restaurantes que têm gastronomia 'American' ou 'Hamburguers' e grade 'A'
+db.restaurants.find({$or:[{gastronomia:"American"}, {"gastronomia":"Hamburguers"}], "grades.grade":"A"},{"_id":0, "nome":1, "restaurant_id":1, "address.rua":1})
+{ "address" : { "rua" : "Stillwell Avenue" }, "nome" : "Riviera Caterer", "restaurant_id" : "40356018" }
+{ "address" : { "rua" : "18 Avenue" }, "nome" : "C & C Catering Service", "restaurant_id" : "40357437" }
+{ "address" : { "rua" : "East   66 Street" }, "nome" : "1 East 66Th Street Kitchen", "restaurant_id" : "40359480" }
+{ "address" : { "rua" : "Prospect Park West" }, "nome" : "The Movable Feast", "restaurant_id" : "40361606" }
+{ "address" : { "rua" : "East   74 Street" }, "nome" : "Glorious Food", "restaurant_id" : "40361521" }
+{ "address" : { "rua" : "Columbus Avenue" }, "nome" : "P & S Deli Grocery", "restaurant_id" : "40362264" }
+// 1249
+
+// 26. Liste o nome do restaurante, o restaurante_id e o score do restaurante com score médio mais baixo
+db.restaurants.aggregate([{$addFields: {"min_score": {$avg: "$grades.score"}}}, {$sort: {"score": 1}}, {$limit: 1}, {$project: {"_id":0, "nome":1,"restaurant_id":1, "min_score":1}}])
+{ "nome" : "Wendy'S", "restaurant_id" : "30112340", "min_score" : 13.75 }
+// 1
+
+// 27. Liste o nome e score total de todos os restaurantes com gastronomia chinese e a uma latitude inferior a 42
+db.restaurants.aggregate([{$addFields: {total_score: {$sum: "$grades.score"}}}, {$match: {"gastronomia": "Chinese", "address.coord.0":{$lt: 42}}}, {$group: {"_id": "$restaurant_id", nome: "$nome", "total_score": "$total_score"}}])
+{ "_id" : "40884708", "nome" : "Yao Wah Kitchen", "total_score" : 42 }
+{ "_id" : "40391528", "nome" : "Szechuan Delight Restaurant", "total_score" : 46 }
+{ "_id" : "40390653", "nome" : "Kum Kau Kitchen", "total_score" : 26 }
+{ "_id" : "40401775", "nome" : "Oriental Express", "total_score" : 113 }
+{ "_id" : "40358429", "nome" : "May May Kitchen", "total_score" : 138 }
+{ "_id" : "40670874", "nome" : "Me & My Eggroll", "total_score" : 78 }
+
+// 28. Liste o nome e o restaurant_id dos restaurantes onde a média do score está entre 15 e 20
+db.restaurants.aggregate([{$addFields : {"average_score":{$avg: "$grades.score"}}}, {$match : {"average_score": {$gt: 15, $lt: 20}}}, {$project: {"_id":0, "nome":1,"restaurant_id":1, "average_score":1}}])
+{ "nome" : "P & S Deli Grocery", "restaurant_id" : "40362264", "average_score" : 16.75 }
+{ "nome" : "Tov Kosher Kitchen", "restaurant_id" : "40356068", "average_score" : 17.75 }
+{ "nome" : "Hot Bagels", "restaurant_id" : "40363565", "average_score" : 19.166666666666668 }
+{ "nome" : "Spoon Bread Catering", "restaurant_id" : "40364179", "average_score" : 15.75 }
+{ "nome" : "B & M Hot Bagel & Grocery", "restaurant_id" : "40364299", "average_score" : 15.6 }
+
+// 29. Liste o nome, o restaurant_id, as coordenadas e a localidade dos restaurantes com latitude superior a 30
+db.restaurants.find({"address.coord.0":{$gt:30}},{"_id":0,"nome":1,"restaurant_id":1,"localidade":1, "address.coord":1})
+{ "address" : { "coord" : [ 153.1628795, -28.0168595 ] }, "localidade" : "Manhattan", "nome" : "Sammy'S Steakhouse", "restaurant_id" : "40368552" }
+{ "address" : { "coord" : [ 80.361767, 26.4669033 ] }, "localidade" : "Brooklyn", "nome" : "Master Wok", "restaurant_id" : "40398688" }
+// 2
+
+// 30. Liste os restaurantes cuja localidade começa pela letra 'B'
+db.restaurants.find({"localidade":{$regex:"B"}},{"_id":0,"restaurant_id":1, "nome":1, "localidade":1})
+{ "localidade" : "Bronx", "nome" : "Morris Park Bake Shop", "restaurant_id" : "30075445" }
+{ "localidade" : "Bronx", "nome" : "Wild Asia", "restaurant_id" : "40357217" }
+{ "localidade" : "Bronx", "nome" : "Carvel Ice Cream", "restaurant_id" : "40363093" }
+{ "localidade" : "Bronx", "nome" : "Happy Garden", "restaurant_id" : "40363289" }
+{ "localidade" : "Bronx", "nome" : "Happy Garden", "restaurant_id" : "40364296" }
+// 993

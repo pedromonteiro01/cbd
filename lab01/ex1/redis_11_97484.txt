@@ -1,0 +1,189 @@
+ping
+set Pedro 97484
+get Pedro
+ping
+help ping
+help get
+clear
+bgsave
+strlen Pedro
+get Pedro
+set key "I'm the one who knocks"
+strlen key
+exists mykey
+exists mykey4
+flushdb
+set mykey ""
+get mykey
+append mykey "Hello"
+append mykey " World!"
+get mykey
+set str "This is a string"
+getrange str 0 3
+getrange str 0 10
+getrange str -3 -1
+getrange str 0 -1
+getrange str 10 100
+set key1 "Hello World"
+setrange key1 6 "Pedro"
+get key1
+setrange key1 5 ","
+get key1
+set number 15
+incr number
+incrby number 20
+get number
+decrby number 15
+get number
+exists number
+exists xxxxxxxxx
+keys *key*
+set mykeymykey 123456
+set key2 1
+keys *key*
+del mykeymykey
+get mykeymykey
+set Nome "Pedro"
+get nome
+get Nome
+rename Nome name
+get Nome
+get name
+type name
+type number
+expire key_to_expire 30
+ttl key_to_expire
+set key_to_expire "I'll be deleted in 30 seconds"
+get key_ti_expire
+get key_to_expire
+expire key_to_expire 30
+ttl key_to_expire
+ttl xxxxxx
+ttl number
+ttl mykey
+set fake_timeout "I won't be deleted in 30 seconds"
+ttl fake_timeout
+get fake_timeout
+expire fake_timeout 30
+ttl fake_timeout
+persist fake_timeout
+ttl fake_timeout
+flushdb
+rpush mylist "hello"
+rpush mylist "world"
+type mylist
+lrange mylist 0 -1
+lpush mylist "hi"
+lrange mylist 0 -1
+rpush mylist "world (gone be deleted)"
+lrange mylist 0 -1
+rpop mylist
+lrange mylist 0 -1
+linsert mylist before "world" "there, "
+lrange mylist 0 -1
+lpop mylist
+lrange mylist 0 -1
+lindex mylist 0
+lindex mylist 1
+lindex mylist 2
+lindex mylist 3
+lindex mylist -1
+lindex mylist -2
+lindex mylist -3
+llen mylist
+RPUSH mylist "hello"
+lrange mylist 0 -1
+RPUSH mylist "hello"
+RPUSH mylist "foo"
+RPUSH mylist "hello"
+lrange mylist 0 -1
+lrem mylist -2 "hello"
+lrange mylist 0 -1
+llen mylist
+sadd myset "Hello"
+sadd myset "World"
+type myset
+smembers myset
+sadd myset "World"
+smembers myset
+sadd myset "World!"
+smembers myset
+srem myset "World"
+smembers myset
+sismember myset "Hello"
+sismember myset "Hi"
+sadd key1 "a"
+sadd key1 "b"
+sadd key1 "c"
+sadd key2 "d"
+sadd key2 "e"
+sunion key1 key2
+sunion key2 key1
+sinter key1 key2
+sdiff key1 key2
+sadd key2 "c"
+sdiff key1 key2
+hset myhash field1 "Pedro"
+hget myhash field1
+hset myhash field2 "Monteiro"
+type myhash
+hmset myhash field3 "Hello" field4 "World!"
+hget myhash field1
+hget myhash field2
+hget myhash field3
+hget myhash field4
+hmget field1 field2 field3 field4
+hmget myhash field1 field2 field3 field4
+exists myhash
+hexists myhash field1
+hexists myhash xxxxxx
+hgetall myhash
+hkeys myhash
+hset myhash key1 "vaule1"
+hdel myhash key1
+hkeys myhash
+hset myhash key1 "value1"
+hset myhash key2 "value2"
+hset myhash key3 "value3"
+hkeys myhash
+hvals myhash
+hlen myhash
+zadd myset 1 "one"
+zadd myorderedset 1 "one"
+zadd myorderedset 2 "two"
+zadd myorderedset 3 "three"
+zadd myorderedset 4 "four"
+zrem myorderedset 4
+zrange myorderedset 0 -1 
+zrem myorderedset "four"
+zrange myorderedset 0 -1 
+zrangebyscore myorderedset 1 2
+zrangebyscore myorderedset 1 3
+zrangebyscore myorderedset 0 3
+zrangebyscore myorderedset 2 3
+zcard myorderedset
+zcount myorderedset 1 3
+zcount myorderedset 1 2
+zcount myorderedset 3 1
+zcount myorderedset 0 5
+geoadd uni 12.3456 65.4321 "Pedro"
+geoadd Aveiro 78.1234 34.123456 "Pedro Monteiro"
+geodist uni Aveiro
+geoadd Chave 43.134 87.3425 "P. Monteiro"
+geoadd Chave 13.1342 32.3425 "P. Monteiro"
+geodist uni Aveiro Chave
+GEOADD Sicily 13.361389 38.115556 "Palermo" 15.087269 37.502669 "Catania"
+GEODIST Sicily Palermo Catania
+geodist Sicily Palermo Catania km
+geohash Sicily Palermo Catania
+geohash Sicily Catania Palermo
+geohash Palermo Catanio Sicily
+geopos Palermo Catanio Sicily
+geopos Sicily Palermo Catania
+geohash Palermo Catania Sicily
+geopos Sicily Catania Palermo
+georadius Sicily 12 30 200 km 
+georadius Sicily 15 37 200 km
+georadius Sicily 15 37 200 km withcoord
+georadius Sicily 15 37 200 km withdist withcoord
+ping

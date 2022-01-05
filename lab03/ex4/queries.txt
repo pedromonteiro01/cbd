@@ -1,0 +1,32 @@
+## Os resultados para estas operações encontram-se em prints/results/queries
+
+-- 1. Retorne o livro que tem exatamente 90 páginas
+select * from books where num_pages = 90;
+
+-- 2. Indique os livros da categoria 'Adventure' por ordem decrescente de número de páginas
+select * from books_by_category where category = 'Adventure' order by num_pages desc;
+
+-- 3. Retorne a lista de subscritores para o livro com id 5.
+select sub as subs_set from book_subscriber where book_id = 5;
+
+-- 4. Indique a média e o número de votos para o livro com ID = 5.
+select book_id, count(*) as num_votes, avg(vote) as avg_votes from book_votes where book_id = 5;
+
+-- 5. Quantas vezes leu o utilizador 'Pedro Monteiro' o livro com ID = 4?
+select num_book_reads from book_addict where reader = 'Pedro Monteiro' and book_id = 4;
+
+-- 6. Indique o maior número de vezes que o utilizador 'Eduardo Fernandes' leu o mesmo livro.
+select reader, book_id, max(num_book_reads['num_reads']) as max_reads from book_addict where reader = 'Eduardo Fernandes';
+
+-- 7. Qual o nome do autor com ID = 1? Indique os livros escritos por este autor.
+select author_id, name from author where author_id = 1;
+select author_id, title from books_by_author where author_id = 1;
+
+-- 8. Quantas categorias de livros diferentes existem? Indique-as.
+select distinct category from books_by_category;
+
+-- 9. Indique todos os comentários para um determinado livro.
+select book_id, comment from books_comments where book_id = 1;
+
+-- 10. Indique os primeiros 3 votos do livro com ID = 2, bem como o valor do seu voto.
+select book_id, vote, date from book_votes where book_id = 2 order by date limit 3;

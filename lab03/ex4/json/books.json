@@ -1,0 +1,13 @@
+                                          {"book_id": 5, "num_pages": 96, "author_id": 1, "categories": ["Fun", "Kids"], "date": "2021-12-20 15:12:04.216Z", "title": "Diário de um Banana II"}
+                                           {"book_id": 10, "num_pages": 232, "author_id": 6, "categories": ["Satire"], "date": "2021-12-20 15:12:27.014Z", "title": "Auto da Barca do Inferno"}
+ {"book_id": 11, "num_pages": 432, "author_id": 7, "categories": ["Security", "Computer Engineering"], "date": "2021-12-20 15:12:30.292Z", "title": "Segurança Informática e nas Organizações"}
+                                              {"book_id": 1, "num_pages": 213, "author_id": 1, "categories": ["Fun", "Adventure"], "date": "2021-12-20 15:10:48.519Z", "title": "Uma Aventura"}
+                                               {"book_id": 8, "num_pages": 314, "author_id": 4, "categories": ["History", "Portugal"], "date": "2021-12-20 15:12:20.293Z", "title": "Lusíadas"}
+                                                       {"book_id": 2, "num_pages": 309, "author_id": 1, "categories": ["War", "Action"], "date": "2021-12-20 15:11:29.150Z", "title": "Hobbit"}
+                                             {"book_id": 4, "num_pages": 90, "author_id": 1, "categories": ["Fun", "Kids"], "date": "2021-12-20 15:12:00.432Z", "title": "Diário de um Banana"}
+                                                                {"book_id": 7, "num_pages": 516, "author_id": 3, "categories": ["War"], "date": "2021-12-20 15:12:16.185Z", "title": "Ulisses"}
+                                           {"book_id": 6, "num_pages": 419, "author_id": 2, "categories": ["Mystery", "Adventure"], "date": "2021-12-20 15:12:10.559Z", "title": "Dom Quixote"}
+                                                            {"book_id": 9, "num_pages": 487, "author_id": 5, "categories": ["Family"], "date": "2021-12-20 15:12:23.422Z", "title": "Os Maias"}
+                                          {"book_id": 3, "num_pages": 190, "author_id": 2, "categories": ["Mystery", "Adventure"], "date": "2021-12-20 15:11:34.012Z", "title": "Harry Potter"}
+
+(11 rows)
