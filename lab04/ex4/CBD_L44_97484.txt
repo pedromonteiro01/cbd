@@ -1,0 +1,583 @@
+// NMEC: 97484
+
+- Entidades:
+    - Book:
+        - bookID
+        - title
+        - average_rating
+        - isbn
+        - isbn13
+        - ratings_count
+        - num_pages
+        - text_reviews_count
+    - BookLanguage
+        - language_code
+    - Publisher
+        - publisher_name
+    - Author
+        - authors_name
+
+- Relações:
+    - PUBLISHED [Publisher->Book]:
+        - publication_date
+    - WROTE [Author->Book]
+    - WROTE_IN [Book -> BookLanguage]
+        - language_code
+
+- CREATE CONSTRAINT ON (book:Book) ASSERT book.bookID IS UNIQUE
+
+LOAD CSV WITH HEADERS
+FROM "file:///books.csv" AS Row
+MERGE (book:Book {bookID: Row.bookID})
+SET book.title=Row.title, book.average_rating=Row.average_rating, book.isbn=Row.isbn, book.isbn13=Row.isbn13,
+book.ratings_count=Row.ratings_count, book.num_pages=Row.num_pages, 
+book.text_reviews_count=Row.text_reviews_count
+MERGE (publisher:Publisher {publisher_name: Row.publisher_name})
+MERGE (author:Author {authors_name:Row.authors_name})
+MERGE (bookLanguage:BookLanguage {language_code:Row.language_code})
+
+LOAD CSV WITH HEADERS
+FROM "file:///books.csv" AS Row
+MATCH (publisher:Publisher {publisher_name:Row.publisher_name}), (book:Book {bookID: Row.bookID})
+CREATE (publisher)-[:PUBLISHED {publication_date: Row.publication_date}]->(book)
+
+LOAD CSV WITH HEADERS
+FROM "file:///books.csv" AS Row
+MATCH (author:Author {authors_name: Row.authors_name}), (book:Book {bookID:Row.bookID})
+CREATE (author)-[:WROTE]->(book)
+
+LOAD CSV WITH HEADERS
+FROM "file:///books.csv" AS Row
+MATCH (book:Book {bookID: Row.bookID}), (bookLanguage:BookLanguage {language_code:Row.language_code})
+CREATE (book)-[:WROTE_IN]->(bookLanguage)
+
+1. Retorne o titulo e o número de páginas de todos os livros
+match (b:Book) return b.title as title,b.num_pages as num_pages;
+
+╒══════════════════════════════════════════════════════════════════════╤═══════════╕
+│"title"                                                               │"num_pages"│
+╞══════════════════════════════════════════════════════════════════════╪═══════════╡
+│"Harry Potter and the Half-Blood Prince (Harry Potter  #6)"           │"652"      │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Harry Potter and the Order of the Phoenix (Harry Potter  #5)"        │"870"      │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Harry Potter and the Chamber of Secrets (Harry Potter  #2)"          │"352"      │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Harry Potter and the Prisoner of Azkaban (Harry Potter  #3)"         │"435"      │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)"              │"2690"     │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Unauthorized Harry Potter Book Seven News: Half-Blood Prince Analysis│"152"      │
+│ and Speculation"                                                     │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"Harry Potter Collection (Harry Potter  #1-6)"                        │"3342"     │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (│"815"      │
+│Hitchhiker's Guide to the Galaxy  #1-5)"                              │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to │"815"      │
+│the Galaxy  #1-5)"                                                    │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galax│"215"      │
+│y  #1)"                                                               │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galax│"6"        │
+│y  #1)"                                                               │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+│"The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy  #1│"815"      │
+│-5)"                                                                  │           │
+├──────────────────────────────────────────────────────────────────────┼───────────┤
+(...)
+
+2. Retorne o título do livro com maior rating médio
+match (b:Book) return b.title as book_title order by b.average_rating desc limit 1;
+
+╒════════════════════════════════════════════════════════╕
+│"book_title"                                            │
+╞════════════════════════════════════════════════════════╡
+│"Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)"│
+└────────────────────────────────────────────────────────┘
+
+3. Retorne o número de livros publicados por cada 'publisher' apresentando primeiro aqueles que têm mais livros publicados
+match (p:Publisher)-[:PUBLISHED]-(b:Book) 
+return p.publisher_name as publisher_name,count(b) as num_books 
+order by num_books desc;
+
+╒═════════════════════════════════════════════════════════╤═══════════╕
+│"publisher_name"                                         │"num_books"│
+╞═════════════════════════════════════════════════════════╪═══════════╡
+│"Penguin Books"                                          │26         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Penguin Classics"                                       │19         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"University of Chicago Press"                            │13         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Farrar  Straus and Giroux"                              │12         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Cambridge University Press"                             │11         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Vintage"                                                │10         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Oxford University Press  USA"                           │10         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Hackett Publishing Company  Inc."                       │10         │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"William Morrow Paperbacks"                              │9          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Oxford University Press"                                │8          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Harvard University Press"                               │8          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"HarperOne"                                              │7          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Broadway Books"                                         │7          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Ballantine Books"                                       │7          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Wiley"                                                  │7          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Houghton Mifflin Harcourt"                              │6          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Cliffs Notes"                                           │6          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Scribner"                                               │6          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"Simon  Schuster"                                        │6          │
+├─────────────────────────────────────────────────────────┼───────────┤
+│"VIZ Media LLC"                                          │6          │
+├─────────────────────────────────────────────────────────┼───────────┤
+(...)
+
+
+4. Retorne os livros publicados por 'Wiley' em que o código de linguagem é 'eng'
+match (p:Publisher)-[:PUBLISHED]-(b:Book) - [:WROTE_IN] - (bl:BookLanguage) 
+where p.publisher_name = 'Wiley' and bl.language_code = 'eng'
+return b.title as title, bl.language_code as language_code, b.num_pages as num_pages;
+
+╒══════════════════════════════════════════════════════════════════════╤═══════════════╤═══════════╕
+│"title"                                                               │"language_code"│"num_pages"│
+╞══════════════════════════════════════════════════════════════════════╪═══════════════╪═══════════╡
+│"eBay: Top 100 Simplified Tips & Tricks"                              │"eng"          │"260"      │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼───────────┤
+│"Starting an eBay Business for Dummies"                               │"eng"          │"384"      │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼───────────┤
+│"Power of an Hour: Business and Life Mastery in One Hour a Week"      │"eng"          │"205"      │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼───────────┤
+│"eBay for Dummies"                                                    │"eng"          │"386"      │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼───────────┤
+│"The Warren Buffett CEO: Secrets from the Berkshire Hathaway Managers"│"eng"          │"432"      │
+└──────────────────────────────────────────────────────────────────────┴───────────────┴───────────┘
+
+5. Retorne o livro que foi escrito por 'J.K. Rowling/Mary GrandPré' e publicado por 'Scholastic Inc.' em '9/1/2004'
+match (a:Author)-[:WROTE]-(b:Book)-[r:PUBLISHED]-(p:Publisher) 
+where a.authors_name='J.K. Rowling/Mary GrandPré' 
+and p.publisher_name='Scholastic Inc.'
+and r.publication_date='9/1/2004' 
+return a.authors_name as author_name,b as book,p.publisher_name as publisher_name,r.publication_date as date;
+
+╒════════════════════════════╤══════════════════════════════════════════════════════════════════════╤═════════════════╤══════════╕
+│"author_name"               │"book"                                                                │"publisher_name" │"date"    │
+╞════════════════════════════╪══════════════════════════════════════════════════════════════════════╪═════════════════╪══════════╡
+│"J.K. Rowling/Mary GrandPré"│{"text_reviews_count":"29221","isbn13":"9780439358071","num_pages":"87│"Scholastic Inc."│"9/1/2004"│
+│                            │0","isbn":"0439358078","average_rating":"4.49","ratings_count":"215316│                 │          │
+│                            │7","title":"Harry Potter and the Order of the Phoenix (Harry Potter  #│                 │          │
+│                            │5)","bookID":"2"}                                                     │                 │          │
+└────────────────────────────┴──────────────────────────────────────────────────────────────────────┴─────────────────┴──────────┘
+
+6. Retorne 10 livros ordenados pelo número de ratings, mas ordenados decrescentemente por rating médio 
+match (b:Book) 
+where toInteger(b.ratings_count) > 0 
+return b as book, b.ratings_count as ratings_count, b.average_rating as average_rating 
+order by b.ratings_count asc, b.average_rating desc 
+limit 10;
+
+╒══════════════════════════════════════════════════════════════════════╤═══════════════╤════════════════╕
+│"book"                                                                │"ratings_count"│"average_rating"│
+╞══════════════════════════════════════════════════════════════════════╪═══════════════╪════════════════╡
+│{"text_reviews_count":"0","isbn13":"9780060255084","num_pages":"216","│"1"            │"4.14"          │
+│isbn":"0060255080","average_rating":"4.14","ratings_count":"1","title"│               │                │
+│:"We Were Not Like Other People","bookID":"534"}                      │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"208","isbn13":"9781419150012","│"1"            │"4.10"          │
+│isbn":"1419150014","average_rating":"4.10","ratings_count":"1","title"│               │                │
+│:"The Suppliant Maidens/The Persians/Seven against Thebes/Prometheus B│               │                │
+│ound","bookID":"1533"}                                                │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"480","isbn13":"9780872203617","│"1"            │"3.77"          │
+│isbn":"0872203611","average_rating":"3.77","ratings_count":"1","title"│               │                │
+│:"Clouds/Wasps/Birds (Aristophanes 1)","bookID":"1566"}               │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","isbn13":"9781843535843","num_pages":"363","│"1"            │"3.75"          │
+│isbn":"184353584X","average_rating":"3.75","ratings_count":"1","title"│               │                │
+│:"The Mini Rough Guide to London","bookID":"787"}                     │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"100","isbn13":"9780932863058","│"10"           │"4.20"          │
+│isbn":"0932863051","average_rating":"4.20","ratings_count":"10","title│               │                │
+│":"Dalit: The Black Untaouchables of India","bookID":"166"}           │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"212","isbn13":"9780521479349","│"10"           │"3.73"          │
+│isbn":"0521479347","average_rating":"3.73","ratings_count":"10","title│               │                │
+│":"Foucault's Virginity: Ancient Erotic Fiction & the History of Sexua│               │                │
+│lity (Stanford Memorial Lecture)","bookID":"1805"}                    │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"240","isbn13":"9780325001531","│"10"           │"3.67"          │
+│isbn":"0325001537","average_rating":"3.67","ratings_count":"10","title│               │                │
+│":"The Power of One: The Solo Play for Playwrights  Actors  and Direct│               │                │
+│ors","bookID":"131"}                                                  │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"1","num_pages":"334","isbn13":"9780521011761","│"10"           │"3.40"          │
+│isbn":"0521011760","average_rating":"3.40","ratings_count":"10","title│               │                │
+│":"Who Needs Greek? Contests in the Cultural History of Hellenism","bo│               │                │
+│okID":"1804"}                                                         │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"0","num_pages":"216","isbn13":"9780205358625","│"10"           │"3.40"          │
+│isbn":"0205358624","average_rating":"3.40","ratings_count":"10","title│               │                │
+│":"The Evidence-Based Social Work Skills Book","bookID":"171"}        │               │                │
+├──────────────────────────────────────────────────────────────────────┼───────────────┼────────────────┤
+│{"text_reviews_count":"13","num_pages":"72","isbn13":"9780573650963","│"100"          │"4.13"          │
+│isbn":"0573650969","average_rating":"4.13","ratings_count":"100","titl│               │                │
+│e":"The Phantom Tollbooth: A Children's Play in Two Acts","bookID":"38│               │                │
+│2"}                                                                   │               │                │
+└──────────────────────────────────────────────────────────────────────┴───────────────┴────────────────┘
+
+7. Retorne os autores que escreveram mais do que 3 livros
+match(a:Author)-[:WROTE]-(b:Book) 
+with a,count(b) as num_books 
+where num_books > 3 
+return a.authors_name as author_name, num_books;
+
+╒════════════════════════════════╤═══════════╕
+│"author_name"                   │"num_books"│
+╞════════════════════════════════╪═══════════╡
+│"J.K. Rowling/Mary GrandPré"    │4          │
+├────────────────────────────────┼───────────┤
+│"Douglas Adams"                 │6          │
+├────────────────────────────────┼───────────┤
+│"Bill Bryson"                   │9          │
+├────────────────────────────────┼───────────┤
+│"John McPhee"                   │8          │
+├────────────────────────────────┼───────────┤
+│"Frank Herbert"                 │5          │
+├────────────────────────────────┼───────────┤
+│"Marsha Collier"                │4          │
+├────────────────────────────────┼───────────┤
+│"Henry Miller"                  │5          │
+├────────────────────────────────┼───────────┤
+│"Gabriel García Márquez"        │5          │
+├────────────────────────────────┼───────────┤
+│"Robert A. Heinlein"            │5          │
+├────────────────────────────────┼───────────┤
+│"Don DeLillo"                   │7          │
+├────────────────────────────────┼───────────┤
+│"Thomas Pynchon"                │7          │
+├────────────────────────────────┼───────────┤
+│"Joan Didion"                   │6          │
+├────────────────────────────────┼───────────┤
+│"Paul Auster"                   │10         │
+├────────────────────────────────┼───────────┤
+│"Neal Stephenson"               │6          │
+├────────────────────────────────┼───────────┤
+│"Hiromu Arakawa/Akira Watanabe" │6          │
+├────────────────────────────────┼───────────┤
+│"Arthur Golden"                 │4          │
+├────────────────────────────────┼───────────┤
+│"Dan Brown"                     │7          │
+├────────────────────────────────┼───────────┤
+│"Steven Pressfield"             │4          │
+├────────────────────────────────┼───────────┤
+│"Euripides/David Kovacs"        │5          │
+├────────────────────────────────┼───────────┤
+│"Simon Goldhill"                │5          │
+├────────────────────────────────┼───────────┤
+│"Aristophanes/Jeffrey Henderson"│4          │
+├────────────────────────────────┼───────────┤
+│"Ricardo Piglia"                │4          │
+└────────────────────────────────┴───────────┘
+
+8. Retorne o dia em que foram publicados mais livros
+match (p:Publisher)-[r:PUBLISHED]-(b:Book) 
+with r.publication_date as publication_date, count(b) as num_books 
+return publication_date, num_books 
+order by num_books desc 
+limit 1;
+
+╒══════════════════╤═══════════╕
+│"publication_date"│"num_books"│
+╞══════════════════╪═══════════╡
+│"11/1/2005"       │5          │
+└──────────────────┴───────────┘
+
+9. Retorne o nome dos autores dos livros em que o isbn contém '007'
+match (a:Author)-[:WROTE]-(b:Book) where b.isbn contains '007' return a.authors_name, b.isbn;
+
+╒════════════════════════════════════════════════════════════════════╤════════════╕
+│"a.authors_name"                                                    │"b.isbn"    │
+╞════════════════════════════════════════════════════════════════════╪════════════╡
+│"Heidi Baker/Rolland Baker"                                         │"0800793617"│
+├────────────────────────────────────────────────────────────────────┼────────────┤
+│"Chris Malta/Lisa Suttora"                                          │"0072262788"│
+├────────────────────────────────────────────────────────────────────┼────────────┤
+│"Philip Roth"                                                       │"1400079497"│
+├────────────────────────────────────────────────────────────────────┼────────────┤
+│"Aristophanes/William Arrowsmith/Richmond Lattimore/Douglass Parker"│"0452007178"│
+├────────────────────────────────────────────────────────────────────┼────────────┤
+│"W. John Campbell"                                                  │"0822007762"│
+└────────────────────────────────────────────────────────────────────┴────────────┘
+
+10. Retorne os livros que têm apenas um autor
+match (a:Author)-[:WROTE]-(b:Book) where not(a.authors_name contains '/') return a.authors_name as author, b.title as title;
+
+╒═══════════════════════════╤══════════════════════════════════════════════════════════════════════╕
+│"author"                   │"title"                                                               │
+╞═══════════════════════════╪══════════════════════════════════════════════════════════════════════╡
+│"J.K. Rowling"             │"Harry Potter Collection (Harry Potter  #1-6)"                        │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"J.K. Rowling"             │"Harry Potter and the Chamber of Secrets (Harry Potter  #2)"          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"W. Frederick Zimmerman"   │"Unauthorized Harry Potter Book Seven News: Half-Blood Prince Analysis│
+│                           │ and Speculation"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to │
+│                           │the Galaxy  #1-5)"                                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy  #1│
+│                           │-5)"                                                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Long Dark Tea-Time of the Soul (Dirk Gently  #2)"                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galax│
+│                           │y  #1)"                                                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Salmon of Doubt (Dirk Gently  #3)"                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Douglas Adams"            │"The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (│
+│                           │Hitchhiker's Guide to the Galaxy  #1-5)"                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"Bryson's Dictionary of Troublesome Words: A Writer's Guide to Getting│
+│                           │ It Right"                                                            │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"Bill Bryson's African Diary"                                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"Notes from a Small Island"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"The Lost Continent: Travels in Small Town America"                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"Neither Here nor There: Travels in Europe"                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"A Short History of Nearly Everything"                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"I'm a Stranger Here Myself: Notes on Returning to America After Twent│
+│                           │y Years Away"                                                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"In a Sunburned Country"                                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bill Bryson"              │"The Mother Tongue: English and How It Got That Way"                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"J.R.R. Tolkien"           │"The Lord of the Rings (The Lord of the Rings  #1-3)"                 │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"J.R.R. Tolkien"           │"The Fellowship of the Ring (The Lord of the Rings  #1)"              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"J.R.R. Tolkien"           │"J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings│
+│                           │"                                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Jude Fisher"              │"The Lord of the Rings: Complete Visual Companion"                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gary Paulsen"             │"Hatchet (Brian's Saga  #1)"                                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gary Paulsen"             │"Guts: The True Stories behind Hatchet and the Brian Books"           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Molly Hatchet"            │"Molly Hatchet - 5 of the Best"                                       │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Dale Peck"                │"Hatchet Jobs: Writings on Contemporary Fiction"                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Delia Sherman"            │"Changeling (Changeling  #1)"                                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Patricia A. McKillip"     │"The Changeling Sea"                                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Zilpha Keatley Snyder"    │"The Egypt Game"                                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Zilpha Keatley Snyder"    │"The Changeling"                                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Kate Horsley"             │"The Changeling"                                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Philippa Carr"            │"The Changeling (Daughters of England  #15)"                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Edward P. Jones"          │"The Known World"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Edward P. Jones"          │"The Known World"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Satyajit Das"             │"Traders  Guns & Money: Knowns and Unknowns in the Dazzling World of D│
+│                           │erivatives"                                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Mark Smylie"              │"Artesia: Adventures in the Known World"                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Giving Good Weight"                                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Rising from the Plains"                                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Heirs of General Practice"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"The Control of Nature"                                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Uncommon Carriers"                                                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"La Place de la Concorde Suisse"                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Coming Into the Country"                                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John McPhee"              │"Annals of the Former World"                                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Wendy Wasserstein"        │"The Heidi Chronicles"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Wendy Wasserstein"        │"The Heidi Chronicles: Uncommon Women and Others & Isn't It Romantic" │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Heidi Hayes Jacobs"       │"Mapping the Big Picture: Integrating Curriculum & Assessment K-12"   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Heidi Hayes Jacobs"       │"Getting Results with Curriculum Mapping"                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Heidi Hayes Jacobs"       │"Active Literacy Across the Curriculum: Strategies for Reading  Writin│
+│                           │g  Speaking  and Listening"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Heidi Boyd"               │"Simply Beautiful Beaded Jewelry"                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Heidi Boyd"               │"Simply Beautiful Beading: 53 Quick and Easy Projects"                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Frank Herbert"            │"God Emperor of Dune (Dune Chronicles  #4)"                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Frank Herbert"            │"Heretics of Dune (Dune Chronicles #5)"                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Frank Herbert"            │"Dune Messiah (Dune Chronicles #2)"                                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Frank Herbert"            │"Chapterhouse: Dune (Dune Chronicles #6)"                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Frank Herbert"            │"Heretics of Dune (Dune Chronicles  #5)"                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Brian Herbert"            │"Dreamer of Dune: The Biography of Frank Herbert"                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gary Russell"             │"The Lord of the Rings: The Art of the Fellowship of the Ring"        │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bryce Courtenay"          │"The Power of One (The Power of One  #1)"                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Bryce Courtenay"          │"The Power of One (The Power of One  #1)"                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Dave Lakhani"             │"Power of an Hour: Business and Life Mastery in One Hour a Week"      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Louis E. Catron"          │"The Power of One: The Solo Play for Playwrights  Actors  and Director│
+│                           │s"                                                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Adam Ginsberg"            │"How to Buy  Sell & Profit on eBay: Kick-Start Your Home-Based Busines│
+│                           │s in Just Thirty Days"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Marsha Collier"           │"Starting an eBay Business for Dummies"                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Marsha Collier"           │"eBay for Dummies"                                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Marsha Collier"           │"eBay Business All-in-One Desk Reference for Dummies"                 │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Marsha Collier"           │"ebay Timesaving Techniques for Dummies"                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Julia Wilkinson"          │"eBay: Top 100 Simplified Tips & Tricks"                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Ruby Ann Boxcar"          │"Ruby Ann's Down Home Trailer Park BBQin' Cookbook"                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Ruby Ann Boxcar"          │"Ruby Ann's Down Home Trailer Park Cookbook"                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Rob Orsini"               │"Rails Cookbook: Recipes for Rapid Web Development with Ruby"         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gloria Goldreich"         │"Dinner with Anna Karenina"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Anthony Thorlby"          │"Tolstoy: Anna Karenina"                                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"John Banville"            │"The Untouchable"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Narendra Jadhav"          │"Untouchables: My Family's Triumphant Journey Out of the Caste System │
+│                           │in Modern India"                                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Barry R. Cournoyer"       │"The Evidence-Based Social Work Skills Book"                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Madeleine L'Engle"        │"Una arruga en el tiempo – A Wrinkle in Time"                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Madeleine L'Engle"        │"A Wrinkle in Time: With Related Readings (A Wrinkle in Time Quintet #│
+│                           │1)"                                                                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Tara MacCarthy"           │"Literature Circle Guide: A Wrinkle in Time"                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Cynthia Harrod-Eagles"    │"The Long Shadow (The Morland Dynasty  #6)"                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Charles Todd"             │"A Long Shadow (Inspector Ian Rutledge  #8)"                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Daniel Abraham"           │"A Shadow in Summer (Long Price Quartet  #1)"                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Charles Willeford"        │"The Burnt Orange Heresy (Vintage Crime/Black Lizard)"                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Tom Wolfe"                │"I am Charlotte Simmons"                                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Quentin Blake"            │"The Puffin Book of Nonsense Verse"                                   │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Henry Miller"             │"Tropic of Capricorn"                                                 │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Henry Miller"             │"Nexus (The Rosy Crucifixion  #3)"                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Henry Miller"             │"Quiet Days in Clichy"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Henry Miller"             │"The Air-Conditioned Nightmare"                                       │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Henry Miller"             │"Sexus (The Rosy Crucifixion  #1)"                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Marguerite Duras"         │"Writing"                                                             │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert Louis Stevenson"   │"Treasure Island"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert Louis Stevenson"   │"Treasure Island"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Ralph Ginzburg"           │"100 Years of Lynchings"                                              │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gabriel García Márquez"   │"Cien años de soledad"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gabriel García Márquez"   │"Memoria de mis putas tristes"                                        │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gabriel García Márquez"   │"Cien años de soledad"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gabriel García Márquez"   │"Crónica de una muerte anunciada"                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Gabriel García Márquez"   │"Del amor y otros demonios"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Dr. Seuss"                │"On Beyond Zebra!"                                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Debbie Raleigh"           │"The Wedding Clause"                                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Kevin Henkes"             │"The Zebra Wall"                                                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Patrick Süskind"          │"El perfume: Historia de un asesino"                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert A. Heinlein"       │"Time for the Stars (Heinlein's Juveniles  #10)"                      │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert A. Heinlein"       │"Job: A Comedy of Justice"                                            │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert A. Heinlein"       │"Stranger in a Strange Land"                                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert A. Heinlein"       │"The Door Into Summer"                                                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Robert A. Heinlein"       │"To Sail Beyond the Sunset"                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Nick  Webb"               │"Wish You Were Here: The Official Biography of Douglas Adams"         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Terry Jones"              │"Douglas Adams's Starship Titanic"                                    │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Harry G. Frankfurt"       │"On Bullshit"                                                         │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Nick Flynn"               │"Another Bullshit Night in Suck City"                                 │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Garry Wills"              │"Saint Augustine"                                                     │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Garry Wills"              │"Lincoln at Gettysburg: The Words That Remade America"                │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Don DeLillo"              │"Great Jones Street"                                                  │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Don DeLillo"              │"Libra"                                                               │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Don DeLillo"              │"Cosmopolis"                                                          │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│"Don DeLillo"              │"Americana"                                                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+(...)

@@ -1,0 +1,1237 @@
+
+Query: match (b:Book) return b.title as title,b.num_pages as num_pages;
+	{'title': 'Harry Potter and the Half-Blood Prince (Harry Potter  #6)', 'num_pages': '652'}
+	{'title': 'Harry Potter and the Order of the Phoenix (Harry Potter  #5)', 'num_pages': '870'}
+	{'title': 'Harry Potter and the Chamber of Secrets (Harry Potter  #2)', 'num_pages': '352'}
+	{'title': 'Harry Potter and the Prisoner of Azkaban (Harry Potter  #3)', 'num_pages': '435'}
+	{'title': 'Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)', 'num_pages': '2690'}
+	{'title': 'Unauthorized Harry Potter Book Seven News: Half-Blood Prince Analysis and Speculation', 'num_pages': '152'}
+	{'title': 'Harry Potter Collection (Harry Potter  #1-6)', 'num_pages': '3342'}
+	{'title': "The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5)", 'num_pages': '815'}
+	{'title': "The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1-5)", 'num_pages': '815'}
+	{'title': "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)", 'num_pages': '215'}
+	{'title': "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)", 'num_pages': '6'}
+	{'title': "The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy  #1-5)", 'num_pages': '815'}
+	{'title': 'A Short History of Nearly Everything', 'num_pages': '544'}
+	{'title': "Bill Bryson's African Diary", 'num_pages': '55'}
+	{'title': "Bryson's Dictionary of Troublesome Words: A Writer's Guide to Getting It Right", 'num_pages': '256'}
+	{'title': 'In a Sunburned Country', 'num_pages': '335'}
+	{'title': "I'm a Stranger Here Myself: Notes on Returning to America After Twenty Years Away", 'num_pages': '304'}
+	{'title': 'The Lost Continent: Travels in Small Town America', 'num_pages': '299'}
+	{'title': 'Neither Here nor There: Travels in Europe', 'num_pages': '254'}
+	{'title': 'Notes from a Small Island', 'num_pages': '324'}
+	{'title': 'The Mother Tongue: English and How It Got That Way', 'num_pages': '270'}
+	{'title': 'J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings', 'num_pages': '1728'}
+	{'title': 'The Lord of the Rings (The Lord of the Rings  #1-3)', 'num_pages': '1184'}
+	{'title': 'The Fellowship of the Ring (The Lord of the Rings  #1)', 'num_pages': '398'}
+	{'title': 'The Lord of the Rings (The Lord of the Rings  #1-3)', 'num_pages': '1216'}
+	{'title': 'The Lord of the Rings: Weapons and Warfare', 'num_pages': '218'}
+	{'title': 'The Lord of the Rings: Complete Visual Companion', 'num_pages': '224'}
+	{'title': 'Agile Web Development with Rails: A Pragmatic Guide', 'num_pages': '558'}
+	{'title': "Hatchet (Brian's Saga  #1)", 'num_pages': '208'}
+	{'title': 'Hatchet: A Guide for Using Hatchet in the Classroom', 'num_pages': '48'}
+	{'title': 'Guts: The True Stories behind Hatchet and the Brian Books', 'num_pages': '144'}
+	{'title': 'Molly Hatchet - 5 of the Best', 'num_pages': '56'}
+	{'title': 'Hatchet Jobs: Writings on Contemporary Fiction', 'num_pages': '228'}
+	{'title': 'A Changeling for All Seasons (Changeling Seasons #1)', 'num_pages': '304'}
+	{'title': 'Changeling (Changeling  #1)', 'num_pages': '256'}
+	{'title': 'The Changeling Sea', 'num_pages': '137'}
+	{'title': 'The Changeling', 'num_pages': '228'}
+	{'title': 'The Changeling', 'num_pages': '339'}
+	{'title': 'The Changeling (Daughters of England  #15)', 'num_pages': '369'}
+	{'title': 'The Known World', 'num_pages': '388'}
+	{'title': 'The Known World', 'num_pages': '14'}
+	{'title': 'The Known World', 'num_pages': '576'}
+	{'title': 'Traders  Guns & Money: Knowns and Unknowns in the Dazzling World of Derivatives', 'num_pages': '334'}
+	{'title': 'Artesia: Adventures in the Known World', 'num_pages': '352'}
+	{'title': 'The John McPhee Reader (John McPhee Reader  #1)', 'num_pages': '416'}
+	{'title': 'Uncommon Carriers', 'num_pages': '248'}
+	{'title': 'Heirs of General Practice', 'num_pages': '128'}
+	{'title': 'The Control of Nature', 'num_pages': '288'}
+	{'title': 'Annals of the Former World', 'num_pages': '720'}
+	{'title': 'Coming Into the Country', 'num_pages': '448'}
+	{'title': 'La Place de la Concorde Suisse', 'num_pages': '160'}
+	{'title': 'Giving Good Weight', 'num_pages': '288'}
+	{'title': 'Rising from the Plains', 'num_pages': '208'}
+	{'title': 'The Heidi Chronicles', 'num_pages': '81'}
+	{'title': "The Heidi Chronicles: Uncommon Women and Others & Isn't It Romantic", 'num_pages': '249'}
+	{'title': 'Active Literacy Across the Curriculum: Strategies for Reading  Writing  Speaking  and Listening', 'num_pages': '138'}
+	{'title': 'Simply Beautiful Beaded Jewelry', 'num_pages': '128'}
+	{'title': "Always Enough: God's Miraculous Provision Among the Poorest Children on Earth", 'num_pages': '192'}
+	{'title': 'Mapping the Big Picture: Integrating Curriculum & Assessment K-12', 'num_pages': '108'}
+	{'title': 'Heidi (Heidi  #1-2)', 'num_pages': '352'}
+	{'title': 'Getting Results with Curriculum Mapping', 'num_pages': '192'}
+	{'title': "There's Always Enough: The Miraculous Move of God in Mozambique", 'num_pages': '192'}
+	{'title': 'What to Expect the First Year (What to Expect)', 'num_pages': '832'}
+	{'title': "The Player's Handbook: The Ultimate Guide on Dating and Relationships", 'num_pages': '123'}
+	{'title': 'Simply Beautiful Beading: 53 Quick and Easy Projects', 'num_pages': '128'}
+	{'title': 'God Emperor of Dune (Dune Chronicles  #4)', 'num_pages': '423'}
+	{'title': 'Chapterhouse: Dune (Dune Chronicles #6)', 'num_pages': '436'}
+	{'title': 'Dune Messiah (Dune Chronicles #2)', 'num_pages': '331'}
+	{'title': 'Dreamer of Dune: The Biography of Frank Herbert', 'num_pages': '592'}
+	{'title': 'Heretics of Dune (Dune Chronicles  #5)', 'num_pages': '480'}
+	{'title': 'The Road to Dune', 'num_pages': '426'}
+	{'title': 'Heretics of Dune (Dune Chronicles #5)', 'num_pages': '471'}
+	{'title': 'The Lord of the Rings: The Art of the Fellowship of the Ring', 'num_pages': '192'}
+	{'title': 'The Power of One (The Power of One  #1)', 'num_pages': '544'}
+	{'title': 'The Power of One (The Power of One  #1)', 'num_pages': '291'}
+	{'title': 'The Power of One: One Person  One Rule  One Month', 'num_pages': '256'}
+	{'title': 'Power of an Hour: Business and Life Mastery in One Hour a Week', 'num_pages': '205'}
+	{'title': 'The Power of One: The Solo Play for Playwrights  Actors  and Directors', 'num_pages': '240'}
+	{'title': 'How to Buy  Sell & Profit on eBay: Kick-Start Your Home-Based Business in Just Thirty Days', 'num_pages': '336'}
+	{'title': 'eBay for Dummies', 'num_pages': '386'}
+	{'title': 'What to Sell on ebay and Where to Get It: The Definitive Guide to Product Sourcing for eBay and Beyond', 'num_pages': '260'}
+	{'title': 'Starting an eBay Business for Dummies', 'num_pages': '384'}
+	{'title': 'eBay: Top 100 Simplified Tips & Tricks', 'num_pages': '260'}
+	{'title': 'ebay Timesaving Techniques for Dummies', 'num_pages': '391'}
+	{'title': 'eBay Business All-in-One Desk Reference for Dummies', 'num_pages': '864'}
+	{'title': 'Ruby Cookbook', 'num_pages': '873'}
+	{'title': "Ruby Ann's Down Home Trailer Park Cookbook", 'num_pages': '240'}
+	{'title': "Ruby Ann's Down Home Trailer Park BBQin' Cookbook", 'num_pages': '206'}
+	{'title': 'Rails Cookbook: Recipes for Rapid Web Development with Ruby', 'num_pages': '514'}
+	{'title': 'Anna Karenina', 'num_pages': '838'}
+	{'title': 'Anna Karenina', 'num_pages': '960'}
+	{'title': 'Anna Karenina', 'num_pages': '837'}
+	{'title': "CliffsNotes on Tolstoy's Anna Karenina", 'num_pages': '80'}
+	{'title': 'Anna Karenina', 'num_pages': '803'}
+	{'title': 'Anna Karenina', 'num_pages': '752'}
+	{'title': 'Anna Karenina', 'num_pages': '803'}
+	{'title': 'Dinner with Anna Karenina', 'num_pages': '360'}
+	{'title': 'Tolstoy: Anna Karenina', 'num_pages': '128'}
+	{'title': 'Untouchable', 'num_pages': '160'}
+	{'title': 'The Untouchable', 'num_pages': '367'}
+	{'title': 'The Untouchables', 'num_pages': '256'}
+	{'title': "Untouchables: My Family's Triumphant Journey Out of the Caste System in Modern India", 'num_pages': '320'}
+	{'title': 'Dalit: The Black Untaouchables of India', 'num_pages': '100'}
+	{'title': 'Growing Up Untouchable in India: A Dalit Autobiography', 'num_pages': '224'}
+	{'title': 'The Evidence-Based Social Work Skills Book', 'num_pages': '216'}
+	{'title': 'A Wrinkle in Time: A Guide for Using A Wrinkle in Time in the Classroom', 'num_pages': '48'}
+	{'title': 'Wrinkles in Time', 'num_pages': '360'}
+	{'title': 'A Wrinkle in Time: With Related Readings (A Wrinkle in Time Quintet #1)', 'num_pages': '250'}
+	{'title': 'Literature Circle Guide: A Wrinkle in Time', 'num_pages': '32'}
+	{'title': 'Una arruga en el tiempo – A Wrinkle in Time', 'num_pages': '205'}
+	{'title': 'The Long Shadow (The Morland Dynasty  #6)', 'num_pages': '367'}
+	{'title': 'A Long Shadow (Inspector Ian Rutledge  #8)', 'num_pages': '352'}
+	{'title': 'Long Way Round: Chasing Shadows Across the World', 'num_pages': '320'}
+	{'title': 'A Shadow in Summer (Long Price Quartet  #1)', 'num_pages': '331'}
+	{'title': 'New Hope for the Dead (Hoke Mosely #2)', 'num_pages': '244'}
+	{'title': 'Sideswipe: A Hoke Moseley Novel', 'num_pages': '215'}
+	{'title': 'Miami Blues (Hoke Moseley #1)', 'num_pages': '191'}
+	{'title': 'The Burnt Orange Heresy (Vintage Crime/Black Lizard)', 'num_pages': '144'}
+	{'title': 'I am Charlotte Simmons', 'num_pages': '738'}
+	{'title': 'Poetry for Young People: Edward Lear', 'num_pages': '48'}
+	{'title': 'The Puffin Book of Nonsense Verse', 'num_pages': '287'}
+	{'title': 'Henry Miller on Writing', 'num_pages': '217'}
+	{'title': 'Quiet Days in Clichy', 'num_pages': '154'}
+	{'title': 'Tropic of Cancer', 'num_pages': '318'}
+	{'title': 'Tropic of Capricorn', 'num_pages': '348'}
+	{'title': 'Nexus (The Rosy Crucifixion  #3)', 'num_pages': '316'}
+	{'title': 'Sexus (The Rosy Crucifixion  #1)', 'num_pages': '506'}
+	{'title': 'The Air-Conditioned Nightmare', 'num_pages': '292'}
+	{'title': 'The Portrait of a Lady', 'num_pages': '797'}
+	{'title': 'The Portrait of a Lady', 'num_pages': '635'}
+	{'title': 'Writing', 'num_pages': '91'}
+	{'title': 'The War', 'num_pages': '192'}
+	{'title': 'The Ravishing of Lol Stein', 'num_pages': '181'}
+	{'title': 'Love Letters', 'num_pages': '178'}
+	{'title': 'Kahlil Gibran: His Life and World', 'num_pages': '464'}
+	{'title': 'The Beloved: Reflections on the Path of the Heart', 'num_pages': '102'}
+	{'title': 'Jesus the Son of Man', 'num_pages': '216'}
+	{'title': 'The Broken Wings', 'num_pages': '132'}
+	{'title': 'Sand and Foam', 'num_pages': '100'}
+	{'title': 'Treasure Island', 'num_pages': '311'}
+	{'title': 'Treasure Island', 'num_pages': '213'}
+	{'title': 'Treasure Island', 'num_pages': '245'}
+	{'title': 'Treasure Island', 'num_pages': '64'}
+	{'title': 'Treasure Island', 'num_pages': '272'}
+	{'title': 'Treasure Island (Great Illustrated Classics)', 'num_pages': '232'}
+	{'title': '100 Years of Lynchings', 'num_pages': '270'}
+	{'title': 'Cien años de soledad', 'num_pages': '448'}
+	{'title': 'On Beyond Zebra!', 'num_pages': '64'}
+	{'title': 'The Wedding Clause', 'num_pages': '256'}
+	{'title': 'The Zebra Wall', 'num_pages': '147'}
+	{'title': 'El perfume: Historia de un asesino', 'num_pages': '239'}
+	{'title': 'The Door Into Summer', 'num_pages': '304'}
+	{'title': 'Stranger in a Strange Land', 'num_pages': '528'}
+	{'title': 'To Sail Beyond the Sunset', 'num_pages': '434'}
+	{'title': 'Job: A Comedy of Justice', 'num_pages': '439'}
+	{'title': "Time for the Stars (Heinlein's Juveniles  #10)", 'num_pages': '256'}
+	{'title': 'The Long Dark Tea-Time of the Soul (Dirk Gently  #2)', 'num_pages': '307'}
+	{'title': 'The Salmon of Doubt (Dirk Gently  #3)', 'num_pages': '298'}
+	{'title': 'Wish You Were Here: The Official Biography of Douglas Adams', 'num_pages': '368'}
+	{'title': "Douglas Adams's Starship Titanic", 'num_pages': '256'}
+	{'title': 'Salmon of Doubt: Hitchhiking the Galaxy One Last Time', 'num_pages': '336'}
+	{'title': "The Phantom Tollbooth: A Children's Play in Two Acts", 'num_pages': '72'}
+	{'title': 'On Bullshit', 'num_pages': '67'}
+	{'title': 'Another Bullshit Night in Suck City', 'num_pages': '347'}
+	{'title': 'Lincoln at Gettysburg: The Words That Remade America', 'num_pages': '317'}
+	{'title': 'The Gettysburg Address', 'num_pages': '32'}
+	{'title': 'Underworld', 'num_pages': '827'}
+	{'title': 'Libra', 'num_pages': '480'}
+	{'title': 'Americana', 'num_pages': '377'}
+	{'title': 'Running Dog', 'num_pages': '256'}
+	{'title': 'Cosmopolis', 'num_pages': '224'}
+	{'title': 'Great Jones Street', 'num_pages': '272'}
+	{'title': 'The Names', 'num_pages': '339'}
+	{'title': 'Against the Day', 'num_pages': '1085'}
+	{'title': 'V.', 'num_pages': '547'}
+	{'title': 'The Crying of Lot 49', 'num_pages': '152'}
+	{'title': "Gravity's Rainbow", 'num_pages': '784'}
+	{'title': 'Mason & Dixon', 'num_pages': '773'}
+	{'title': 'Vineland', 'num_pages': '385'}
+	{'title': "Gravity's Rainbow", 'num_pages': '776'}
+	{'title': 'Slow Learner: Early Stories', 'num_pages': '193'}
+	{'title': 'Been Down So Long It Looks Like Up To Me', 'num_pages': '352'}
+	{'title': 'The Year of Magical Thinking', 'num_pages': '227'}
+	{'title': 'The White Album', 'num_pages': '222'}
+	{'title': 'A Book of Common Prayer', 'num_pages': '272'}
+	{'title': 'Where I Was From', 'num_pages': '240'}
+	{'title': 'Slouching Towards Bethlehem', 'num_pages': '238'}
+	{'title': 'Democracy', 'num_pages': '234'}
+	{'title': 'We Tell Ourselves Stories in Order to Live: Collected Nonfiction', 'num_pages': '1122'}
+	{'title': 'Play It As It Lays', 'num_pages': '231'}
+	{'title': 'The New York Trilogy', 'num_pages': '308'}
+	{'title': 'City of Glass (The New York Trilogy  #1)', 'num_pages': '203'}
+	{'title': 'Ghosts (The New York Trilogy  #2)', 'num_pages': '96'}
+	{'title': 'The Locked Room (The New York Trilogy  #3)', 'num_pages': '179'}
+	{'title': 'Pyramids of Montauk: Explorations in Consciousness', 'num_pages': '256'}
+	{'title': 'The Brooklyn Follies', 'num_pages': '306'}
+	{'title': 'Moon Palace', 'num_pages': '320'}
+	{'title': 'The Music of Chance', 'num_pages': '217'}
+	{'title': 'Travels in the Scriptorium', 'num_pages': '145'}
+	{'title': 'Leviathan', 'num_pages': '275'}
+	{'title': 'The Red Notebook: True Stories', 'num_pages': '104'}
+	{'title': 'Timbuktu / Leviathan / Moon Palace', 'num_pages': '1075'}
+	{'title': 'Collapse: How Societies Choose to Fail or Succeed', 'num_pages': '608'}
+	{'title': 'The Coming Economic Collapse: How You Can Thrive When Oil Costs $200 a Barrel', 'num_pages': '211'}
+	{'title': 'Collapse of Complex Societies', 'num_pages': '262'}
+	{'title': 'Bowling Alone: The Collapse and Revival of American Community', 'num_pages': '544'}
+	{'title': "The Collapse of the Common Good: How America's Lawsuit Culture Undermines Our Freedom", 'num_pages': '272'}
+	{'title': "Reinventing the Enemy's Language: Contemporary Native Women's Writings of North America", 'num_pages': '576'}
+	{'title': 'My Inventions', 'num_pages': '88'}
+	{'title': 'Wizard: The Life and Times of Nikola Tesla: Biography of a Genius', 'num_pages': '542'}
+	{'title': 'Nikola Tesla: A Spark of Genius', 'num_pages': '144'}
+	{'title': 'Tesla Papers', 'num_pages': '100'}
+	{'title': 'Boys of Summer', 'num_pages': '249'}
+	{'title': "Programming Ruby: The Pragmatic Programmers' Guide", 'num_pages': '828'}
+	{'title': "Golding's Lord of the Flies (Cliffs Notes)", 'num_pages': '112'}
+	{'title': 'Lord of the Flies', 'num_pages': '6'}
+	{'title': 'A War Like No Other: How the Athenians & Spartans Fought the Peloponnesian War', 'num_pages': '397'}
+	{'title': 'We Were Not Like Other People', 'num_pages': '216'}
+	{'title': 'The Lovely Bones', 'num_pages': '328'}
+	{'title': 'The Lovely Bones', 'num_pages': '532'}
+	{'title': 'Lovely in Her Bones (Elizabeth MacPherson  #2)', 'num_pages': '224'}
+	{'title': 'The Zen of CSS Design: Visual Enlightenment for the Web', 'num_pages': '296'}
+	{'title': 'HTML  XHTML  and CSS (Visual Quickstart Guide)', 'num_pages': '456'}
+	{'title': '1000 Record Covers', 'num_pages': '575'}
+	{'title': 'Killing Yourself to Live: 85% of a True Story', 'num_pages': '245'}
+	{'title': 'Sex  Drugs  and Cocoa Puffs: A Low Culture Manifesto', 'num_pages': '272'}
+	{'title': 'Vice (V  #8)', 'num_pages': '419'}
+	{'title': 'Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values (Phaedrus  #1)', 'num_pages': '540'}
+	{'title': 'Once Upon a Cool Motorcycle Dude', 'num_pages': '32'}
+	{'title': 'Guidebook to Zen and the Art of Motorcycle Maintenance', 'num_pages': '408'}
+	{'title': 'Motorcycle Basics Techbook', 'num_pages': '222'}
+	{'title': 'LOGO Lounge: 2 000 International Identities by Leading Designers', 'num_pages': '191'}
+	{'title': 'The Death of Ivan Ilych And Other Stories', 'num_pages': '304'}
+	{'title': 'War and Peace', 'num_pages': '1392'}
+	{'title': 'The Kingdom of God Is Within You', 'num_pages': '352'}
+	{'title': 'Atlas Shrugged', 'num_pages': '1168'}
+	{'title': 'For the New Intellectual: The Philosophy of Ayn Rand', 'num_pages': '224'}
+	{'title': 'The Fountainhead', 'num_pages': '752'}
+	{'title': 'The Virtue of Selfishness: A New Concept of Egoism', 'num_pages': '176'}
+	{'title': 'Anthem', 'num_pages': '105'}
+	{'title': 'We the Living', 'num_pages': '464'}
+	{'title': 'Capitalism: The Unknown Ideal', 'num_pages': '340'}
+	{'title': 'Letters of Ayn Rand', 'num_pages': '681'}
+	{'title': 'Sailing for Dummies', 'num_pages': '416'}
+	{'title': 'Sailing from Byzantium: How a Lost Empire Shaped the World', 'num_pages': '368'}
+	{'title': 'Sailing Alone Around the Room: New and Selected Poems', 'num_pages': '192'}
+	{'title': 'The Greatest Sailing Stories Ever Told: Twenty-Seven Unforgettable Stories', 'num_pages': '286'}
+	{'title': "Natural Cures They Don't Want You to Know about", 'num_pages': '571'}
+	{'title': 'The Natural', 'num_pages': '231'}
+	{'title': 'Digging to America', 'num_pages': '277'}
+	{'title': 'Rereading America: Cultural Contexts for Critical Thinking and Writing', 'num_pages': '826'}
+	{'title': 'Modern Latin America', 'num_pages': '528'}
+	{'title': 'The Plot Against America', 'num_pages': '391'}
+	{'title': 'Naked Pictures of Famous People', 'num_pages': '164'}
+	{'title': 'Collected Stories', 'num_pages': '352'}
+	{'title': 'Crónica de una muerte anunciada', 'num_pages': '118'}
+	{'title': 'Cien años de soledad', 'num_pages': '496'}
+	{'title': 'Del amor y otros demonios', 'num_pages': '176'}
+	{'title': 'Living to Tell the Tale', 'num_pages': '533'}
+	{'title': 'Memoria de mis putas tristes', 'num_pages': '112'}
+	{'title': 'The Elegant Universe: Superstrings  Hidden Dimensions  and the Quest for the Ultimate Theory', 'num_pages': '425'}
+	{'title': 'Pure and Simple: The Extraordinary Teachings of a Thai Buddhist Laywoman', 'num_pages': '288'}
+	{'title': 'The Mini Rough Guide to London', 'num_pages': '363'}
+	{'title': 'Best of London (Lonely Planet Best Of)', 'num_pages': '128'}
+	{'title': 'Lonely Planet Londres', 'num_pages': '480'}
+	{'title': 'Out to Eat London 2002 (Lonely Planet Out to Eat)', 'num_pages': '295'}
+	{'title': 'Three Nights in August: Strategy  Heartbreak  and Joy Inside the Mind of a Manager', 'num_pages': '287'}
+	{'title': 'Cryptonomicon', 'num_pages': '1139'}
+	{'title': 'Le Réseau Kinakuta (Cryptonomicon  #2)', 'num_pages': '418'}
+	{'title': 'The Confusion (The Baroque Cycle  #2)', 'num_pages': '815'}
+	{'title': 'Quicksilver (The Baroque Cycle  #1)', 'num_pages': '927'}
+	{'title': 'The Cobweb', 'num_pages': '448'}
+	{'title': 'The Big U', 'num_pages': '308'}
+	{'title': "The Diamond Age: Or  A Young Lady's Illustrated Primer", 'num_pages': '499'}
+	{'title': 'Interface', 'num_pages': '640'}
+	{'title': 'Odalisque (The Baroque Cycle  Vol. 1  Book 3)', 'num_pages': '464'}
+	{'title': 'Snow Crash', 'num_pages': '438'}
+	{'title': "Harrington on Hold 'em: Expert Strategy for No-Limit Tournaments  Volume II: The Endgame", 'num_pages': '450'}
+	{'title': "Harrington on Hold 'em: Expert Strategy for No-Limit Tournaments  Volume I: Strategic Play", 'num_pages': '381'}
+	{'title': 'The Design of Everyday Things', 'num_pages': '240'}
+	{'title': 'Emotional Design: Why We Love (or Hate) Everyday Things', 'num_pages': '272'}
+	{'title': 'The Psychology of Everyday Things', 'num_pages': '257'}
+	{'title': 'No Price Too High: A Pentecostal Preacher Becomes Catholic - The Inspirational Story of Alex Jones as Told to Diane Hanson', 'num_pages': '259'}
+	{'title': 'The Alchemist', 'num_pages': '192'}
+	{'title': 'The Alchemist', 'num_pages': '197'}
+	{'title': 'Fullmetal Alchemist  Vol. 9 (Fullmetal Alchemist  #9)', 'num_pages': '192'}
+	{'title': 'Fullmetal Alchemist  Vol. 3 (Fullmetal Alchemist  #3)', 'num_pages': '192'}
+	{'title': 'Fullmetal Alchemist  Vol. 8 (Fullmetal Alchemist  #8)', 'num_pages': '192'}
+	{'title': 'Fullmetal Alchemist  Vol. 1 (Fullmetal Alchemist  #1)', 'num_pages': '192'}
+	{'title': 'Fullmetal Alchemist  Vol. 4 (Fullmetal Alchemist  #4)', 'num_pages': '200'}
+	{'title': 'The Illustrated Alchemist: A Fable about Following Your Dream', 'num_pages': '198'}
+	{'title': 'Fullmetal Alchemist  Vol. 2 (Fullmetal Alchemist  #2)', 'num_pages': '192'}
+	{'title': 'Pompeii', 'num_pages': '274'}
+	{'title': 'The Last Days of Pompeii', 'num_pages': '360'}
+	{'title': 'Of Mice and Men', 'num_pages': '103'}
+	{'title': 'The Game: Penetrating the Secret Society of Pickup Artists', 'num_pages': '464'}
+	{'title': 'The Westing Game', 'num_pages': '182'}
+	{'title': 'The Egypt Game', 'num_pages': '215'}
+	{'title': 'Memoirs of a Geisha', 'num_pages': '503'}
+	{'title': 'Memoirs of a Geisha', 'num_pages': '434'}
+	{'title': 'Memoirs of a Geisha', 'num_pages': '497'}
+	{'title': 'Memoirs of a Geisha: A Portrait of the Film', 'num_pages': '144'}
+	{'title': 'Memoirs of a Geisha', 'num_pages': '497'}
+	{'title': 'Geisha of Gion', 'num_pages': '334'}
+	{'title': 'Love As A Foreign Language #5', 'num_pages': '58'}
+	{'title': 'Jungle Love', 'num_pages': '95'}
+	{'title': 'The 5 Love Languages / The 5 Love Languages Journal', 'num_pages': '0'}
+	{'title': 'Angels & Demons (Robert Langdon  #1)', 'num_pages': '736'}
+	{'title': 'Ángeles y demonios (Robert Langdon  #1)', 'num_pages': '508'}
+	{'title': 'Angeles & Demonios', 'num_pages': '18'}
+	{'title': 'The Da Vinci Code (Robert Langdon  #2)', 'num_pages': '489'}
+	{'title': 'The Da Vinci Code', 'num_pages': '467'}
+	{'title': 'Da Vinci Code (Robert Langdon  #2)', 'num_pages': '744'}
+	{'title': 'Deception Point', 'num_pages': '736'}
+	{'title': 'Deception Point', 'num_pages': '585'}
+	{'title': 'Deception Point', 'num_pages': '448'}
+	{'title': 'A Killing Rain (Louis Kincaid  #6)', 'num_pages': '383'}
+	{'title': "The Millionaire Next Door: The Surprising Secrets of America's Wealthy", 'num_pages': '258'}
+	{'title': 'Think and Grow Rich: The Landmark Bestseller Now Revised and Updated for the 21st Century', 'num_pages': '320'}
+	{'title': 'Think and Grow Rich', 'num_pages': '368'}
+	{'title': 'Pragmatic Version Control: Using Subversion (The Pragmatic Starter Kit Series)', 'num_pages': '256'}
+	{'title': 'Read My Lips: Sexual Subversion and the End of Gender', 'num_pages': '288'}
+	{'title': 'Trump: The Art of the Deal', 'num_pages': '384'}
+	{'title': 'The Richest Man in Babylon', 'num_pages': '194'}
+	{'title': 'The Richest Man in Babylon', 'num_pages': '4'}
+	{'title': 'Shibumi', 'num_pages': '480'}
+	{'title': '1776', 'num_pages': '386'}
+	{'title': '1776', 'num_pages': '192'}
+	{'title': 'The Crescent Obscured: The United States and the Muslim World  1776-1815', 'num_pages': '284'}
+	{'title': 'The Good Earth (House of Earth  #1)', 'num_pages': '418'}
+	{'title': 'Purpose Driven Life - For Commuters: What on Earth Am I Here For?', 'num_pages': '5'}
+	{'title': 'Fast Food Nation: The Dark Side of the All-American Meal', 'num_pages': '399'}
+	{'title': 'Fast Food Nation: What The All-American Meal is Doing to the World', 'num_pages': '384'}
+	{'title': 'Snow Flower and the Secret Fan', 'num_pages': '269'}
+	{'title': 'The Broker', 'num_pages': '422'}
+	{'title': 'The Power Broker: Robert Moses and the Fall of New York', 'num_pages': '1344'}
+	{'title': 'The Power Broker: A Novel (Christian Gillette  #3)', 'num_pages': '320'}
+	{'title': 'Body For Life: 12 Weeks to Mental and Physical Strength', 'num_pages': '201'}
+	{'title': "Body for Life for Women: A Woman's Plan for Physical and Mental Transformation", 'num_pages': '288'}
+	{'title': 'Eating for Life: Your Guide to Great Health  Fat Loss and Increased Energy!', 'num_pages': '405'}
+	{'title': 'The Warren Buffett Way', 'num_pages': '245'}
+	{'title': 'The Warren Buffett CEO: Secrets from the Berkshire Hathaway Managers', 'num_pages': '432'}
+	{'title': 'Monkey Business: True Story of the Scopes Trial', 'num_pages': '368'}
+	{'title': 'Junie B. Jones and a Little Monkey Business (Junie B. Jones  #2)', 'num_pages': '68'}
+	{'title': 'Monkey Business', 'num_pages': '392'}
+	{'title': "Liar's Poker", 'num_pages': '256'}
+	{'title': "Liar's Poker: A Harry Garnish Mystery", 'num_pages': '214'}
+	{'title': 'Risotto: 30 Simply Delicious Vegetarian Recipes from an Italian Kitchen', 'num_pages': '64'}
+	{'title': "Giada's Family Dinners", 'num_pages': '256'}
+	{'title': 'Everyday Italian: 125 Simple and Delicious Recipes', 'num_pages': '256'}
+	{'title': 'Everyday Pasta', 'num_pages': '240'}
+	{'title': "Tyler's Ultimate: Brilliant Simple Food to Make Any Time", 'num_pages': '256'}
+	{'title': "Tyler Florence's Real Kitchen: An Indespensible Guide for Anybody Who Likes to Cook", 'num_pages': '304'}
+	{'title': 'Eat This Book: Cooking with Global Fresh Flavors', 'num_pages': '287'}
+	{'title': 'Freakonomics: A Rogue Economist Explores the Hidden Side of Everything', 'num_pages': '320'}
+	{'title': 'Freakonomics: Un economista políticamente incorrecto explora el lado oculto de lo que nos afecta', 'num_pages': '250'}
+	{'title': 'Freakonomics: A Rogue Economist Explores the Hidden Side of Everything', 'num_pages': '496'}
+	{'title': 'The Last Assassin (John Rain  #5)', 'num_pages': '338'}
+	{'title': 'Life of Pi', 'num_pages': '401'}
+	{'title': "L'Histoire de Pi", 'num_pages': '448'}
+	{'title': 'Shadows and Wind: A View of Modern Vietnam', 'num_pages': '400'}
+	{'title': 'A Million Little Pieces', 'num_pages': '515'}
+	{'title': 'A Million Little Pieces of Feces', 'num_pages': '256'}
+	{'title': 'A Million Little Lies', 'num_pages': '191'}
+	{'title': 'The Leadership Challenge', 'num_pages': '458'}
+	{'title': 'Lincoln on Leadership: Executive Strategies for Tough Times', 'num_pages': '193'}
+	{'title': 'Leadership in Organizations', 'num_pages': '542'}
+	{'title': 'Leadership', 'num_pages': '397'}
+	{'title': 'Men Are from Mars  Women Are from Venus', 'num_pages': '368'}
+	{'title': 'Mars and Venus Book of Days: 365 Inspriations to Enrich Your Relationships', 'num_pages': '368'}
+	{'title': 'Men Are from Mars  Women Are from Venus', 'num_pages': '2'}
+	{'title': 'How to Succeed with Women', 'num_pages': '320'}
+	{'title': "The Clan of the Cave Bear (Earth's Children  #1)", 'num_pages': '512'}
+	{'title': "The Clan of the Cave Bear (Earth's Children  #1)", 'num_pages': '468'}
+	{'title': 'Moneyball: The Art of Winning an Unfair Game', 'num_pages': '317'}
+	{'title': 'Juiced Official Strategy Guide', 'num_pages': '112'}
+	{'title': 'The 48 Laws of Power', 'num_pages': '452'}
+	{'title': 'Gates of Fire', 'num_pages': '392'}
+	{'title': 'Fire Sea (The Death Gate Cycle  #3)', 'num_pages': '414'}
+	{'title': 'The Gate of Fire (Oath Of Empire Book Two)', 'num_pages': '721'}
+	{'title': 'The Afghan Campaign', 'num_pages': '354'}
+	{'title': 'Tides of War', 'num_pages': '448'}
+	{'title': 'Last of the Amazons', 'num_pages': '400'}
+	{'title': 'The War of Art: Break Through the Blocks & Win Your Inner Creative Battles', 'num_pages': '168'}
+	{'title': 'Gita on the Green', 'num_pages': '176'}
+	{'title': "Blood Stripes: The Grunt's View of the War in Iraq", 'num_pages': '340'}
+	{'title': 'Phaedrus and Letters VII and VIII', 'num_pages': '160'}
+	{'title': 'Phaedrus', 'num_pages': '128'}
+	{'title': 'Phaedrus', 'num_pages': '176'}
+	{'title': 'Lysis/Phaedrus/Symposium: Plato on Homosexuality', 'num_pages': '157'}
+	{'title': 'Enthusiasm and Divine Madness', 'num_pages': '125'}
+	{'title': 'On Love: Lysis/Symposium/Phaedrus/Alcibiades/Selections from Republic & Laws', 'num_pages': '272'}
+	{'title': 'Gorgias/Phaedrus (Agora)', 'num_pages': '233'}
+	{'title': 'Statesman', 'num_pages': '128'}
+	{'title': 'Gorgias', 'num_pages': '208'}
+	{'title': 'The Histories', 'num_pages': '716'}
+	{'title': 'The Histories', 'num_pages': '622'}
+	{'title': 'The History (Great Minds)', 'num_pages': '613'}
+	{'title': 'The Histories', 'num_pages': '772'}
+	{'title': 'The Histories', 'num_pages': '653'}
+	{'title': 'The Histories', 'num_pages': '464'}
+	{'title': 'The Histories', 'num_pages': '816'}
+	{'title': 'The History', 'num_pages': '710'}
+	{'title': 'The Iliad', 'num_pages': '683'}
+	{'title': 'Iliad', 'num_pages': '574'}
+	{'title': 'The Iliad', 'num_pages': '588'}
+	{'title': 'The Iliad/The Odyssey', 'num_pages': '1556'}
+	{'title': 'The Iliad', 'num_pages': '462'}
+	{'title': 'The Iliad', 'num_pages': '312'}
+	{'title': 'The Essential Iliad', 'num_pages': '216'}
+	{'title': 'The Odyssey', 'num_pages': '541'}
+	{'title': 'The Odyssey', 'num_pages': '515'}
+	{'title': 'The Odyssey', 'num_pages': '374'}
+	{'title': 'The Odyssey', 'num_pages': '324'}
+	{'title': 'The Odyssey', 'num_pages': '304'}
+	{'title': 'Aeneid: Selections from Books 1  2  4  6  10  12', 'num_pages': '161'}
+	{'title': 'Eclogues. Georgics. Aeneid: Books 1-6', 'num_pages': '607'}
+	{'title': 'City Eclogue', 'num_pages': '136'}
+	{'title': 'The Eclogues and The Georgics', 'num_pages': '180'}
+	{'title': "Paul Kirk's Championship Barbecue Sauces: 175 Make-Your-Own Sauces  Marinades  Dry Rubs  Wet Rubs  Mops and Salsas", 'num_pages': '272'}
+	{'title': 'The Complete Pelican Shakespeare', 'num_pages': '1808'}
+	{'title': 'The Complete Works', 'num_pages': '1248'}
+	{'title': 'Hamlet', 'num_pages': '289'}
+	{'title': 'The Compleat Works of Wllm Shkspr (abridged)', 'num_pages': '137'}
+	{'title': 'The Pilgrimage: A Contemporary Quest for Ancient Wisdom', 'num_pages': '272'}
+	{'title': 'The Valkyries', 'num_pages': '212'}
+	{'title': 'Warrior of the Light', 'num_pages': '142'}
+	{'title': 'The Zahir', 'num_pages': '336'}
+	{'title': 'By the River Piedra I Sat Down and Wept', 'num_pages': '208'}
+	{'title': 'The Fifth Mountain', 'num_pages': '256'}
+	{'title': 'Veronika Decides to Die', 'num_pages': '210'}
+	{'title': 'Hamlet', 'num_pages': '148'}
+	{'title': "Cliffs Notes on Shakespeare's Hamlet", 'num_pages': '129'}
+	{'title': "Shakespeare's Hamlet", 'num_pages': '240'}
+	{'title': "Hamlet's Mill: An Essay Investigating the Origins of Human Knowledge and Its Transmission Through Myth", 'num_pages': '450'}
+	{'title': 'History of the Peloponnesian War: Bk. 1-2', 'num_pages': '496'}
+	{'title': 'On Justice  Power and Human Nature: Selections from The History of the Peloponnesian War', 'num_pages': '172'}
+	{'title': 'History of the Peloponnesian War: Bk. 5-6', 'num_pages': '400'}
+	{'title': 'The Peloponnesian War', 'num_pages': '530'}
+	{'title': 'The Peloponnesian War: A New Translation  Backgrounds  Interpretations', 'num_pages': '554'}
+	{'title': 'History of the Peloponnesian War  Bk. 7-8', 'num_pages': '480'}
+	{'title': 'Thucydides  Book 6 Commentary', 'num_pages': '34'}
+	{'title': 'Euripides I: Alcestis / The Medea / The Heracleidae / Hippolytus', 'num_pages': '221'}
+	{'title': 'Euripides V: Electra / The Phoenician Women / The Bacchae', 'num_pages': '228'}
+	{'title': 'Euripides IV: Rhesus / The Suppliant Women / Orestes / Iphigenia in Aulis', 'num_pages': '307'}
+	{'title': 'Grief Lessons: Four Plays by Euripides', 'num_pages': '312'}
+	{'title': 'Ten Plays', 'num_pages': '432'}
+	{'title': 'Euripides III: Hecuba / Andromache / The Trojan Women / Ion (Complete Greek Tragedies  #7)', 'num_pages': '255'}
+	{'title': 'Euripides II: The Cyclops / Heracles / Iphigenia in Tauris / Helen', 'num_pages': '264'}
+	{'title': 'Medea and Other Plays', 'num_pages': '206'}
+	{'title': 'Cyclops / Alcestis / Medea', 'num_pages': '432'}
+	{'title': 'Medea', 'num_pages': '431'}
+	{'title': 'The Bacchae and Other Plays', 'num_pages': '360'}
+	{'title': 'Bakkhai', 'num_pages': '160'}
+	{'title': 'Plays 1: Medea/The Phoenician Women/Bacchae', 'num_pages': '192'}
+	{'title': 'The Trojan Women and Hippolytus', 'num_pages': '64'}
+	{'title': 'The Bacchae of Euripides: A Communion Rite', 'num_pages': '128'}
+	{'title': 'Orestes and Other Plays', 'num_pages': '282'}
+	{'title': 'Children of Heracles / Hippolytus / Andromache / Hecuba', 'num_pages': '528'}
+	{'title': 'Alcestis', 'num_pages': '142'}
+	{'title': 'Suppliant Women / Electra / Heracles', 'num_pages': '464'}
+	{'title': 'Medea', 'num_pages': '116'}
+	{'title': 'Euripides: Medea', 'num_pages': '160'}
+	{'title': "CliffsNotes on Euripides' Medea and Electra", 'num_pages': '69'}
+	{'title': 'Trojan Women / Iphigenia Among the Taurians / Ion', 'num_pages': '528'}
+	{'title': 'Helen / Phoenician Women / Orestes', 'num_pages': '605'}
+	{'title': 'Euripides: Iphigenia at Aulis (Companions to Greek & Roman Tragedy)', 'num_pages': '144'}
+	{'title': 'The Complete Greek Tragedies  Volume 3: Euripides', 'num_pages': '672'}
+	{'title': 'Aeschylus I: Oresteia (Agamemnon  The Libation Bearers  The Eumenides)', 'num_pages': '171'}
+	{'title': 'Aeschylus II: The Suppliant Maidens  The Persians  Seven against Thebes  and Prometheus Bound (The Complete Greek Tragedies)', 'num_pages': '188'}
+	{'title': 'The Oresteia', 'num_pages': '304'}
+	{'title': 'The Oresteia: Agamemnon  The Libation Bearers  The Eumenides', 'num_pages': '335'}
+	{'title': 'Oresteia', 'num_pages': '224'}
+	{'title': 'Prometheus Bound and Other Plays', 'num_pages': '160'}
+	{'title': 'The Oresteia', 'num_pages': '208'}
+	{'title': 'Aeschylus  1: The Oresteia: Agamemnon/The Libation Bearers/The Eumenides', 'num_pages': '178'}
+	{'title': 'The Complete Greek Tragedies  Volume 1: Aeschylus', 'num_pages': '358'}
+	{'title': 'Aeschylus: The Oresteia (A Student Guide: Landmarks of World Literature)', 'num_pages': '95'}
+	{'title': "The Oresteia: Agamemnon  Choephoroe & Eumenides (Everyman's Library  No. 260)", 'num_pages': '127'}
+	{'title': 'Aeschylus 2: The Persians/Seven Against Thebes/The Suppliants/Prometheus Bound', 'num_pages': '232'}
+	{'title': 'The Oresteia Trilogy: Agamemnon/The Libation-Bearers/The Furies', 'num_pages': '151'}
+	{'title': 'The Suppliant Maidens/The Persians/Seven against Thebes/Prometheus Bound', 'num_pages': '208'}
+	{'title': 'Sophocles II: Ajax/Women of Trachis/Electra/Philoctetes (Complete Greek Tragedies 4)', 'num_pages': '254'}
+	{'title': 'The Oedipus Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone', 'num_pages': '288'}
+	{'title': 'The Complete Plays', 'num_pages': '420'}
+	{'title': 'The Oedipus Cycle: Oedipus Rex  Oedipus at Colonus  Antigone', 'num_pages': '259'}
+	{'title': 'The Three Theban Plays: Antigone  Oedipus the King  Oedipus at Colonus', 'num_pages': '430'}
+	{'title': 'Theban Plays', 'num_pages': '304'}
+	{'title': "The Theban Plays (Everyman's Library  #93)", 'num_pages': '223'}
+	{'title': 'Electra and Other Plays', 'num_pages': '218'}
+	{'title': 'Antigone; Oedipus the Kingn; Electra', 'num_pages': '178'}
+	{'title': 'Oedipus Rex  (The Theban Plays  #1)', 'num_pages': '75'}
+	{'title': 'The Oedipus Plays of Sophocles', 'num_pages': '390'}
+	{'title': 'Oedipus Rex (Greek and Latin Classics)', 'num_pages': '214'}
+	{'title': 'Oedipus the King', 'num_pages': '144'}
+	{'title': 'Four Plays: The Clouds/The Birds/Lysistrata/The Frogs', 'num_pages': '624'}
+	{'title': 'Three Plays by Aristophanes: Lysistrata/Women at the Thesmophoria/Assemblywomen', 'num_pages': '256'}
+	{'title': 'The Complete Plays', 'num_pages': '577'}
+	{'title': 'Aristophanes 1: The Acharnians/Peace/Celebrating Ladies/Wealth', 'num_pages': '336'}
+	{'title': 'Clouds/Wasps/Birds (Aristophanes 1)', 'num_pages': '480'}
+	{'title': 'Lysistrata and Other Plays', 'num_pages': '241'}
+	{'title': 'Acharnians', 'num_pages': '96'}
+	{'title': 'Clouds', 'num_pages': '254'}
+	{'title': 'Clouds/Wasps/Peace', 'num_pages': '624'}
+	{'title': 'Three Plays: The Wasps / The Poet and the Women / The Frogs', 'num_pages': '224'}
+	{'title': "Four Comedies: Lysistrata / The Frogs / The Birds / Ladies' Day", 'num_pages': '400'}
+	{'title': 'Frogs/Assemblywomen/Wealth (Loeb Classical Library 180)', 'num_pages': '608'}
+	{'title': "Cliffs Notes on Aristophanes' Lysistrata  The Birds  The Clouds  The Frogs", 'num_pages': '80'}
+	{'title': 'Aristophanes and Athens: An Introduction to the Plays', 'num_pages': '376'}
+	{'title': 'Lysistrata', 'num_pages': '98'}
+	{'title': 'Peace', 'num_pages': '408'}
+	{'title': 'Lysistrata', 'num_pages': '132'}
+	{'title': 'The Knights / Peace / The Birds / The Assembly Women / Wealth', 'num_pages': '335'}
+	{'title': 'Genres in Dialogue: Plato and the Construct of Philosophy', 'num_pages': '238'}
+	{'title': 'The Curious Incident of the Dog in the Night-Time', 'num_pages': '226'}
+	{'title': 'The Night Gardener', 'num_pages': '372'}
+	{'title': 'Twelfth Night', 'num_pages': '272'}
+	{'title': 'Brokeback Mountain', 'num_pages': '55'}
+	{'title': 'Getting Things Done: The Art of Stress-Free Productivity', 'num_pages': '267'}
+	{'title': 'Getting Things Done When You Are Not in Charge', 'num_pages': '176'}
+	{'title': 'Formas breves', 'num_pages': '144'}
+	{'title': 'El último lector', 'num_pages': '209'}
+	{'title': 'Money to Burn', 'num_pages': '209'}
+	{'title': 'Respiración artificial', 'num_pages': '218'}
+	{'title': 'Plata quemada', 'num_pages': '227'}
+	{'title': 'American Government: Continuity and Change  Alternate Edition', 'num_pages': '664'}
+	{'title': 'Essentials of American and Texas Government: Continuity and Change', 'num_pages': '854'}
+	{'title': 'El túnel', 'num_pages': '159'}
+	{'title': 'The Confessions (Works of Saint Augustine 1)', 'num_pages': '416'}
+	{'title': 'The City of God', 'num_pages': '905'}
+	{'title': 'The Enchiridion on Faith Hope and Love (Augustine Series 1)', 'num_pages': '144'}
+	{'title': 'Augustine of Hippo: A Biography', 'num_pages': '576'}
+	{'title': 'On Christian Doctrine', 'num_pages': '191'}
+	{'title': 'Confessions  Books 1-13', 'num_pages': '296'}
+	{'title': 'Saint Augustine', 'num_pages': '176'}
+	{'title': 'Augustine: A Very Short Introduction', 'num_pages': '144'}
+	{'title': 'On Genesis/A Refutation of the Manichees/The Unfinished Literal Meaning of Genesis (Works of St Augustine 1)', 'num_pages': '540'}
+	{'title': 'Kitchen Confidential: Adventures in the Culinary Underbelly', 'num_pages': '302'}
+	{'title': 'Confesiones de un chef', 'num_pages': '478'}
+	{'title': 'The Metamorphoses of Ovid', 'num_pages': '559'}
+	{'title': 'Metamorphoses', 'num_pages': '723'}
+	{'title': 'Metamorphoses', 'num_pages': '624'}
+	{'title': "Ovid's Metamorphoses: Books 1-5", 'num_pages': '584'}
+	{'title': 'Ovid’s Metamorphoses: Books 6-10', 'num_pages': '560'}
+	{'title': 'Latin Via Ovid: A First Course', 'num_pages': '524'}
+	{'title': 'The Art of Love and Other Poems', 'num_pages': '400'}
+	{'title': 'The Poems of Exile: Tristia and the Black Sea Letters', 'num_pages': '451'}
+	{'title': 'Metamorphoses: Volume 2  Books IX-XV', 'num_pages': '499'}
+	{'title': 'Metamorphoses: Volume I  Books I-VIII', 'num_pages': '496'}
+	{'title': 'Practice! Practice!: A Latin Via Ovid Workbook', 'num_pages': '152'}
+	{'title': 'Tibullus: A Commentary', 'num_pages': '222'}
+	{'title': "Dionysiac Poetics and Euripides' Bacchae", 'num_pages': '440'}
+	{'title': 'Antigone', 'num_pages': '197'}
+	{'title': 'Antigone', 'num_pages': '208'}
+	{'title': 'Object-Oriented Programming in C++', 'num_pages': '640'}
+	{'title': 'The Iliad', 'num_pages': '594'}
+	{'title': 'Love  Sex & Tragedy: How the Ancient World Shapes Our Lives', 'num_pages': '345'}
+	{'title': 'Reading Greek Tragedy', 'num_pages': '302'}
+	{'title': 'Who Needs Greek? Contests in the Cultural History of Hellenism', 'num_pages': '334'}
+	{'title': "Foucault's Virginity: Ancient Erotic Fiction & the History of Sexuality (Stanford Memorial Lecture)", 'num_pages': '212'}
+	{'title': '2012: The Return of Quetzalcoatl', 'num_pages': '408'}
+	{'title': 'Breaking Open the Head: A Psychedelic Journey Into the Heart of Contemporary Shamanism', 'num_pages': '336'}
+	{'title': 'Them: Adventures with Extremists', 'num_pages': '336'}
+	{'title': 'The Men Who Stare at Goats', 'num_pages': '259'}
+	{'title': 'Guns  Germs and Steel: The Fates of Human Societies', 'num_pages': '518'}
+	{'title': "Caught Inside: A Surfer's Year on the California Coast", 'num_pages': '256'}
+	{'title': 'Into the Wild', 'num_pages': '207'}
+	{'title': "Wild at Heart: Discovering the Secret of a Man's Soul", 'num_pages': '256'}
+	{'title': 'Wild Swans: Three Daughters of China', 'num_pages': '562'}
+	{'title': 'Wild Fire (John Corey  #4)', 'num_pages': '519'}
+	{'title': 'Born to Be Wild', 'num_pages': '354'}
+	{'title': 'The Call of the Wild', 'num_pages': '172'}
+	{'title': 'Wild About Books', 'num_pages': '40'}
+	{'title': 'In Web Design for Libraries', 'num_pages': '196'}
+	{'title': 'Nickel and Dimed: On (Not) Getting by in America', 'num_pages': '240'}
+	{'title': 'The History of Sexuality 1: An Introduction', 'num_pages': '168'}
+	{'title': 'The History of Sexuality  Volume 1: The Will to Knowledge', 'num_pages': '168'}
+	{'title': 'The History of Sexuality  Volume 2: The Use of Pleasure', 'num_pages': '304'}
+	{'title': 'The Making of Pride and Prejudice', 'num_pages': '128'}
+	{'title': 'Pride and Prejudice', 'num_pages': '333'}
+	{'title': 'Pride & Prejudice', 'num_pages': '392'}
+	{'title': 'Pride and Prejudice', 'num_pages': '476'}
+	{'title': 'Pride and Prejudice', 'num_pages': '392'}
+	{'title': 'Under the Banner of Heaven: A Story of Violent Faith', 'num_pages': '399'}
+	{'title': 'Iceland: Land of the Sagas', 'num_pages': '160'}
+	{'title': 'Into Thin Air: A Personal Account of the Mount Everest Disaster', 'num_pages': '368'}
+	{'title': 'In the Land of White Death: An Epic Story of Survival in the Siberian Arctic', 'num_pages': '288'}
+	{'title': 'The World Is Flat: A Brief History of the Twenty-first Century', 'num_pages': '616'}
+	{'title': 'La Tierra es plana: Breve historia del mundo globalizado del siglo XXI', 'num_pages': '495'}
+	{'title': 'The Avalanche Handbook', 'num_pages': '342'}
+	{'title': 'Avalanche', 'num_pages': '144'}
+
+Query: match (b:Book) return b.title as book_title order by b.average_rating desc limit 1;
+	{'book_title': 'Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)'}
+
+Query: match (a:Author)-[:WROTE]-(b:Book) where b.isbn contains '007' return a.authors_name, b.isbn;
+	{'a.authors_name': 'Heidi Baker/Rolland Baker', 'b.isbn': '0800793617'}
+	{'a.authors_name': 'Chris Malta/Lisa Suttora', 'b.isbn': '0072262788'}
+	{'a.authors_name': 'Philip Roth', 'b.isbn': '1400079497'}
+	{'a.authors_name': 'Aristophanes/William Arrowsmith/Richmond Lattimore/Douglass Parker', 'b.isbn': '0452007178'}
+	{'a.authors_name': 'W. John Campbell', 'b.isbn': '0822007762'}
+
+Query: match (p:Publisher)-[:PUBLISHED]-(b:Book) - [:WROTE_IN] - (bl:BookLanguage) where p.publisher_name = 'Wiley' and bl.language_code = 'eng' return b.title as title, bl.language_code as language_code, b.num_pages as num_pages;
+
+	{'title': 'Power of an Hour: Business and Life Mastery in One Hour a Week', 'language_code': 'eng', 'num_pages': '205'}
+	{'title': 'eBay: Top 100 Simplified Tips & Tricks', 'language_code': 'eng', 'num_pages': '260'}
+	{'title': 'The Warren Buffett CEO: Secrets from the Berkshire Hathaway Managers', 'language_code': 'eng', 'num_pages': '432'}
+	{'title': 'eBay for Dummies', 'language_code': 'eng', 'num_pages': '386'}
+	{'title': 'Starting an eBay Business for Dummies', 'language_code': 'eng', 'num_pages': '384'}
+
+Query: match (a:Author)-[:WROTE]-(b:Book)-[r:PUBLISHED]-(p:Publisher) where a.authors_name='J.K. Rowling/Mary GrandPré' and p.publisher_name='Scholastic Inc.'and r.publication_date='9/1/2004' return a.authors_name as author_name,b as book,p.publisher_name as publisher_name,r.publication_date as date;
+
+	{'author_name': 'J.K. Rowling/Mary GrandPré', 'book': {'text_reviews_count': '29221', 'isbn13': '9780439358071', 'num_pages': '870', 'isbn': '0439358078', 'average_rating': '4.49', 'ratings_count': '2153167', 'title': 'Harry Potter and the Order of the Phoenix (Harry Potter  #5)', 'bookID': '2'}, 'publisher_name': 'Scholastic Inc.', 'date': '9/1/2004'}
+
+Query: match (b:Book) where toInteger(b.ratings_count) > 0 return b as book, b.ratings_count as ratings_count, b.average_rating as average_rating order by b.ratings_count asc, b.average_rating desc limit 10;
+
+	{'book': {'text_reviews_count': '0', 'isbn13': '9780060255084', 'num_pages': '216', 'isbn': '0060255080', 'average_rating': '4.14', 'ratings_count': '1', 'title': 'We Were Not Like Other People', 'bookID': '534'}, 'ratings_count': '1', 'average_rating': '4.14'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '208', 'isbn13': '9781419150012', 'isbn': '1419150014', 'average_rating': '4.10', 'ratings_count': '1', 'title': 'The Suppliant Maidens/The Persians/Seven against Thebes/Prometheus Bound', 'bookID': '1533'}, 'ratings_count': '1', 'average_rating': '4.10'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '480', 'isbn13': '9780872203617', 'isbn': '0872203611', 'average_rating': '3.77', 'ratings_count': '1', 'title': 'Clouds/Wasps/Birds (Aristophanes 1)', 'bookID': '1566'}, 'ratings_count': '1', 'average_rating': '3.77'}
+	{'book': {'text_reviews_count': '0', 'isbn13': '9781843535843', 'num_pages': '363', 'isbn': '184353584X', 'average_rating': '3.75', 'ratings_count': '1', 'title': 'The Mini Rough Guide to London', 'bookID': '787'}, 'ratings_count': '1', 'average_rating': '3.75'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '100', 'isbn13': '9780932863058', 'isbn': '0932863051', 'average_rating': '4.20', 'ratings_count': '10', 'title': 'Dalit: The Black Untaouchables of India', 'bookID': '166'}, 'ratings_count': '10', 'average_rating': '4.20'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '212', 'isbn13': '9780521479349', 'isbn': '0521479347', 'average_rating': '3.73', 'ratings_count': '10', 'title': "Foucault's Virginity: Ancient Erotic Fiction & the History of Sexuality (Stanford Memorial Lecture)", 'bookID': '1805'}, 'ratings_count': '10', 'average_rating': '3.73'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '240', 'isbn13': '9780325001531', 'isbn': '0325001537', 'average_rating': '3.67', 'ratings_count': '10', 'title': 'The Power of One: The Solo Play for Playwrights  Actors  and Directors', 'bookID': '131'}, 'ratings_count': '10', 'average_rating': '3.67'}
+	{'book': {'text_reviews_count': '1', 'num_pages': '334', 'isbn13': '9780521011761', 'isbn': '0521011760', 'average_rating': '3.40', 'ratings_count': '10', 'title': 'Who Needs Greek? Contests in the Cultural History of Hellenism', 'bookID': '1804'}, 'ratings_count': '10', 'average_rating': '3.40'}
+	{'book': {'text_reviews_count': '0', 'num_pages': '216', 'isbn13': '9780205358625', 'isbn': '0205358624', 'average_rating': '3.40', 'ratings_count': '10', 'title': 'The Evidence-Based Social Work Skills Book', 'bookID': '171'}, 'ratings_count': '10', 'average_rating': '3.40'}
+	{'book': {'text_reviews_count': '13', 'num_pages': '72', 'isbn13': '9780573650963', 'isbn': '0573650969', 'average_rating': '4.13', 'ratings_count': '100', 'title': "The Phantom Tollbooth: A Children's Play in Two Acts", 'bookID': '382'}, 'ratings_count': '100', 'average_rating': '4.13'}
+
+Query: match(a:Author)-[:WROTE]-(b:Book) with a,count(b) as num_books where num_books > 3 return a.authors_name as author_name, num_books;
+
+	{'author_name': 'J.K. Rowling/Mary GrandPré', 'num_books': 4}
+	{'author_name': 'Douglas Adams', 'num_books': 6}
+	{'author_name': 'Bill Bryson', 'num_books': 9}
+	{'author_name': 'John McPhee', 'num_books': 8}
+	{'author_name': 'Frank Herbert', 'num_books': 5}
+	{'author_name': 'Marsha Collier', 'num_books': 4}
+	{'author_name': 'Henry Miller', 'num_books': 5}
+	{'author_name': 'Gabriel García Márquez', 'num_books': 5}
+	{'author_name': 'Robert A. Heinlein', 'num_books': 5}
+	{'author_name': 'Don DeLillo', 'num_books': 7}
+	{'author_name': 'Thomas Pynchon', 'num_books': 7}
+	{'author_name': 'Joan Didion', 'num_books': 6}
+	{'author_name': 'Paul Auster', 'num_books': 10}
+	{'author_name': 'Neal Stephenson', 'num_books': 6}
+	{'author_name': 'Hiromu Arakawa/Akira Watanabe', 'num_books': 6}
+	{'author_name': 'Arthur Golden', 'num_books': 4}
+	{'author_name': 'Dan Brown', 'num_books': 7}
+	{'author_name': 'Steven Pressfield', 'num_books': 4}
+	{'author_name': 'Euripides/David Kovacs', 'num_books': 5}
+	{'author_name': 'Simon Goldhill', 'num_books': 5}
+	{'author_name': 'Aristophanes/Jeffrey Henderson', 'num_books': 4}
+	{'author_name': 'Ricardo Piglia', 'num_books': 4}
+
+Query: match (p:Publisher)-[r:PUBLISHED]-(b:Book) with r.publication_date as publication_date, count(b) as num_books return publication_date, num_books order by num_books desc limit 1;
+
+	{'publication_date': '11/1/2005', 'num_books': 5}
+
+Query: match (p:Publisher)-[:PUBLISHED]-(b:Book) return p.publisher_name as publisher_name,count(b) as num_books order by num_books desc;
+
+	{'publisher_name': 'Penguin Books', 'num_books': 26}
+	{'publisher_name': 'Penguin Classics', 'num_books': 19}
+	{'publisher_name': 'University of Chicago Press', 'num_books': 13}
+	{'publisher_name': 'Farrar  Straus and Giroux', 'num_books': 12}
+	{'publisher_name': 'Cambridge University Press', 'num_books': 11}
+	{'publisher_name': 'Vintage', 'num_books': 10}
+	{'publisher_name': 'Oxford University Press  USA', 'num_books': 10}
+	{'publisher_name': 'Hackett Publishing Company  Inc.', 'num_books': 10}
+	{'publisher_name': 'William Morrow Paperbacks', 'num_books': 9}
+	{'publisher_name': 'Oxford University Press', 'num_books': 8}
+	{'publisher_name': 'Harvard University Press', 'num_books': 8}
+	{'publisher_name': 'HarperOne', 'num_books': 7}
+	{'publisher_name': 'Broadway Books', 'num_books': 7}
+	{'publisher_name': 'Ballantine Books', 'num_books': 7}
+	{'publisher_name': 'Wiley', 'num_books': 7}
+	{'publisher_name': 'Houghton Mifflin Harcourt', 'num_books': 6}
+	{'publisher_name': 'Cliffs Notes', 'num_books': 6}
+	{'publisher_name': 'Scribner', 'num_books': 6}
+	{'publisher_name': 'Simon  Schuster', 'num_books': 6}
+	{'publisher_name': 'VIZ Media LLC', 'num_books': 6}
+	{'publisher_name': 'Bantam', 'num_books': 5}
+	{'publisher_name': 'Loeb Classical Library', 'num_books': 5}
+	{'publisher_name': 'Scholastic', 'num_books': 5}
+	{'publisher_name': 'Ace Books', 'num_books': 5}
+	{'publisher_name': 'Signet', 'num_books': 5}
+	{'publisher_name': 'Dover Publications', 'num_books': 5}
+	{'publisher_name': 'Harper Perennial', 'num_books': 5}
+	{'publisher_name': 'Grove Press', 'num_books': 5}
+	{'publisher_name': 'Penguin', 'num_books': 5}
+	{'publisher_name': 'Farrar Straus Giroux', 'num_books': 4}
+	{'publisher_name': 'Citadel', 'num_books': 4}
+	{'publisher_name': 'Del Rey', 'num_books': 4}
+	{'publisher_name': 'Pocket Books', 'num_books': 4}
+	{'publisher_name': 'W. W. Norton  Company', 'num_books': 4}
+	{'publisher_name': 'Clarkson Potter', 'num_books': 4}
+	{'publisher_name': 'Anchor Books', 'num_books': 4}
+	{'publisher_name': 'Anagrama', 'num_books': 4}
+	{'publisher_name': 'Signet Classics', 'num_books': 3}
+	{'publisher_name': 'Plume', 'num_books': 3}
+	{'publisher_name': 'Basic Books', 'num_books': 3}
+	{'publisher_name': 'University of Pennsylvania Press', 'num_books': 3}
+	{'publisher_name': 'Scholastic Inc.', 'num_books': 3}
+	{'publisher_name': 'Pragmatic Bookshelf', 'num_books': 3}
+	{'publisher_name': 'Harper', 'num_books': 3}
+	{'publisher_name': 'Tor Books', 'num_books': 3}
+	{'publisher_name': 'Turtleback Books', 'num_books': 3}
+	{'publisher_name': 'Vintage Crime/Black Lizard', 'num_books': 3}
+	{'publisher_name': 'Vintage International', 'num_books': 3}
+	{'publisher_name': 'Random House', 'num_books': 3}
+	{'publisher_name': 'New City Press', 'num_books': 3}
+	{'publisher_name': 'University of Oklahoma Press', 'num_books': 3}
+	{'publisher_name': 'University of California Press', 'num_books': 2}
+	{'publisher_name': 'Wayne State University Press', 'num_books': 2}
+	{'publisher_name': 'Peachpit Press', 'num_books': 2}
+	{'publisher_name': 'HarperTorch', 'num_books': 2}
+	{'publisher_name': 'Walker & Company', 'num_books': 2}
+	{'publisher_name': 'NAL', 'num_books': 2}
+	{'publisher_name': 'Random House Trade Paperbacks', 'num_books': 2}
+	{'publisher_name': 'Alfred A. Knopf', 'num_books': 2}
+	{'publisher_name': 'Vintage Espanol', 'num_books': 2}
+	{'publisher_name': 'Plaza y Janes', 'num_books': 2}
+	{'publisher_name': 'Vintage Books USA', 'num_books': 2}
+	{'publisher_name': 'Lonely Planet', 'num_books': 2}
+	{'publisher_name': 'Mariner Books', 'num_books': 2}
+	{'publisher_name': 'Spectra Books', 'num_books': 2}
+	{'publisher_name': 'Spectra', 'num_books': 2}
+	{'publisher_name': 'Two Plus Two Publishing LLC', 'num_books': 2}
+	{'publisher_name': 'Clarkson Potter Publishers', 'num_books': 2}
+	{'publisher_name': 'Prentice Hall', 'num_books': 2}
+	{'publisher_name': 'Prometheus Books', 'num_books': 2}
+	{'publisher_name': 'Bantam Classics', 'num_books': 2}
+	{'publisher_name': 'Bristol Classical Press', 'num_books': 2}
+	{'publisher_name': 'Longman Publishing Group', 'num_books': 2}
+	{'publisher_name': 'Gramercy Books', 'num_books': 2}
+	{'publisher_name': 'Teacher Created Resources', 'num_books': 2}
+	{'publisher_name': 'Delacorte Press', 'num_books': 2}
+	{'publisher_name': 'The New Press', 'num_books': 2}
+	{'publisher_name': 'HarperAudio', 'num_books': 2}
+	{'publisher_name': 'Routledge', 'num_books': 2}
+	{'publisher_name': 'North Light Books', 'num_books': 2}
+	{'publisher_name': 'Kingfisher', 'num_books': 2}
+	{'publisher_name': 'Thomas Nelson', 'num_books': 2}
+	{'publisher_name': "O'Reilly Media", 'num_books': 2}
+	{'publisher_name': 'William Morrow', 'num_books': 2}
+	{'publisher_name': 'Picador USA', 'num_books': 2}
+	{'publisher_name': 'Puffin', 'num_books': 2}
+	{'publisher_name': 'New Directions', 'num_books': 2}
+	{'publisher_name': 'Barnes  Noble Classics', 'num_books': 2}
+	{'publisher_name': 'Knopf', 'num_books': 2}
+	{'publisher_name': 'Simon & Schuster', 'num_books': 2}
+	{'publisher_name': 'Random House Books for Young Readers', 'num_books': 2}
+	{'publisher_name': 'Princeton University Press', 'num_books': 2}
+	{'publisher_name': 'W. W. Norton & Company', 'num_books': 2}
+	{'publisher_name': 'Harper Perennial Modern Classics', 'num_books': 2}
+	{'publisher_name': "Everyman's Library", 'num_books': 2}
+	{'publisher_name': 'Picador', 'num_books': 2}
+	{'publisher_name': 'Business Plus', 'num_books': 2}
+	{'publisher_name': 'HarperCollins Publishers', 'num_books': 2}
+	{'publisher_name': 'Nimble Books', 'num_books': 1}
+	{'publisher_name': 'Del Rey Books', 'num_books': 1}
+	{'publisher_name': 'Crown', 'num_books': 1}
+	{'publisher_name': 'Random House Audio', 'num_books': 1}
+	{'publisher_name': 'Wings Books', 'num_books': 1}
+	{'publisher_name': 'Atheneum Books for Young Readers: Richard Jackson Books', 'num_books': 1}
+	{'publisher_name': 'Cherry Lane Music Company', 'num_books': 1}
+	{'publisher_name': 'Changeling Press', 'num_books': 1}
+	{'publisher_name': 'Viking Juvenile', 'num_books': 1}
+	{'publisher_name': 'Firebird', 'num_books': 1}
+	{'publisher_name': 'iUniverse', 'num_books': 1}
+	{'publisher_name': 'Shambhala', 'num_books': 1}
+	{'publisher_name': 'Ivy Books', 'num_books': 1}
+	{'publisher_name': 'Amistad', 'num_books': 1}
+	{'publisher_name': 'FT Press', 'num_books': 1}
+	{'publisher_name': 'Archaia', 'num_books': 1}
+	{'publisher_name': 'Dramatists Play Service', 'num_books': 1}
+	{'publisher_name': 'Chosen Books', 'num_books': 1}
+	{'publisher_name': 'Association for Supervision & Curriculum Development', 'num_books': 1}
+	{'publisher_name': 'ASCD', 'num_books': 1}
+	{'publisher_name': 'Sovereign World', 'num_books': 1}
+	{'publisher_name': 'Workman Publishing Company', 'num_books': 1}
+	{'publisher_name': 'One Hour Entertainment', 'num_books': 1}
+	{'publisher_name': 'Putnam', 'num_books': 1}
+	{'publisher_name': 'Tor Science Fiction', 'num_books': 1}
+	{'publisher_name': 'Delacorte Books for Young Readers', 'num_books': 1}
+	{'publisher_name': 'Heinemann Drama', 'num_books': 1}
+	{'publisher_name': 'McGraw-Hill', 'num_books': 1}
+	{'publisher_name': 'Barnes & Noble Classics', 'num_books': 1}
+	{'publisher_name': 'Barnes & Noble', 'num_books': 1}
+	{'publisher_name': 'Mira Books', 'num_books': 1}
+	{'publisher_name': 'Buccaneer Books', 'num_books': 1}
+	{'publisher_name': 'Clarity Press', 'num_books': 1}
+	{'publisher_name': 'Rowman & Littlefield Publishers', 'num_books': 1}
+	{'publisher_name': 'Pearson', 'num_books': 1}
+	{'publisher_name': 'EMC/Paradigm Publishing', 'num_books': 1}
+	{'publisher_name': 'Teaching Resources', 'num_books': 1}
+	{'publisher_name': 'Little  Brown Book Group', 'num_books': 1}
+	{'publisher_name': 'Atria Books', 'num_books': 1}
+	{'publisher_name': 'Sterling', 'num_books': 1}
+	{'publisher_name': 'New Directions Publishing', 'num_books': 1}
+	{'publisher_name': 'Brookline Books', 'num_books': 1}
+	{'publisher_name': 'Pantheon', 'num_books': 1}
+	{'publisher_name': 'One World (UK)', 'num_books': 1}
+	{'publisher_name': 'Interlink Publishing Group', 'num_books': 1}
+	{'publisher_name': "Sterling Children's Books", 'num_books': 1}
+	{'publisher_name': 'Atheneum Books for Young Readers', 'num_books': 1}
+	{'publisher_name': 'Abdo Publishing Company', 'num_books': 1}
+	{'publisher_name': 'Black Classic Press', 'num_books': 1}
+	{'publisher_name': 'French & European', 'num_books': 1}
+	{'publisher_name': 'Zebra', 'num_books': 1}
+	{'publisher_name': 'Greenwillow Books', 'num_books': 1}
+	{'publisher_name': 'Booket', 'num_books': 1}
+	{'publisher_name': 'Ace', 'num_books': 1}
+	{'publisher_name': 'Samuel French  Inc.', 'num_books': 1}
+	{'publisher_name': 'HMH Books for Young Readers', 'num_books': 1}
+	{'publisher_name': 'Vintage Contemporaries', 'num_books': 1}
+	{'publisher_name': 'Penguin Press', 'num_books': 1}
+	{'publisher_name': 'Back Bay Books', 'num_books': 1}
+	{'publisher_name': 'Knopf Publishing Group', 'num_books': 1}
+	{'publisher_name': 'Sun and Moon Press', 'num_books': 1}
+	{'publisher_name': 'Sky Books (NY)', 'num_books': 1}
+	{'publisher_name': 'Henry Holt & Company', 'num_books': 1}
+	{'publisher_name': 'Actes Sud', 'num_books': 1}
+	{'publisher_name': 'Penguin Books Ltd. (London)', 'num_books': 1}
+	{'publisher_name': 'Filiquarian Publishing  LLC.', 'num_books': 1}
+	{'publisher_name': 'Lerner Publications', 'num_books': 1}
+	{'publisher_name': 'Adventures Unlimited Press', 'num_books': 1}
+	{'publisher_name': 'Harlequin Blaze', 'num_books': 1}
+	{'publisher_name': 'Listening Library (Audio)', 'num_books': 1}
+	{'publisher_name': 'Large Print Press', 'num_books': 1}
+	{'publisher_name': 'Taschen', 'num_books': 1}
+	{'publisher_name': 'Haynes Manuals N. America  Inc.', 'num_books': 1}
+	{'publisher_name': 'Rockport Publishers', 'num_books': 1}
+	{'publisher_name': 'Signet Book', 'num_books': 1}
+	{'publisher_name': 'Dutton', 'num_books': 1}
+	{'publisher_name': 'For Dummies', 'num_books': 1}
+	{'publisher_name': 'Lyons Press', 'num_books': 1}
+	{'publisher_name': 'Alliance Publishing', 'num_books': 1}
+	{'publisher_name': 'Bedford Books', 'num_books': 1}
+	{'publisher_name': 'Dey Street Books', 'num_books': 1}
+	{'publisher_name': 'Wisdom Publications', 'num_books': 1}
+	{'publisher_name': 'Rough Guides', 'num_books': 1}
+	{'publisher_name': 'Geoplaneta', 'num_books': 1}
+	{'publisher_name': 'Avon', 'num_books': 1}
+	{'publisher_name': 'Payot', 'num_books': 1}
+	{'publisher_name': 'HarperCollins Perennial', 'num_books': 1}
+	{'publisher_name': 'Bantam Books', 'num_books': 1}
+	{'publisher_name': 'Ignatius Press', 'num_books': 1}
+	{'publisher_name': 'HarperCollins', 'num_books': 1}
+	{'publisher_name': 'Borgo Press', 'num_books': 1}
+	{'publisher_name': 'It Books', 'num_books': 1}
+	{'publisher_name': 'Random House Large Print Publishing', 'num_books': 1}
+	{'publisher_name': 'Newmarket Press', 'num_books': 1}
+	{'publisher_name': 'Oni Press', 'num_books': 1}
+	{'publisher_name': 'Moody Publishers', 'num_books': 1}
+	{'publisher_name': 'Umbriel', 'num_books': 1}
+	{'publisher_name': 'FonoLibro', 'num_books': 1}
+	{'publisher_name': 'Anchor', 'num_books': 1}
+	{'publisher_name': 'Pocket', 'num_books': 1}
+	{'publisher_name': 'Corgi Books', 'num_books': 1}
+	{'publisher_name': 'Bantam Press', 'num_books': 1}
+	{'publisher_name': 'Pinnacle', 'num_books': 1}
+	{'publisher_name': 'Gallery Books', 'num_books': 1}
+	{'publisher_name': 'Tarcherperigee', 'num_books': 1}
+	{'publisher_name': 'High Roads Media', 'num_books': 1}
+	{'publisher_name': 'Firebrand Books', 'num_books': 1}
+	{'publisher_name': 'Berkley Books', 'num_books': 1}
+	{'publisher_name': 'Recorded Books  Inc.', 'num_books': 1}
+	{'publisher_name': 'Howard Publishing Co', 'num_books': 1}
+	{'publisher_name': 'Zondervan', 'num_books': 1}
+	{'publisher_name': 'Delta', 'num_books': 1}
+	{'publisher_name': 'HarperCollins Publishers  Inc.', 'num_books': 1}
+	{'publisher_name': 'Rodale Books', 'num_books': 1}
+	{'publisher_name': 'High Point Media', 'num_books': 1}
+	{'publisher_name': 'John Wiley & Sons', 'num_books': 1}
+	{'publisher_name': 'B Books', 'num_books': 1}
+	{'publisher_name': 'Red Dress Ink', 'num_books': 1}
+	{'publisher_name': 'Ryland Peters & Small', 'num_books': 1}
+	{'publisher_name': 'Ediciones B', 'num_books': 1}
+	{'publisher_name': 'Putnam Publishing Group', 'num_books': 1}
+	{'publisher_name': 'Mariner Books / Harvest Books', 'num_books': 1}
+	{'publisher_name': 'Gallimard', 'num_books': 1}
+	{'publisher_name': 'Lulu.com', 'num_books': 1}
+	{'publisher_name': 'Jossey-Bass', 'num_books': 1}
+	{'publisher_name': 'Little  Brown', 'num_books': 1}
+	{'publisher_name': 'Harper Paperbacks', 'num_books': 1}
+	{'publisher_name': 'Prentice Hall Press', 'num_books': 1}
+	{'publisher_name': 'Crown Publishing Group', 'num_books': 1}
+	{'publisher_name': 'BradyGames', 'num_books': 1}
+	{'publisher_name': 'Penguin (Business)', 'num_books': 1}
+	{'publisher_name': 'Tor Classics', 'num_books': 1}
+	{'publisher_name': 'Doubleday Books', 'num_books': 1}
+	{'publisher_name': 'Warner Books', 'num_books': 1}
+	{'publisher_name': 'Continuum', 'num_books': 1}
+	{'publisher_name': 'Stackpole Books', 'num_books': 1}
+	{'publisher_name': 'St. Augustines Press', 'num_books': 1}
+	{'publisher_name': 'Cornell University Press', 'num_books': 1}
+	{'publisher_name': 'W.W. Norton & Company', 'num_books': 1}
+	{'publisher_name': "Everyman's Library 234", 'num_books': 1}
+	{'publisher_name': 'Bolchazy-Carducci Publishers', 'num_books': 1}
+	{'publisher_name': 'Atelos Press', 'num_books': 1}
+	{'publisher_name': 'Harvard Common Press', 'num_books': 1}
+	{'publisher_name': 'Viking', 'num_books': 1}
+	{'publisher_name': 'Gramercy', 'num_books': 1}
+	{'publisher_name': 'Applause Books', 'num_books': 1}
+	{'publisher_name': 'Nonpareil Books', 'num_books': 1}
+	{'publisher_name': 'Bryn Mawr Commentaries', 'num_books': 1}
+	{'publisher_name': 'New York Review of Books', 'num_books': 1}
+	{'publisher_name': 'Bloomsbury Methuen Drama', 'num_books': 1}
+	{'publisher_name': 'Kessinger Publishing', 'num_books': 1}
+	{'publisher_name': 'New American Library', 'num_books': 1}
+	{'publisher_name': 'Prestwick House - (Literary Touchstone Classic)', 'num_books': 1}
+	{'publisher_name': 'Signet Books (NY)', 'num_books': 1}
+	{'publisher_name': 'Focus Publishing/R. Pullins Company', 'num_books': 1}
+	{'publisher_name': 'Loeb Classical Library/Harvard University Press', 'num_books': 1}
+	{'publisher_name': 'Harcourt', 'num_books': 1}
+	{'publisher_name': 'Little Brown and Company', 'num_books': 1}
+	{'publisher_name': 'Simon Schuster', 'num_books': 1}
+	{'publisher_name': 'Berrett-Koehler Publishers', 'num_books': 1}
+	{'publisher_name': 'Granta UK', 'num_books': 1}
+	{'publisher_name': 'Seix Barral', 'num_books': 1}
+	{'publisher_name': 'Library of Liberal Arts/Bobb-Merrill (Indianapolis  IN)', 'num_books': 1}
+	{'publisher_name': 'Hackett Publ. Co Inc', 'num_books': 1}
+	{'publisher_name': 'Ecco Press', 'num_books': 1}
+	{'publisher_name': 'Santillana USA Publishing Company', 'num_books': 1}
+	{'publisher_name': 'Harcourt Brace', 'num_books': 1}
+	{'publisher_name': 'Everyman', 'num_books': 1}
+	{'publisher_name': 'Tarcher', 'num_books': 1}
+	{'publisher_name': 'Three Rivers Press (CA)', 'num_books': 1}
+	{'publisher_name': 'W.W. Norton', 'num_books': 1}
+	{'publisher_name': 'North Point Press', 'num_books': 1}
+	{'publisher_name': 'Warner Books (NY)', 'num_books': 1}
+	{'publisher_name': 'Jove', 'num_books': 1}
+	{'publisher_name': 'Alfred A. Knopf Books for Young Readers', 'num_books': 1}
+	{'publisher_name': 'Libraries Unlimited', 'num_books': 1}
+	{'publisher_name': 'Owl Books (Henry Holt)', 'num_books': 1}
+	{'publisher_name': 'Pantheon Books (NY)', 'num_books': 1}
+	{'publisher_name': 'Penguin Books Ltd', 'num_books': 1}
+	{'publisher_name': 'Villard', 'num_books': 1}
+	{'publisher_name': 'Modern Library', 'num_books': 1}
+	{'publisher_name': 'Farrar  Straus and Giroux (NY)', 'num_books': 1}
+	{'publisher_name': 'Planeta Publishing', 'num_books': 1}
+	{'publisher_name': 'Mountaineers Books', 'num_books': 1}
+
+Query: match (a:Author)-[:WROTE]-(b:Book) where not(a.authors_name contains '/') return a.authors_name as author, b.title as title;
+	{'author': 'J.K. Rowling', 'title': 'Harry Potter Collection (Harry Potter  #1-6)'}
+	{'author': 'J.K. Rowling', 'title': 'Harry Potter and the Chamber of Secrets (Harry Potter  #2)'}
+	{'author': 'W. Frederick Zimmerman', 'title': 'Unauthorized Harry Potter Book Seven News: Half-Blood Prince Analysis and Speculation'}
+	{'author': 'Douglas Adams', 'title': "The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1-5)"}
+	{'author': 'Douglas Adams', 'title': "The Ultimate Hitchhiker's Guide (Hitchhiker's Guide to the Galaxy  #1-5)"}
+	{'author': 'Douglas Adams', 'title': 'The Long Dark Tea-Time of the Soul (Dirk Gently  #2)'}
+	{'author': 'Douglas Adams', 'title': "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1)"}
+	{'author': 'Douglas Adams', 'title': 'The Salmon of Doubt (Dirk Gently  #3)'}
+	{'author': 'Douglas Adams', 'title': "The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5)"}
+	{'author': 'Bill Bryson', 'title': "Bryson's Dictionary of Troublesome Words: A Writer's Guide to Getting It Right"}
+	{'author': 'Bill Bryson', 'title': "Bill Bryson's African Diary"}
+	{'author': 'Bill Bryson', 'title': 'Notes from a Small Island'}
+	{'author': 'Bill Bryson', 'title': 'The Lost Continent: Travels in Small Town America'}
+	{'author': 'Bill Bryson', 'title': 'Neither Here nor There: Travels in Europe'}
+	{'author': 'Bill Bryson', 'title': 'A Short History of Nearly Everything'}
+	{'author': 'Bill Bryson', 'title': "I'm a Stranger Here Myself: Notes on Returning to America After Twenty Years Away"}
+	{'author': 'Bill Bryson', 'title': 'In a Sunburned Country'}
+	{'author': 'Bill Bryson', 'title': 'The Mother Tongue: English and How It Got That Way'}
+	{'author': 'J.R.R. Tolkien', 'title': 'The Lord of the Rings (The Lord of the Rings  #1-3)'}
+	{'author': 'J.R.R. Tolkien', 'title': 'The Fellowship of the Ring (The Lord of the Rings  #1)'}
+	{'author': 'J.R.R. Tolkien', 'title': 'J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings'}
+	{'author': 'Jude Fisher', 'title': 'The Lord of the Rings: Complete Visual Companion'}
+	{'author': 'Gary Paulsen', 'title': "Hatchet (Brian's Saga  #1)"}
+	{'author': 'Gary Paulsen', 'title': 'Guts: The True Stories behind Hatchet and the Brian Books'}
+	{'author': 'Molly Hatchet', 'title': 'Molly Hatchet - 5 of the Best'}
+	{'author': 'Dale Peck', 'title': 'Hatchet Jobs: Writings on Contemporary Fiction'}
+	{'author': 'Delia Sherman', 'title': 'Changeling (Changeling  #1)'}
+	{'author': 'Patricia A. McKillip', 'title': 'The Changeling Sea'}
+	{'author': 'Zilpha Keatley Snyder', 'title': 'The Egypt Game'}
+	{'author': 'Zilpha Keatley Snyder', 'title': 'The Changeling'}
+	{'author': 'Kate Horsley', 'title': 'The Changeling'}
+	{'author': 'Philippa Carr', 'title': 'The Changeling (Daughters of England  #15)'}
+	{'author': 'Edward P. Jones', 'title': 'The Known World'}
+	{'author': 'Edward P. Jones', 'title': 'The Known World'}
+	{'author': 'Satyajit Das', 'title': 'Traders  Guns & Money: Knowns and Unknowns in the Dazzling World of Derivatives'}
+	{'author': 'Mark Smylie', 'title': 'Artesia: Adventures in the Known World'}
+	{'author': 'John McPhee', 'title': 'Giving Good Weight'}
+	{'author': 'John McPhee', 'title': 'Rising from the Plains'}
+	{'author': 'John McPhee', 'title': 'Heirs of General Practice'}
+	{'author': 'John McPhee', 'title': 'The Control of Nature'}
+	{'author': 'John McPhee', 'title': 'Uncommon Carriers'}
+	{'author': 'John McPhee', 'title': 'La Place de la Concorde Suisse'}
+	{'author': 'John McPhee', 'title': 'Coming Into the Country'}
+	{'author': 'John McPhee', 'title': 'Annals of the Former World'}
+	{'author': 'Wendy Wasserstein', 'title': 'The Heidi Chronicles'}
+	{'author': 'Wendy Wasserstein', 'title': "The Heidi Chronicles: Uncommon Women and Others & Isn't It Romantic"}
+	{'author': 'Heidi Hayes Jacobs', 'title': 'Mapping the Big Picture: Integrating Curriculum & Assessment K-12'}
+	{'author': 'Heidi Hayes Jacobs', 'title': 'Getting Results with Curriculum Mapping'}
+	{'author': 'Heidi Hayes Jacobs', 'title': 'Active Literacy Across the Curriculum: Strategies for Reading  Writing  Speaking  and Listening'}
+	{'author': 'Heidi Boyd', 'title': 'Simply Beautiful Beaded Jewelry'}
+	{'author': 'Heidi Boyd', 'title': 'Simply Beautiful Beading: 53 Quick and Easy Projects'}
+	{'author': 'Frank Herbert', 'title': 'God Emperor of Dune (Dune Chronicles  #4)'}
+	{'author': 'Frank Herbert', 'title': 'Heretics of Dune (Dune Chronicles #5)'}
+	{'author': 'Frank Herbert', 'title': 'Dune Messiah (Dune Chronicles #2)'}
+	{'author': 'Frank Herbert', 'title': 'Chapterhouse: Dune (Dune Chronicles #6)'}
+	{'author': 'Frank Herbert', 'title': 'Heretics of Dune (Dune Chronicles  #5)'}
+	{'author': 'Brian Herbert', 'title': 'Dreamer of Dune: The Biography of Frank Herbert'}
+	{'author': 'Gary Russell', 'title': 'The Lord of the Rings: The Art of the Fellowship of the Ring'}
+	{'author': 'Bryce Courtenay', 'title': 'The Power of One (The Power of One  #1)'}
+	{'author': 'Bryce Courtenay', 'title': 'The Power of One (The Power of One  #1)'}
+	{'author': 'Dave Lakhani', 'title': 'Power of an Hour: Business and Life Mastery in One Hour a Week'}
+	{'author': 'Louis E. Catron', 'title': 'The Power of One: The Solo Play for Playwrights  Actors  and Directors'}
+	{'author': 'Adam Ginsberg', 'title': 'How to Buy  Sell & Profit on eBay: Kick-Start Your Home-Based Business in Just Thirty Days'}
+	{'author': 'Marsha Collier', 'title': 'Starting an eBay Business for Dummies'}
+	{'author': 'Marsha Collier', 'title': 'eBay for Dummies'}
+	{'author': 'Marsha Collier', 'title': 'eBay Business All-in-One Desk Reference for Dummies'}
+	{'author': 'Marsha Collier', 'title': 'ebay Timesaving Techniques for Dummies'}
+	{'author': 'Julia Wilkinson', 'title': 'eBay: Top 100 Simplified Tips & Tricks'}
+	{'author': 'Ruby Ann Boxcar', 'title': "Ruby Ann's Down Home Trailer Park BBQin' Cookbook"}
+	{'author': 'Ruby Ann Boxcar', 'title': "Ruby Ann's Down Home Trailer Park Cookbook"}
+	{'author': 'Rob Orsini', 'title': 'Rails Cookbook: Recipes for Rapid Web Development with Ruby'}
+	{'author': 'Gloria Goldreich', 'title': 'Dinner with Anna Karenina'}
+	{'author': 'Anthony Thorlby', 'title': 'Tolstoy: Anna Karenina'}
+	{'author': 'John Banville', 'title': 'The Untouchable'}
+	{'author': 'Narendra Jadhav', 'title': "Untouchables: My Family's Triumphant Journey Out of the Caste System in Modern India"}
+	{'author': 'Barry R. Cournoyer', 'title': 'The Evidence-Based Social Work Skills Book'}
+	{'author': "Madeleine L'Engle", 'title': 'Una arruga en el tiempo – A Wrinkle in Time'}
+	{'author': "Madeleine L'Engle", 'title': 'A Wrinkle in Time: With Related Readings (A Wrinkle in Time Quintet #1)'}
+	{'author': 'Tara MacCarthy', 'title': 'Literature Circle Guide: A Wrinkle in Time'}
+	{'author': 'Cynthia Harrod-Eagles', 'title': 'The Long Shadow (The Morland Dynasty  #6)'}
+	{'author': 'Charles Todd', 'title': 'A Long Shadow (Inspector Ian Rutledge  #8)'}
+	{'author': 'Daniel Abraham', 'title': 'A Shadow in Summer (Long Price Quartet  #1)'}
+	{'author': 'Charles Willeford', 'title': 'The Burnt Orange Heresy (Vintage Crime/Black Lizard)'}
+	{'author': 'Tom Wolfe', 'title': 'I am Charlotte Simmons'}
+	{'author': 'Quentin Blake', 'title': 'The Puffin Book of Nonsense Verse'}
+	{'author': 'Henry Miller', 'title': 'Tropic of Capricorn'}
+	{'author': 'Henry Miller', 'title': 'Nexus (The Rosy Crucifixion  #3)'}
+	{'author': 'Henry Miller', 'title': 'Quiet Days in Clichy'}
+	{'author': 'Henry Miller', 'title': 'The Air-Conditioned Nightmare'}
+	{'author': 'Henry Miller', 'title': 'Sexus (The Rosy Crucifixion  #1)'}
+	{'author': 'Marguerite Duras', 'title': 'Writing'}
+	{'author': 'Robert Louis Stevenson', 'title': 'Treasure Island'}
+	{'author': 'Robert Louis Stevenson', 'title': 'Treasure Island'}
+	{'author': 'Ralph Ginzburg', 'title': '100 Years of Lynchings'}
+	{'author': 'Gabriel García Márquez', 'title': 'Cien años de soledad'}
+	{'author': 'Gabriel García Márquez', 'title': 'Memoria de mis putas tristes'}
+	{'author': 'Gabriel García Márquez', 'title': 'Cien años de soledad'}
+	{'author': 'Gabriel García Márquez', 'title': 'Crónica de una muerte anunciada'}
+	{'author': 'Gabriel García Márquez', 'title': 'Del amor y otros demonios'}
+	{'author': 'Dr. Seuss', 'title': 'On Beyond Zebra!'}
+	{'author': 'Debbie Raleigh', 'title': 'The Wedding Clause'}
+	{'author': 'Kevin Henkes', 'title': 'The Zebra Wall'}
+	{'author': 'Patrick Süskind', 'title': 'El perfume: Historia de un asesino'}
+	{'author': 'Robert A. Heinlein', 'title': "Time for the Stars (Heinlein's Juveniles  #10)"}
+	{'author': 'Robert A. Heinlein', 'title': 'Job: A Comedy of Justice'}
+	{'author': 'Robert A. Heinlein', 'title': 'Stranger in a Strange Land'}
+	{'author': 'Robert A. Heinlein', 'title': 'The Door Into Summer'}
+	{'author': 'Robert A. Heinlein', 'title': 'To Sail Beyond the Sunset'}
+	{'author': 'Nick  Webb', 'title': 'Wish You Were Here: The Official Biography of Douglas Adams'}
+	{'author': 'Terry Jones', 'title': "Douglas Adams's Starship Titanic"}
+	{'author': 'Harry G. Frankfurt', 'title': 'On Bullshit'}
+	{'author': 'Nick Flynn', 'title': 'Another Bullshit Night in Suck City'}
+	{'author': 'Garry Wills', 'title': 'Saint Augustine'}
+	{'author': 'Garry Wills', 'title': 'Lincoln at Gettysburg: The Words That Remade America'}
+	{'author': 'Don DeLillo', 'title': 'Great Jones Street'}
+	{'author': 'Don DeLillo', 'title': 'Libra'}
+	{'author': 'Don DeLillo', 'title': 'Cosmopolis'}
+	{'author': 'Don DeLillo', 'title': 'Americana'}
+	{'author': 'Don DeLillo', 'title': 'Underworld'}
+	{'author': 'Don DeLillo', 'title': 'Running Dog'}
+	{'author': 'Don DeLillo', 'title': 'The Names'}
+	{'author': 'Thomas Pynchon', 'title': 'Vineland'}
+	{'author': 'Thomas Pynchon', 'title': "Gravity's Rainbow"}
+	{'author': 'Thomas Pynchon', 'title': "Gravity's Rainbow"}
+	{'author': 'Thomas Pynchon', 'title': 'The Crying of Lot 49'}
+	{'author': 'Thomas Pynchon', 'title': 'Slow Learner: Early Stories'}
+	{'author': 'Thomas Pynchon', 'title': 'Against the Day'}
+	{'author': 'Thomas Pynchon', 'title': 'V.'}
+	{'author': 'Joan Didion', 'title': 'The Year of Magical Thinking'}
+	{'author': 'Joan Didion', 'title': 'The White Album'}
+	{'author': 'Joan Didion', 'title': 'A Book of Common Prayer'}
+	{'author': 'Joan Didion', 'title': 'Democracy'}
+	{'author': 'Joan Didion', 'title': 'Slouching Towards Bethlehem'}
+	{'author': 'Joan Didion', 'title': 'Where I Was From'}
+	{'author': 'Paul Auster', 'title': 'The Music of Chance'}
+	{'author': 'Paul Auster', 'title': 'City of Glass (The New York Trilogy  #1)'}
+	{'author': 'Paul Auster', 'title': 'Timbuktu / Leviathan / Moon Palace'}
+	{'author': 'Paul Auster', 'title': 'The Red Notebook: True Stories'}
+	{'author': 'Paul Auster', 'title': 'Ghosts (The New York Trilogy  #2)'}
+	{'author': 'Paul Auster', 'title': 'The Locked Room (The New York Trilogy  #3)'}
+	{'author': 'Paul Auster', 'title': 'Leviathan'}
+	{'author': 'Paul Auster', 'title': 'Moon Palace'}
+	{'author': 'Paul Auster', 'title': 'Travels in the Scriptorium'}
+	{'author': 'Paul Auster', 'title': 'The Brooklyn Follies'}
+	{'author': 'Jared Diamond', 'title': 'Guns  Germs and Steel: The Fates of Human Societies'}
+	{'author': 'Jared Diamond', 'title': 'Collapse: How Societies Choose to Fail or Succeed'}
+	{'author': 'Joseph A. Tainter', 'title': 'Collapse of Complex Societies'}
+	{'author': 'Robert D. Putnam', 'title': 'Bowling Alone: The Collapse and Revival of American Community'}
+	{'author': 'Philip K. Howard', 'title': "The Collapse of the Common Good: How America's Lawsuit Culture Undermines Our Freedom"}
+	{'author': 'Nikola Tesla', 'title': 'My Inventions'}
+	{'author': 'Carol Dommermuth-Costa', 'title': 'Nikola Tesla: A Spark of Genius'}
+	{'author': 'William Golding', 'title': 'Lord of the Flies'}
+	{'author': 'Victor Davis Hanson', 'title': 'A War Like No Other: How the Athenians & Spartans Fought the Peloponnesian War'}
+	{'author': 'Alice Sebold', 'title': 'The Lovely Bones'}
+	{'author': 'Alice Sebold', 'title': 'The Lovely Bones'}
+	{'author': 'Sharyn McCrumb', 'title': 'Lovely in Her Bones (Elizabeth MacPherson  #2)'}
+	{'author': 'Elizabeth Castro', 'title': 'HTML  XHTML  and CSS (Visual Quickstart Guide)'}
+	{'author': 'Chuck Klosterman', 'title': 'Sex  Drugs  and Cocoa Puffs: A Low Culture Manifesto'}
+	{'author': 'Chuck Klosterman', 'title': 'Killing Yourself to Live: 85% of a True Story'}
+	{'author': 'Jane Feather', 'title': 'Vice (V  #8)'}
+	{'author': 'Robert M. Pirsig', 'title': 'Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values (Phaedrus  #1)'}
+	{'author': 'John Harold Haynes', 'title': 'Motorcycle Basics Techbook'}
+	{'author': 'Ayn Rand', 'title': 'The Fountainhead'}
+	{'author': 'Ayn Rand', 'title': 'Anthem'}
+	{'author': 'Ayn Rand', 'title': 'For the New Intellectual: The Philosophy of Ayn Rand'}
+	{'author': 'Colin  Wells', 'title': 'Sailing from Byzantium: How a Lost Empire Shaped the World'}
+	{'author': 'Billy Collins', 'title': 'Sailing Alone Around the Room: New and Selected Poems'}
+	{'author': 'Christopher Caswell', 'title': 'The Greatest Sailing Stories Ever Told: Twenty-Seven Unforgettable Stories'}
+	{'author': 'Kevin Trudeau', 'title': "Natural Cures They Don't Want You to Know about"}
+	{'author': 'Anne Tyler', 'title': 'Digging to America'}
+	{'author': 'Philip Roth', 'title': 'The Plot Against America'}
+	{'author': 'Jon   Stewart', 'title': 'Naked Pictures of Famous People'}
+	{'author': 'Brian Greene', 'title': 'The Elegant Universe: Superstrings  Hidden Dimensions  and the Quest for the Ultimate Theory'}
+	{'author': 'H.G. Bissinger', 'title': 'Three Nights in August: Strategy  Heartbreak  and Joy Inside the Mind of a Manager'}
+	{'author': 'Neal Stephenson', 'title': 'Odalisque (The Baroque Cycle  Vol. 1  Book 3)'}
+	{'author': 'Neal Stephenson', 'title': 'Le Réseau Kinakuta (Cryptonomicon  #2)'}
+	{'author': 'Neal Stephenson', 'title': 'Quicksilver (The Baroque Cycle  #1)'}
+	{'author': 'Neal Stephenson', 'title': 'Cryptonomicon'}
+	{'author': 'Neal Stephenson', 'title': 'The Confusion (The Baroque Cycle  #2)'}
+	{'author': 'Neal Stephenson', 'title': 'The Big U'}
+	{'author': 'Donald A. Norman', 'title': 'The Design of Everyday Things'}
+	{'author': 'Donald A. Norman', 'title': 'Emotional Design: Why We Love (or Hate) Everyday Things'}
+	{'author': 'Donald A. Norman', 'title': 'The Psychology of Everyday Things'}
+	{'author': 'Robert   Harris', 'title': 'Pompeii'}
+	{'author': 'John Steinbeck', 'title': 'Of Mice and Men'}
+	{'author': 'Neil Strauss', 'title': 'The Game: Penetrating the Secret Society of Pickup Artists'}
+	{'author': 'Ellen Raskin', 'title': 'The Westing Game'}
+	{'author': 'Arthur Golden', 'title': 'Memoirs of a Geisha'}
+	{'author': 'Arthur Golden', 'title': 'Memoirs of a Geisha'}
+	{'author': 'Arthur Golden', 'title': 'Memoirs of a Geisha'}
+	{'author': 'Arthur Golden', 'title': 'Memoirs of a Geisha'}
+	{'author': 'Gary Chapman', 'title': 'The 5 Love Languages / The 5 Love Languages Journal'}
+	{'author': 'Dan Brown', 'title': 'Ángeles y demonios (Robert Langdon  #1)'}
+	{'author': 'Dan Brown', 'title': 'The Da Vinci Code'}
+	{'author': 'Dan Brown', 'title': 'Deception Point'}
+	{'author': 'Dan Brown', 'title': 'The Da Vinci Code (Robert Langdon  #2)'}
+	{'author': 'Dan Brown', 'title': 'Angels & Demons (Robert Langdon  #1)'}
+	{'author': 'Dan Brown', 'title': 'Deception Point'}
+	{'author': 'Dan Brown', 'title': 'Deception Point'}
+	{'author': 'P.J. Parrish', 'title': 'A Killing Rain (Louis Kincaid  #6)'}
+	{'author': 'Napoleon Hill', 'title': 'Think and Grow Rich: The Landmark Bestseller Now Revised and Updated for the 21st Century'}
+	{'author': 'Napoleon Hill', 'title': 'Think and Grow Rich'}
+	{'author': 'Mike   Mason', 'title': 'Pragmatic Version Control: Using Subversion (The Pragmatic Starter Kit Series)'}
+	{'author': 'Riki Anne Wilchins', 'title': 'Read My Lips: Sexual Subversion and the End of Gender'}
+	{'author': 'George S. Clason', 'title': 'The Richest Man in Babylon'}
+	{'author': 'George S. Clason', 'title': 'The Richest Man in Babylon'}
+	{'author': 'David McCullough', 'title': '1776'}
+	{'author': 'Robert J. Allison', 'title': 'The Crescent Obscured: The United States and the Muslim World  1776-1815'}
+	{'author': 'Pearl S. Buck', 'title': 'The Good Earth (House of Earth  #1)'}
+	{'author': 'Rick Warren', 'title': 'Purpose Driven Life - For Commuters: What on Earth Am I Here For?'}
+	{'author': 'Eric Schlosser', 'title': 'Fast Food Nation: The Dark Side of the All-American Meal'}
+	{'author': 'Eric Schlosser', 'title': 'Fast Food Nation: What The All-American Meal is Doing to the World'}
+	{'author': 'Lisa See', 'title': 'Snow Flower and the Secret Fan'}
+	{'author': 'John Grisham', 'title': 'The Broker'}
+	{'author': 'Robert A. Caro', 'title': 'The Power Broker: Robert Moses and the Fall of New York'}
+	{'author': 'Stephen W. Frey', 'title': 'The Power Broker: A Novel (Christian Gillette  #3)'}
+	{'author': 'Bill Phillips', 'title': 'Eating for Life: Your Guide to Great Health  Fat Loss and Increased Energy!'}
+	{'author': 'Sarah Mlynowski', 'title': 'Monkey Business'}
+	{'author': 'Michael   Lewis', 'title': 'Moneyball: The Art of Winning an Unfair Game'}
+	{'author': 'Michael   Lewis', 'title': "Liar's Poker"}
+	{'author': 'Frank McConnell', 'title': "Liar's Poker: A Harry Garnish Mystery"}
+	{'author': 'Giada De Laurentiis', 'title': 'Everyday Italian: 125 Simple and Delicious Recipes'}
+	{'author': 'Barry Eisler', 'title': 'The Last Assassin (John Rain  #5)'}
+	{'author': 'Yann Martel', 'title': 'Life of Pi'}
+	{'author': 'Robert Templer', 'title': 'Shadows and Wind: A View of Modern Vietnam'}
+	{'author': 'James Frey', 'title': 'A Million Little Pieces'}
+	{'author': 'Python Bonkers', 'title': 'A Million Little Pieces of Feces'}
+	{'author': 'Donald T. Phillips', 'title': 'Lincoln on Leadership: Executive Strategies for Tough Times'}
+	{'author': 'Gary Yukl', 'title': 'Leadership in Organizations'}
+	{'author': 'Rudolph W. Giuliani', 'title': 'Leadership'}
+	{'author': 'John Gray', 'title': 'Mars and Venus Book of Days: 365 Inspriations to Enrich Your Relationships'}
+	{'author': 'John Gray', 'title': 'Men Are from Mars  Women Are from Venus'}
+	{'author': 'John Gray', 'title': 'Men Are from Mars  Women Are from Venus'}
+	{'author': 'Jean M. Auel', 'title': "The Clan of the Cave Bear (Earth's Children  #1)"}
+	{'author': 'Jean M. Auel', 'title': "The Clan of the Cave Bear (Earth's Children  #1)"}
+	{'author': 'Doug Walsh', 'title': 'Juiced Official Strategy Guide'}
+	{'author': 'Steven Pressfield', 'title': 'Tides of War'}
+	{'author': 'Steven Pressfield', 'title': 'Last of the Amazons'}
+	{'author': 'Steven Pressfield', 'title': 'Gates of Fire'}
+	{'author': 'Steven Pressfield', 'title': 'The Afghan Campaign'}
+	{'author': 'Thomas Harlan', 'title': 'The Gate of Fire (Oath Of Empire Book Two)'}
+	{'author': 'Ed Roberson', 'title': 'City Eclogue'}
+	{'author': 'Paul  Kirk', 'title': "Paul Kirk's Championship Barbecue Sauces: 175 Make-Your-Own Sauces  Marinades  Dry Rubs  Wet Rubs  Mops and Salsas"}
+	{'author': 'William Shakespeare', 'title': 'Twelfth Night'}
+	{'author': 'William Shakespeare', 'title': 'The Complete Works'}
+	{'author': 'Paulo Coelho', 'title': 'Warrior of the Light'}
+	{'author': 'Carla Lynn Stockton', 'title': "Cliffs Notes on Shakespeare's Hamlet"}
+	{'author': 'Cynthia W. Shelmerdine', 'title': 'Thucydides  Book 6 Commentary'}
+	{'author': 'Euripides', 'title': 'The Trojan Women and Hippolytus'}
+	{'author': 'Wole Soyinka', 'title': 'The Bacchae of Euripides: A Communion Rite'}
+	{'author': 'William Allan', 'title': 'Euripides: Medea'}
+	{'author': 'Robert J. Milch', 'title': "CliffsNotes on Euripides' Medea and Electra"}
+	{'author': 'Simon Goldhill', 'title': 'Love  Sex & Tragedy: How the Ancient World Shapes Our Lives'}
+	{'author': 'Simon Goldhill', 'title': 'Aeschylus: The Oresteia (A Student Guide: Landmarks of World Literature)'}
+	{'author': 'Simon Goldhill', 'title': 'Who Needs Greek? Contests in the Cultural History of Hellenism'}
+	{'author': 'Simon Goldhill', 'title': "Foucault's Virginity: Ancient Erotic Fiction & the History of Sexuality (Stanford Memorial Lecture)"}
+	{'author': 'Simon Goldhill', 'title': 'Reading Greek Tragedy'}
+	{'author': 'W. John Campbell', 'title': "Cliffs Notes on Aristophanes' Lysistrata  The Birds  The Clouds  The Frogs"}
+	{'author': 'Douglas M. MacDowell', 'title': 'Aristophanes and Athens: An Introduction to the Plays'}
+	{'author': 'Andrea Wilson Nightingale', 'title': 'Genres in Dialogue: Plato and the Construct of Philosophy'}
+	{'author': 'Mark Haddon', 'title': 'The Curious Incident of the Dog in the Night-Time'}
+	{'author': 'George Pelecanos', 'title': 'The Night Gardener'}
+	{'author': 'Annie Proulx', 'title': 'Brokeback Mountain'}
+	{'author': 'David    Allen', 'title': 'Getting Things Done: The Art of Stress-Free Productivity'}
+	{'author': 'Geoffrey M. Bellman', 'title': 'Getting Things Done When You Are Not in Charge'}
+	{'author': 'Ricardo Piglia', 'title': 'Plata quemada'}
+	{'author': 'Ricardo Piglia', 'title': 'El último lector'}
+	{'author': 'Ricardo Piglia', 'title': 'Formas breves'}
+	{'author': 'Ricardo Piglia', 'title': 'Respiración artificial'}
+	{'author': 'Ernesto Sabato', 'title': 'El túnel'}
+	{'author': 'Peter R.L. Brown', 'title': 'Augustine of Hippo: A Biography'}
+	{'author': 'Henry Chadwick', 'title': 'Augustine: A Very Short Introduction'}
+	{'author': 'Anthony Bourdain', 'title': 'Confesiones de un chef'}
+	{'author': 'Anthony Bourdain', 'title': 'Kitchen Confidential: Adventures in the Culinary Underbelly'}
+	{'author': 'Michael C.J. Putnam', 'title': 'Tibullus: A Commentary'}
+	{'author': 'Charles Segal', 'title': "Dionysiac Poetics and Euripides' Bacchae"}
+	{'author': 'Daniel Pinchbeck', 'title': '2012: The Return of Quetzalcoatl'}
+	{'author': 'Jon Ronson', 'title': 'Them: Adventures with Extremists'}
+	{'author': 'Jon Ronson', 'title': 'The Men Who Stare at Goats'}
+	{'author': 'Daniel Duane', 'title': "Caught Inside: A Surfer's Year on the California Coast"}
+	{'author': 'Jon Krakauer', 'title': 'Into Thin Air: A Personal Account of the Mount Everest Disaster'}
+	{'author': 'Jon Krakauer', 'title': 'Into the Wild'}
+	{'author': 'Jon Krakauer', 'title': 'Under the Banner of Heaven: A Story of Violent Faith'}
+	{'author': 'John Eldredge', 'title': "Wild at Heart: Discovering the Secret of a Man's Soul"}
+	{'author': 'Jung Chang', 'title': 'Wild Swans: Three Daughters of China'}
+	{'author': 'Nelson DeMille', 'title': 'Wild Fire (John Corey  #4)'}
+	{'author': 'Catherine Coulter', 'title': 'Born to Be Wild'}
+	{'author': 'Charles P. Rubenstein', 'title': 'In Web Design for Libraries'}
+	{'author': 'Barbara Ehrenreich', 'title': 'Nickel and Dimed: On (Not) Getting by in America'}
+	{'author': 'Jane Austen', 'title': 'Pride and Prejudice'}
+	{'author': 'Thomas L. Friedman', 'title': 'La Tierra es plana: Breve historia del mundo globalizado del siglo XXI'}
+	{'author': 'Thomas L. Friedman', 'title': 'The World Is Flat: A Brief History of the Twenty-first Century'}
+	{'author': 'Arthur J. Roth', 'title': 'Avalanche'}

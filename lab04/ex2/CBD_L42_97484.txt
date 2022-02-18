@@ -1,0 +1,614 @@
+// NMEC: 97484
+
+#1
+match (a:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(a:Person) 
+return distinct a.name as actor, m.title as movie_title
+╒════════════════╤═══════════════════╕
+│"actor"         │"movie_title"      │
+╞════════════════╪═══════════════════╡
+│"Tom Hanks"     │"That Thing You Do"│
+├────────────────┼───────────────────┤
+│"Clint Eastwood"│"Unforgiven"       │
+├────────────────┼───────────────────┤
+│"Danny DeVito"  │"Hoffa"            │
+└────────────────┴───────────────────┘
+
+#2
+// filmes depois de 2005:
+// match (m:Movie) where m.released > 2005 return  m.title as filme;
+// atores que actuaram num filme realizado depois de 2005
+// match (a:Person)-[:ACTED_IN]->(m:Movie) where m.released > 2005 return a.name;
+query:
+match (a:Person)-[:ACTED_IN]->(m:Movie) where m.released > 2005 return a.name as name, m.title as movie;
+╒════════════════════════╤══════════════════════╕
+│"name"                  │"movie"               │
+╞════════════════════════╪══════════════════════╡
+│"Zach Grenier"          │"RescueDawn"          │
+├────────────────────────┼──────────────────────┤
+│"Steve Zahn"            │"RescueDawn"          │
+├────────────────────────┼──────────────────────┤
+│"Christian Bale"        │"RescueDawn"          │
+├────────────────────────┼──────────────────────┤
+│"Marshall Bell"         │"RescueDawn"          │
+├────────────────────────┼──────────────────────┤
+│"Tom Hanks"             │"The Da Vinci Code"   │
+├────────────────────────┼──────────────────────┤
+│"Ian McKellen"          │"The Da Vinci Code"   │
+├────────────────────────┼──────────────────────┤
+│"Audrey Tautou"         │"The Da Vinci Code"   │
+├────────────────────────┼──────────────────────┤
+│"Paul Bettany"          │"The Da Vinci Code"   │
+├────────────────────────┼──────────────────────┤
+│"John Hurt"             │"V for Vendetta"      │
+├────────────────────────┼──────────────────────┤
+│"Stephen Rea"           │"V for Vendetta"      │
+├────────────────────────┼──────────────────────┤
+│"Natalie Portman"       │"V for Vendetta"      │
+├────────────────────────┼──────────────────────┤
+│"Hugo Weaving"          │"V for Vendetta"      │
+├────────────────────────┼──────────────────────┤
+│"Ben Miles"             │"V for Vendetta"      │
+├────────────────────────┼──────────────────────┤
+│"Julia Roberts"         │"Charlie Wilson's War"│
+├────────────────────────┼──────────────────────┤
+│"Tom Hanks"             │"Charlie Wilson's War"│
+├────────────────────────┼──────────────────────┤
+│"Philip Seymour Hoffman"│"Charlie Wilson's War"│
+├────────────────────────┼──────────────────────┤
+│"Emile Hirsch"          │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Rain"                  │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Christina Ricci"       │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Ben Miles"             │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Susan Sarandon"        │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"John Goodman"          │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Matthew Fox"           │"Speed Racer"         │
+├────────────────────────┼──────────────────────┤
+│"Sam Rockwell"          │"Frost/Nixon"         │
+├────────────────────────┼──────────────────────┤
+│"Michael Sheen"         │"Frost/Nixon"         │
+├────────────────────────┼──────────────────────┤
+│"Frank Langella"        │"Frost/Nixon"         │
+├────────────────────────┼──────────────────────┤
+│"Oliver Platt"          │"Frost/Nixon"         │
+├────────────────────────┼──────────────────────┤
+│"Kevin Bacon"           │"Frost/Nixon"         │
+├────────────────────────┼──────────────────────┤
+│"Rain"                  │"Ninja Assassin"      │
+├────────────────────────┼──────────────────────┤
+│"Ben Miles"             │"Ninja Assassin"      │
+├────────────────────────┼──────────────────────┤
+│"Rick Yune"             │"Ninja Assassin"      │
+├────────────────────────┼──────────────────────┤
+│"Naomie Harris"         │"Ninja Assassin"      │
+├────────────────────────┼──────────────────────┤
+│"Tom Hanks"             │"Cloud Atlas"         │
+├────────────────────────┼──────────────────────┤
+│"Jim Broadbent"         │"Cloud Atlas"         │
+├────────────────────────┼──────────────────────┤
+│"Halle Berry"           │"Cloud Atlas"         │
+├────────────────────────┼──────────────────────┤
+│"Hugo Weaving"          │"Cloud Atlas"         │
+└────────────────────────┴──────────────────────┘
+
+#3
+// https://stackoverflow.com/questions/22346526/how-to-count-the-number-of-relationships-in-neo4j
+match (n1)-[rel]-(n2) with n1,count(rel) as rels,n2 where rels > 1 return n1, rels, n2;
+╒══════════════════════════════════════════════════════════════════════╤══════╤══════════════════════════════════════════════════════════════════════╕
+│"n1"                                                                  │"rels"│"n2"                                                                  │
+╞══════════════════════════════════════════════════════════════════════╪══════╪══════════════════════════════════════════════════════════════════════╡
+│{"born":1967,"name":"Lilly Wachowski"}                                │2     │{"tagline":"Speed has no limits","title":"Speed Racer","released":2008│
+│                                                                      │      │}                                                                     │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1967,"name":"Lilly Wachowski"}                                │2     │{"tagline":"Freedom! Forever!","title":"V for Vendetta","released":200│
+│                                                                      │      │6}                                                                    │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1965,"name":"Lana Wachowski"}                                 │2     │{"tagline":"Speed has no limits","title":"Speed Racer","released":2008│
+│                                                                      │      │}                                                                     │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1965,"name":"Lana Wachowski"}                                 │2     │{"tagline":"Freedom! Forever!","title":"V for Vendetta","released":200│
+│                                                                      │      │6}                                                                    │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"In the heart of the nation's capital, in a courthouse of t│2     │{"born":1961,"name":"Aaron Sorkin"}                                   │
+│he U.S. government, one man will stop at nothing to keep his honor, an│      │                                                                      │
+│d one will stop at nothing to find the truth.","title":"A Few Good Men│      │                                                                      │
+│","released":1992}                                                    │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1947,"name":"Rob Reiner"}                                     │2     │{"tagline":"Can two friends sleep together and still love each other i│
+│                                                                      │      │n the morning?","title":"When Harry Met Sally","released":1998}       │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1961,"name":"Aaron Sorkin"}                                   │2     │{"tagline":"In the heart of the nation's capital, in a courthouse of t│
+│                                                                      │      │he U.S. government, one man will stop at nothing to keep his honor, an│
+│                                                                      │      │d one will stop at nothing to find the truth.","title":"A Few Good Men│
+│                                                                      │      │","released":1992}                                                    │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"The rest of his life begins now.","title":"Jerry Maguire",│3     │{"born":1957,"name":"Cameron Crowe"}                                  │
+│"released":2000}                                                      │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1957,"name":"Cameron Crowe"}                                  │3     │{"tagline":"The rest of his life begins now.","title":"Jerry Maguire",│
+│                                                                      │      │"released":2000}                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1956,"name":"Tom Hanks"}                                      │2     │{"tagline":"In every life there comes a time when that thing you dream│
+│                                                                      │      │ becomes that thing you do","title":"That Thing You Do","released":199│
+│                                                                      │      │6}                                                                    │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1941,"name":"Nora Ephron"}                                    │2     │{"tagline":"Can two friends sleep together and still love each other i│
+│                                                                      │      │n the morning?","title":"When Harry Met Sally","released":1998}       │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Can two friends sleep together and still love each other i│2     │{"born":1941,"name":"Nora Ephron"}                                    │
+│n the morning?","title":"When Harry Met Sally","released":1998}       │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Can two friends sleep together and still love each other i│2     │{"born":1947,"name":"Rob Reiner"}                                     │
+│n the morning?","title":"When Harry Met Sally","released":1998}       │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"In every life there comes a time when that thing you dream│2     │{"born":1956,"name":"Tom Hanks"}                                      │
+│ becomes that thing you do","title":"That Thing You Do","released":199│      │                                                                      │
+│6}                                                                    │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"It's a hell of a thing, killing a man","title":"Unforgiven│2     │{"born":1930,"name":"Clint Eastwood"}                                 │
+│","released":1992}                                                    │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1930,"name":"Clint Eastwood"}                                 │2     │{"tagline":"It's a hell of a thing, killing a man","title":"Unforgiven│
+│                                                                      │      │","released":1992}                                                    │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Freedom! Forever!","title":"V for Vendetta","released":200│2     │{"born":1965,"name":"Lana Wachowski"}                                 │
+│6}                                                                    │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Freedom! Forever!","title":"V for Vendetta","released":200│2     │{"born":1967,"name":"Lilly Wachowski"}                                │
+│6}                                                                    │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Speed has no limits","title":"Speed Racer","released":2008│2     │{"born":1965,"name":"Lana Wachowski"}                                 │
+│}                                                                     │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"Speed has no limits","title":"Speed Racer","released":2008│2     │{"born":1967,"name":"Lilly Wachowski"}                                │
+│}                                                                     │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"tagline":"He didn't want law. He wanted justice.","title":"Hoffa","r│2     │{"born":1944,"name":"Danny DeVito"}                                   │
+│eleased":1992}                                                        │      │                                                                      │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1944,"name":"Danny DeVito"}                                   │2     │{"tagline":"He didn't want law. He wanted justice.","title":"Hoffa","r│
+│                                                                      │      │eleased":1992}                                                        │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"title":"Something's Gotta Give","released":2003}                    │3     │{"born":1949,"name":"Nancy Meyers"}                                   │
+├──────────────────────────────────────────────────────────────────────┼──────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1949,"name":"Nancy Meyers"}                                   │3     │{"title":"Something's Gotta Give","released":2003}                    │
+└──────────────────────────────────────────────────────────────────────┴──────┴──────────────────────────────────────────────────────────────────────┘
+
+#4
+// match (p:Person)-[:REVIEWED]->(m:Movie) return p,m;
+match (p1:Person)-[:REVIEWED]->(m:Movie)<-[:REVIEWED]-(p2:Person) return p1,m,p2;
+╒═══════════════════════════╤══════════════════════════════════════════════════════════════════════╤═══════════════════════════╕
+│"p1"                       │"m"                                                                   │"p2"                       │
+╞═══════════════════════════╪══════════════════════════════════════════════════════════════════════╪═══════════════════════════╡
+│{"name":"James Thompson"}  │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"Jessica Thompson"}│
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"Angela Scope"}    │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"Jessica Thompson"}│
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"Angela Scope"}    │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"James Thompson"}  │
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"Jessica Thompson"}│{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"James Thompson"}  │
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"James Thompson"}  │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"Angela Scope"}    │
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"Jessica Thompson"}│{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"name":"Angela Scope"}    │
+│                           │e":"The Replacements","released":2000}                                │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"James Thompson"}  │{"tagline":"Break The Codes","title":"The Da Vinci Code","released":20│{"name":"Jessica Thompson"}│
+│                           │06}                                                                   │                           │
+├───────────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────┤
+│{"name":"Jessica Thompson"}│{"tagline":"Break The Codes","title":"The Da Vinci Code","released":20│{"name":"James Thompson"}  │
+│                           │06}                                                                   │                           │
+└───────────────────────────┴──────────────────────────────────────────────────────────────────────┴───────────────────────────┘
+
+#5
+match (a1:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(a2:Person) return a1,m,a2;
+╒═════════════════════════════════════════════╤══════════════════════════════════════════════════════════════════════╤═════════════════════════════════════════════╕
+│"a1"                                         │"m"                                                                   │"a2"                                         │
+╞═════════════════════════════════════════════╪══════════════════════════════════════════════════════════════════════╪═════════════════════════════════════════════╡
+│{"born":1946,"name":"Diane Keaton"}          │{"title":"Something's Gotta Give","released":2003}                    │{"born":1964,"name":"Keanu Reeves"}          │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1937,"name":"Jack Nicholson"}        │{"title":"Something's Gotta Give","released":2003}                    │{"born":1964,"name":"Keanu Reeves"}          │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1970,"name":"Brooke Langton"}        │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │e":"The Replacements","released":2000}                                │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1968,"name":"Orlando Jones"}         │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │e":"The Replacements","released":2000}                                │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1930,"name":"Gene Hackman"}          │{"tagline":"Pain heals, Chicks dig scars... Glory lasts forever","titl│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │e":"The Replacements","released":2000}                                │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1958,"name":"Ice-T"}                 │{"tagline":"The hottest data on earth. In the coolest head in town","t│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │itle":"Johnny Mnemonic","released":1995}                              │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1968,"name":"Dina Meyer"}            │{"tagline":"The hottest data on earth. In the coolest head in town","t│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │itle":"Johnny Mnemonic","released":1995}                              │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1947,"name":"Takeshi Kitano"}        │{"tagline":"The hottest data on earth. In the coolest head in town","t│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │itle":"Johnny Mnemonic","released":1995}                              │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1940,"name":"Al Pacino"}             │{"tagline":"Evil has its winning ways","title":"The Devil's Advocate",│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │"released":1997}                                                      │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1975,"name":"Charlize Theron"}       │{"tagline":"Evil has its winning ways","title":"The Devil's Advocate",│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │"released":1997}                                                      │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1960,"name":"Hugo Weaving"}          │{"tagline":"Everything that has a beginning has an end","title":"The M│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │atrix Revolutions","released":2003}                                   │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1961,"name":"Laurence Fishburne"}    │{"tagline":"Everything that has a beginning has an end","title":"The M│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │atrix Revolutions","released":2003}                                   │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1967,"name":"Carrie-Anne Moss"}      │{"tagline":"Everything that has a beginning has an end","title":"The M│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │atrix Revolutions","released":2003}                                   │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1960,"name":"Hugo Weaving"}          │{"tagline":"Free your mind","title":"The Matrix Reloaded","released":2│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │003}                                                                  │                                             │
+├─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│{"born":1961,"name":"Laurence Fishburne"}    │{"tagline":"Free your mind","title":"The Matrix Reloaded","released":2│{"born":1964,"name":"Keanu Reeves"}          │
+│                                             │003}                                                                  │                                             │
+(...)
+
+#6
+// https://neo4j.com/docs/cypher-manual/current/functions/aggregating/
+// match (a:Person)-[:ACTED_IN]->(m:Movie) 
+// where m.title="Apollo 13" 
+// return a.name as name, m.released - a.born as age;
+╒═════════════╤═════╕
+│"name"       │"age"│
+╞═════════════╪═════╡
+│"Tom Hanks"  │39   │
+├─────────────┼─────┤
+│"Ed Harris"  │45   │
+├─────────────┼─────┤
+│"Gary Sinise"│40   │
+├─────────────┼─────┤
+│"Kevin Bacon"│37   │
+├─────────────┼─────┤
+│"Bill Paxton"│40   │
+└─────────────┴─────┘
+// (39+45+40+37+40)/5 = 40.2
+match (a:Person)-[:ACTED_IN]->(m:Movie) 
+where m.title="Apollo 13" 
+return avg(m.released - a.born) as avg_age;
+╒═════════╕
+│"avg_age"│
+╞═════════╡
+│40.2     │
+└─────────┘
+
+#7
+// https://neo4j.com/docs/cypher-manual/current/functions/mathematical-numeric/#functions-round2
+match (a:Person)-[:ACTED_IN]->(m:Movie) 
+return m as movie, round(avg(m.released - a.born),2) as avg_age 
+order by avg_age desc 
+limit 10;
+╒══════════════════════════════════════════════════════════════════════╤═════════╕
+│"movie"                                                               │"avg_age"│
+╞══════════════════════════════════════════════════════════════════════╪═════════╡
+│{"tagline":"It's a hell of a thing, killing a man","title":"Unforgiven│62.0     │
+│","released":1992}                                                    │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"Everything is connected","title":"Cloud Atlas","released":│54.25    │
+│2012}                                                                 │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"title":"Something's Gotta Give","released":2003}                    │54.0     │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"Come as you are","title":"The Birdcage","released":1996}  │50.33    │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"400 million people were waiting for the truth.","title":"F│49.4     │
+│rost/Nixon","released":2008}                                          │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"This Holiday Season... Believe","title":"The Polar Express│48.0     │
+│","released":2004}                                                    │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"After life there is more. The end is just the beginning.",│48.0     │
+│"title":"What Dreams May Come","released":1998}                       │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"Freedom! Forever!","title":"V for Vendetta","released":200│47.2     │
+│6}                                                                    │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"Based on the extraordinary true story of one man's fight f│46.75    │
+│or freedom","title":"RescueDawn","released":2006}                     │         │
+├──────────────────────────────────────────────────────────────────────┼─────────┤
+│{"tagline":"First loves last. Forever.","title":"Snow Falling on Cedar│46.5     │
+│s","released":1999}                                                   │         │
+└──────────────────────────────────────────────────────────────────────┴─────────┘
+
+#8
+match (a:Person)-[:ACTED_IN]->(m:Movie)
+with m as movie, avg(m.released - a.born) as avg_age 
+order by avg_age ASC
+limit 1
+match (a:Person)-[:ACTED_IN]->(movie:Movie)
+return a as actors, movie
+╒════════════════════════════════════════╤══════════════════════════════════════════════════════════════════════╕
+│"actors"                                │"movie"                                                               │
+╞════════════════════════════════════════╪══════════════════════════════════════════════════════════════════════╡
+│{"born":1974,"name":"Jerry O'Connell"}  │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1970,"name":"River Phoenix"}    │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1942,"name":"Marshall Bell"}    │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1972,"name":"Wil Wheaton"}      │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1966,"name":"Kiefer Sutherland"}│{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1966,"name":"John Cusack"}      │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────┤
+│{"born":1971,"name":"Corey Feldman"}    │{"tagline":"For some, it's the last real taste of innocence, and the f│
+│                                        │irst real taste of life. But for everyone, it's the time that memories│
+│                                        │ are made of.","title":"Stand By Me","released":1986}                 │
+└────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────┘
+
+#9
+https://neo4j.com/docs/cypher-manual/current/execution-plans/shortestpath-planning/
+match (p1:Person {name: 'John Cusack'}),
+      (p2:Person {name: 'Demi Moore'}),
+      p = shortestPath((p1)-[*]-(p2))
+where length(p) > 1
+return p1,p,p2
+╒══════════════════════════════════╤══════════════════════════════════════════════════════════════════════╤═════════════════════════════════╕
+│"p1"                              │"p"                                                                   │"p2"                             │
+╞══════════════════════════════════╪══════════════════════════════════════════════════════════════════════╪═════════════════════════════════╡
+│{"born":1966,"name":"John Cusack"}│[{"born":1966,"name":"John Cusack"},{"roles":["Denny Lachance"]},{"tag│{"born":1962,"name":"Demi Moore"}│
+│                                  │line":"For some, it's the last real taste of innocence, and the first │                                 │
+│                                  │real taste of life. But for everyone, it's the time that memories are │                                 │
+│                                  │made of.","title":"Stand By Me","released":1986},{"tagline":"For some,│                                 │
+│                                  │ it's the last real taste of innocence, and the first real taste of li│                                 │
+│                                  │fe. But for everyone, it's the time that memories are made of.","title│                                 │
+│                                  │":"Stand By Me","released":1986},{},{"born":1947,"name":"Rob Reiner"},│                                 │
+│                                  │{"born":1947,"name":"Rob Reiner"},{},{"tagline":"In the heart of the n│                                 │
+│                                  │ation's capital, in a courthouse of the U.S. government, one man will │                                 │
+│                                  │stop at nothing to keep his honor, and one will stop at nothing to fin│                                 │
+│                                  │d the truth.","title":"A Few Good Men","released":1992},{"tagline":"In│                                 │
+│                                  │ the heart of the nation's capital, in a courthouse of the U.S. govern│                                 │
+│                                  │ment, one man will stop at nothing to keep his honor, and one will sto│                                 │
+│                                  │p at nothing to find the truth.","title":"A Few Good Men","released":1│                                 │
+│                                  │992},{"roles":["Lt. Cdr. JoAnne Galloway"]},{"born":1962,"name":"Demi │                                 │
+│                                  │Moore"}]                                                              │                                 │
+└──────────────────────────────────┴──────────────────────────────────────────────────────────────────────┴─────────────────────────────────┘
+
+#10
+match (p1:Person {name: 'Keanu Reeves'}),
+      (p2:Person {name: 'Tom Cruise'}),
+      p = shortestPath((p1)-[*]-(p2))
+where length(p) > 1
+return p1,p,p2, length(p) as dimension
+╒═══════════════════════════════════╤══════════════════════════════════════════════════════════════════════╤═════════════════════════════════╤═══════════╕
+│"p1"                               │"p"                                                                   │"p2"                             │"dimension"│
+╞═══════════════════════════════════╪══════════════════════════════════════════════════════════════════════╪═════════════════════════════════╪═══════════╡
+│{"born":1964,"name":"Keanu Reeves"}│[{"born":1964,"name":"Keanu Reeves"},{"roles":["Shane Falco"]},{"tagli│{"born":1962,"name":"Tom Cruise"}│4          │
+│                                   │ne":"Pain heals, Chicks dig scars... Glory lasts forever","title":"The│                                 │           │
+│                                   │ Replacements","released":2000},{"tagline":"Pain heals, Chicks dig sca│                                 │           │
+│                                   │rs... Glory lasts forever","title":"The Replacements","released":2000}│                                 │           │
+│                                   │,{"summary":"Silly, but fun","rating":65},{"name":"Jessica Thompson"},│                                 │           │
+│                                   │{"name":"Jessica Thompson"},{"summary":"You had me at Jerry","rating":│                                 │           │
+│                                   │92},{"tagline":"The rest of his life begins now.","title":"Jerry Magui│                                 │           │
+│                                   │re","released":2000},{"tagline":"The rest of his life begins now.","ti│                                 │           │
+│                                   │tle":"Jerry Maguire","released":2000},{"roles":["Jerry Maguire"]},{"bo│                                 │           │
+│                                   │rn":1962,"name":"Tom Cruise"}]                                        │                                 │           │
+└───────────────────────────────────┴──────────────────────────────────────────────────────────────────────┴─────────────────────────────────┴───────────┘
+
+#11
+match (p1:Person),
+      (p2:Person),
+      p = shortestPath((p1)-[*]-(p2))
+where p1.name contains 'Jim' and p2.name contains 'Kevin'
+return p1,length(p) as dimension,p2
+order by dimension asc
+limit 1
+╒════════════════════════════════════╤═══════════╤══════════════════════════════════╕
+│"p1"                                │"dimension"│"p2"                              │
+╞════════════════════════════════════╪═══════════╪══════════════════════════════════╡
+│{"born":1949,"name":"Jim Broadbent"}│4          │{"born":1958,"name":"Kevin Bacon"}│
+└────────────────────────────────────┴───────────┴──────────────────────────────────┘
+
+#12
+--p1<>p2 significa que o nó de inicio e o nó de fim nao sao os mesmos
+-- 0..2 para limitar as distancias, apenas distancias entre {0,1,2}
+match (p1:Person),
+      (p2:Person {name: 'Jim Cash'}),
+      p = shortestPath((p1)-[*0..2]-(p2))
+where length(p) = 2 and p1.name <> p2.name
+return p1,length(p) as dimension,p2
+╒══════════════════════════════════════╤═══════════╤═══════════════════════════════╕
+│"p1"                                  │"dimension"│"p2"                           │
+╞══════════════════════════════════════╪═══════════╪═══════════════════════════════╡
+│{"born":1962,"name":"Tom Cruise"}     │2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1957,"name":"Kelly McGillis"} │2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1959,"name":"Val Kilmer"}     │2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1962,"name":"Anthony Edwards"}│2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1933,"name":"Tom Skerritt"}   │2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1961,"name":"Meg Ryan"}       │2          │{"born":1941,"name":"Jim Cash"}│
+├──────────────────────────────────────┼───────────┼───────────────────────────────┤
+│{"born":1944,"name":"Tony Scott"}     │2          │{"born":1941,"name":"Jim Cash"}│
+└──────────────────────────────────────┴───────────┴───────────────────────────────┘
+
+#13
+match (p1:Person),
+      (p2:Person {name: 'Kevin Bacon'}),
+      p = shortestPath((p1)-[*]-(p2))
+where p1 <> p2
+return p1,length(p) as dimension,p2
+order by dimension desc
+limit 1
+╒═══════════════════════════════════════╤═══════════╤══════════════════════════════════╕
+│"p1"                                   │"dimension"│"p2"                              │
+╞═══════════════════════════════════════╪═══════════╪══════════════════════════════════╡
+│{"born":1967,"name":"Carrie-Anne Moss"}│6          │{"born":1958,"name":"Kevin Bacon"}│
+└───────────────────────────────────────┴───────────┴──────────────────────────────────┘
+
+#14
+match (p1:Person),
+      (p2:Person),
+      p = shortestPath((p1)-[*]-(p2))
+where p1 <> p2
+return p1,length(p) as dimension,p2
+order by dimension desc
+limit 1
+╒═════════════════════════════════════╤═══════════╤═════════════════════════════════════╕
+│"p1"                                 │"dimension"│"p2"                                 │
+╞═════════════════════════════════════╪═══════════╪═════════════════════════════════════╡
+│{"born":1974,"name":"Christian Bale"}│10         │{"born":1947,"name":"Takeshi Kitano"}│
+└─────────────────────────────────────┴───────────┴─────────────────────────────────────┘
+
+#15
+match (p1:Person),
+      (p2:Person),
+      p = shortestPath((p1)-[*]-(p2))
+where p1 <> p2
+return length(p), count(length(p))
+╒═══════════╤══════════════════╕
+│"length(p)"│"count(length(p))"│
+╞═══════════╪══════════════════╡
+│2          │1276              │
+├───────────┼──────────────────┤
+│4          │6248              │
+├───────────┼──────────────────┤
+│6          │8026              │
+├───────────┼──────────────────┤
+│8          │1610              │
+├───────────┼──────────────────┤
+│3          │114               │
+├───────────┼──────────────────┤
+│5          │246               │
+├───────────┼──────────────────┤
+│7          │22                │
+├───────────┼──────────────────┤
+│10         │8                 │
+├───────────┼──────────────────┤
+│1          │6                 │
+└───────────┴──────────────────┘
+
+#16
+match (p1:Person),
+      (p2:Person),
+      p = shortestPath((p1)-[ACTED_IN*]-(p2))
+where p1 <> p2
+return p1,round(avg(length(p)), 4) as avg_dimension
+order by avg_dimension asc
+limit 10
+╒═══════════════════════════════════════╤═══════════════╕
+│"p1"                                   │"avg_dimension"│
+╞═══════════════════════════════════════╪═══════════════╡
+│{"born":1956,"name":"Tom Hanks"}       │3.5076         │
+├───────────────────────────────────────┼───────────────┤
+│{"name":"Jessica Thompson"}            │3.6061         │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1968,"name":"Cuba Gooding Jr."}│3.9394         │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1965,"name":"Lana Wachowski"}  │4.0            │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1962,"name":"Tom Cruise"}      │4.0            │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1967,"name":"Lilly Wachowski"} │4.0            │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1958,"name":"Kevin Bacon"}     │4.053          │
+├───────────────────────────────────────┼───────────────┤
+│{"name":"James Thompson"}              │4.0833         │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1960,"name":"Hugo Weaving"}    │4.1667         │
+├───────────────────────────────────────┼───────────────┤
+│{"born":1961,"name":"Bonnie Hunt"}     │4.2121         │
+└───────────────────────────────────────┴───────────────┘
+
+#17 
+Liste o titulo do filme em que participaram mais atores no ano de 1999
+match (a:Person)-[:ACTED_IN]->(m:Movie)
+where m.released = 1999
+return m.title as movie_title, count(a) as num_actors
+order by num_actors desc
+limit 1
+╒════════════════╤════════════╕
+│"movie_title"   │"num_actors"│
+╞════════════════╪════════════╡
+│"The Green Mile"│8           │
+└────────────────┴────────────┘
+
+#18
+Qual o nome dos 3 atores que participaram em mais filmes?
+match (a:Person)-[:ACTED_IN]->(m:Movie)
+with a as actor, count(m) as num_movies
+return actor.name, num_movies
+order by num_movies desc
+limit 3
+╒══════════════╤════════════╕
+│"actor.name"  │"num_movies"│
+╞══════════════╪════════════╡
+│"Tom Hanks"   │12          │
+├──────────────┼────────────┤
+│"Keanu Reeves"│7           │
+├──────────────┼────────────┤
+│"Hugo Weaving"│5           │
+└──────────────┴────────────┘
+
+#19
+Indique todos os filmes em que o titulo começa por 'The' e um dos atores é 'Keanu Reeves'
+match (a:Person)-[:ACTED_IN]->(m:Movie)
+where m.title starts with 'The' and 'Keanu Reeves' in a.name
+return a.name,m.title
+╒══════════════╤════════════════════════╕
+│"a.name"      │"m.title"               │
+╞══════════════╪════════════════════════╡
+│"Keanu Reeves"│"The Devil's Advocate"  │
+├──────────────┼────────────────────────┤
+│"Keanu Reeves"│"The Matrix"            │
+├──────────────┼────────────────────────┤
+│"Keanu Reeves"│"The Matrix Reloaded"   │
+├──────────────┼────────────────────────┤
+│"Keanu Reeves"│"The Matrix Revolutions"│
+├──────────────┼────────────────────────┤
+│"Keanu Reeves"│"The Replacements"      │
+└──────────────┴────────────────────────┘
+
+#20
+Indique o nome de todos os atores que participam em pelo menos 4 filmes
+match (a:Person)-[:ACTED_IN]->(m:Movie)
+with a.name as actor, count(m) as num_movies
+where num_movies >= 4
+return actor, num_movies
+order by num_movies desc
+╒══════════════════╤════════════╕
+│"actor"           │"num_movies"│
+╞══════════════════╪════════════╡
+│"Tom Hanks"       │12          │
+├──────────────────┼────────────┤
+│"Keanu Reeves"    │7           │
+├──────────────────┼────────────┤
+│"Hugo Weaving"    │5           │
+├──────────────────┼────────────┤
+│"Jack Nicholson"  │5           │
+├──────────────────┼────────────┤
+│"Meg Ryan"        │5           │
+├──────────────────┼────────────┤
+│"Cuba Gooding Jr."│4           │
+└──────────────────┴────────────┘
